@@ -1,0 +1,69 @@
+\input{config/preample.tex}
+
+\begin{document}
+\input{config/frontpage.tex}
+\newpage
+
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont}
+
+\begin{abstract}
+\input{section/resume}	
+\end{abstract}
+
+\thispagestyle{empty}
+
+%---------- Indholdsfortegnelse  ---
+\newpage
+\thispagestyle{empty}
+\null
+\vfill
+\begin{center}
+\emph{Tak til, hvis nogen ...}
+\end{center}
+\newpage
+\thispagestyle{empty}
+\null
+\input{section/underskrift}	
+\newpage
+\thispagestyle{empty}
+\null
+\vfill
+\newpage
+\tableofcontents*												
+\newpage
+
+%---------- Indledning -------------
+\input{section/indledning}							
+
+%\listoftodos
+%\input{config/howto}
+
+%---------- Chapter ----------------
+\input{section/chap}
+
+%---------- Parts ----------------
+\input{section/sect}
+
+%---------- Chapter ----------------
+\input{section/diskussion}							
+
+%---------- Chapter ----------------
+\input{section/konklusion}							
+
+\nocite{*}
+\bibliography{rapport}\label{bilag:litteratur}
+%\listoffigures
+%\listoftables
+
+%--------- Bilag -------------------
+\appendix
+%\input{section/small_model}																
+%\input{section/udstyr}
+%\input{section/ugeplan}
+%\input{section/cd_indhold}
+%\input{section/stykliste}
+%\input{section/diagram}
+
+
+\end{document}

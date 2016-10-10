@@ -1,0 +1,125 @@
+\documentclass[a4paper,11pt]{memoir}                                        
+
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.8in, right=0.8in, top=1.0in, bottom=1.0in]{geometry} 
+\usepackage{amsmath,amssymb}																						
+
+% SIUnitX  http://ctan.org/pkg/siunitx
+\usepackage{siunitx,booktabs}		
+\sisetup{per=slash}																						
+\sisetup{per-mode = reciprocal}
+\sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
+\sisetup{output-decimal-marker = {,} }
+\DeclareSIUnit{\kroner}{kr.}
+
+\usepackage{graphicx}
+\newsubfloat{figure}% Allow subfloats in figure environment
+\usepackage{dcolumn,booktabs}
+\usepackage{url}
+\usepackage{wrapfig}
+
+% Redigere billed-/tabelteksterne.
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{font=small,
+labelfont={it,bf},textfont=sf,
+format=hang}
+
+% Packages for color handling
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\usepackage{threeparttable}
+
+\usepackage[hidelinks]{hyperref}  
+\hypersetup{bookmarks=false}
+\hypersetup{pdftitle={Inverteret Pendul}} 
+\hypersetup{pdfsubject={3. Semester Projekt, E-EEP (Elektromagnetisme, Elektronik og Projekt) og E-RMK (Regulering, Matematik og Kredsløbsteknik) E16, Grp. [4]}}
+\hypersetup{pdfauthor={J\"{o}rn Jacobi, Simon Møller, Søren Frank, Nikolaj Kyed, Kenneth Petersen, Benjamin Lund}}
+
+
+% TODONotes http://ctan.org/pkg/todonotes
+\usepackage{todonotes}
+\usepackage{placeins}
+
+% For includering af .pdf
+\usepackage{pdfpages}
+
+% Bibliografi
+\usepackage{babelbib}
+\bibliographystyle{abbrv}
+
+% Noget forsideopsætning
+\usepackage{soul} % lege lege
+\sodef\an{}{0.2em}{.9em plus.6em}{1em plus.1em minus.1em}
+\newcommand\stext[1]{\an{\scshape#1}}
+
+% New commands 
+\newcommand{\g}{9,82 \si{\meter\per\second\squared}}
+\newcommand{\dcite}[1]{\quotedblbase{#1}\textquotedblright}
+\newcommand{\husk}[2]{\todo[inline,color=green!40]{#1: #2}}
+\DeclareMathOperator{\lapl}{\mathcal{L}}
+% Remove paragraph indentation for document
+\setlength{\parindent}{0pt}
+
+% Listings package
+\usepackage{listings}
+
+
+%Fede overskrifter
+\usepackage{kpfonts}
+\usepackage{calc}
+\setSingleSpace{1.0}
+\SingleSpacing
+\definecolor{chaptercolor}{gray}{0.8}
+% helper macros
+\newcommand\numlifter[1]{\raisebox{-2cm}[0pt][0pt]{\smash{#1}}}
+\newcommand\numindent{\kern37pt}
+\newlength\chaptertitleboxheight
+\makechapterstyle{hansen}{
+  \renewcommand\printchaptername{\raggedleft}
+  \renewcommand\printchapternum{%
+    \begingroup%
+    \leavevmode%
+    \chapnumfont%
+    \strut%
+    \numlifter{\thechapter}%
+    \numindent%
+\endgroup%
+}
+  \renewcommand*{\printchapternonum}{%
+    \vphantom{\begingroup%
+      \leavevmode%
+      \chapnumfont%
+      \numlifter{\vphantom{9}}%
+      \numindent%
+      \endgroup}
+    \afterchapternum}
+  \setlength\midchapskip{0pt}
+  \setlength\beforechapskip{0.5\baselineskip}
+  \setlength{\afterchapskip}{1\baselineskip}
+  \renewcommand\chapnumfont{%
+    \fontsize{3cm}{0cm}%
+    \bfseries%
+    \sffamily%
+    \color{chaptercolor}%
+  }
+  \renewcommand\chaptitlefont{%
+    \normalfont%
+    \huge%
+    \bfseries%
+    \raggedleft%
+  }%
+  \settototalheight\chaptertitleboxheight{%
+    \parbox{\textwidth}{\chaptitlefont \strut bg\\bg\strut}}
+  \renewcommand\printchaptertitle[1]{%
+    \parbox[t][\chaptertitleboxheight][t]{\textwidth}{%
+      %\microtypesetup{protrusion=false}% add this if you use microtype
+      \chaptitlefont\strut ##1\strut}%
+}}
+\chapterstyle{hansen}
+\aliaspagestyle{chapter}{empty} % just to save some space
+
+
+

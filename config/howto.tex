@@ -1,0 +1,65 @@
+\newpage
+\section{How To do stuff in LaTeX}
+
+\subsection*{Figur, enkelt}
+%-----------------------------------------------------------------------------
+\begin{figure}[h!]
+	\centering
+		\includegraphics[width=.5\textwidth]{billeder/sample.png}
+	\caption{Her skrives en god caption til figuren.}
+	\label{fig:sample_fig_ref_her}
+\end{figure}
+\FloatBlock
+%-----------------------------------------------------------------------------
+
+\subsection*{Figur, dobbelt}
+%-----------------------------------------------------------------------------
+\begin{figure}
+	\centering
+	\subbottom[]{%
+  		\includegraphics[width=.39\textwidth]{billeder/sample.png}
+	  	\label{fig:sample_fig_ref_her_a}}
+	\subbottom[]{%
+		\includegraphics[width=.39\textwidth]{billeder/sample.png}
+		\label{fig:sample_fig_ref_her_b}}
+  	\caption{Her skrives en god caption til figuren.}
+	\label{fig:sample_fig_ref_her_samlet}
+\end{figure}
+\FloatBlock
+%-----------------------------------------------------------------------------
+
+\subsection*{Kommentar}
+%-----------------------------------------------------------------------------
+\husk{Initialer}{Kommentaren skrives her}
+%-----------------------------------------------------------------------------
+
+\subsection*{Math Simple}
+%-----------------------------------------------------------------------------
+\begin{align}
+D = \frac{1}{\Delta F}
+\end{align}
+%-----------------------------------------------------------------------------
+
+\subsection*{Math uden nummer og align}
+%-----------------------------------------------------------------------------
+\begin{align}
+D &= \frac{1}{\Delta F} \Rightarrow \nonumber \\
+\Omega &= \mathrm{Noget helt andet}
+\end{align}
+%-----------------------------------------------------------------------------
+\subsection*{Tabeller med caption}
+\begin{table}
+\centering
+    \caption{Konstanter som bruges i overstående formler.}
+\label{tab:konst1}
+    \begin{tabular}{ | l | l |}
+    \hline
+    A & 18 [V] \\ \hline
+    f & 50 [Hz]  \\ \hline
+    T & 20 [s]  \\ \hline
+    $\omega$ & 30 \\ \hline
+    k & 100 \\ \hline
+    \end{tabular}
+    \end{table}
+
+\newpage
