@@ -5,7 +5,7 @@ close all
 % Component values
 r = 0.68
 R = 15
-c = 330E-6
+c = 220E-6
 l = 250E-6
 
 % Data import gain from BODE 100
@@ -35,7 +35,7 @@ H = tf(num,den)
 % Correctet Component values
 r_c = .254
 R_c = 15
-c_c = 330E-6
+c_c = 220E-6
 l_c = 82E-6
 
 % Correctet Transfer fuction

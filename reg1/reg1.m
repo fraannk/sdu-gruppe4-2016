@@ -5,7 +5,7 @@ close all
 % Component values
 r = 0.68
 R = 15
-c = 330E-6
+c = 220E-6
 l = 250E-6
 vin = 25
 d = 0.6
