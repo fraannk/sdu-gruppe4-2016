@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Inverteret pedul" company="Gruppe 4" webLink="http://" view-date="2016-10-31" view-index="0" gantt-divider-location="272" resource-divider-location="300" version="2.8.1" locale="da_DK">
+    <description/>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Navn" width="150" order="0"/>
+        <field id="tpd4" name="Start dato" width="59" order="1"/>
+        <field id="tpd5" name="Slut dato" width="59" order="2"/>
+        <option id="color.recent"><![CDATA[#ff0033]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Navn" width="210" order="0"/>
+        <field id="1" name="Standard rolle" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="41" name="Projekt" meeting="false" start="2016-10-31" duration="35" complete="0" expand="true">
+            <task id="0" name="Fysik" color="#8cb6ce" meeting="false" start="2016-10-31" duration="5" complete="0" expand="true">
+                <depend id="4" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="2" name="Regulering" color="#8cb6ce" meeting="false" start="2016-10-31" duration="5" complete="0" expand="true">
+                <depend id="4" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="4" name="Elektronik i Bil" color="#8cb6ce" meeting="false" start="2016-11-07" duration="10" complete="0" expand="true">
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" name="Realisering af bil" color="#8cb6ce" meeting="false" start="2016-11-21" duration="10" complete="0" expand="true">
+                <depend id="13" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="13" name="Rapport skrivning" color="#8cb6ce" meeting="false" start="2016-12-05" duration="5" complete="0" expand="true">
+                <depend id="22" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="22" name="Rapport rettelse" color="#8cb6ce" meeting="false" start="2016-12-12" duration="5" complete="0" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="16" name="Aflevering" color="#ff0033" meeting="true" start="2016-12-19" duration="0" complete="0" thirdDate="2016-12-19" thirdDate-constraint="1" expand="true"/>
+        </task>
+        <task id="26" name="Undevisning" color="#000000" meeting="false" start="2016-11-02" duration="16" complete="0" expand="true">
+            <task id="29" name="Sidste undervisning" color="#8cb6ce" meeting="true" start="2016-11-24" duration="0" complete="0" expand="true"/>
+            <task id="36" name="Forstærker" color="#8cb6ce" meeting="false" start="2016-11-02" duration="13" complete="0" expand="true"/>
+            <task id="38" name="Regulering" color="#8cb6ce" meeting="false" start="2016-11-02" duration="13" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
