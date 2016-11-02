@@ -62,6 +62,8 @@ format=hang}
 \DeclareMathOperator{\lapl}{\mathcal{L}}
 % Remove paragraph indentation for document
 \setlength{\parindent}{0pt}
+\newcommand\hcancel[2][black]{\setbox0=\hbox{$#2$}%
+	\rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2} 
 
 % Listings package
 \usepackage{listings}
