@@ -1,2 +1,112 @@
 \section{Design af spoler}\label{sec:sec_spole_design}
-Systemet består af i alt 3 spoler, som har hver deres funktion. Spolerne har til formål, at kunne registrere end ændring af bevægelse, vha. et magnetisk felt.
+
+Dimensionering af spoler:
+
+Systemet består af 3 spoler. 1 stor spole til at vidergive et signal, og 2 mindre spoler med samme areal til at opfange et signal. Dimensioneringen afhænger af størrelserne på spolerne. Der er nogle fysiske pladskrav, som begrænser dimensioneringen. Som udgangspunkt, dimensioneres den store spole først, som skal sende et signal videre. (omformuler blot udkast..)
+
+Figur her!!
+
+ \begin{alignat}{3}
+ 	&\vec{r'}=R(cos(\phi)\hat{i}+sin(\phi)\hat{j})
+ \end{alignat}
+
+\begin{alignat}{3}
+	&id\vec{s}=i\frac{d\vec{r'}}{d\phi}=i R d\phi (-sin(\phi)\hat{i}+cos(\phi)\hat{j})
+\end{alignat}
+Stedvektor:
+\begin{alignat}{3}
+	&\vec{r_p}=z\hat{k}
+\end{alignat}
+
+relativ stedvektor
+\begin{alignat}{3}
+	&\vec{r}=\vec{r_p}-\vec{r'}=-R cos(\phi)\hat{i}-sin(\phi)\hat{j}+z\hat{k}
+\end{alignat}
+
+Biot-savarts lov:
+\begin{alignat}{3}
+	&d\vec{B}=\frac{\mu_0  i}{4\pi} \frac{d\vec{s} \times \hat{r}}{r^2}
+\end{alignat}
+
+\begin{alignat}{3}
+	&\hat{r}=\frac{\vec{r}}{r}
+\end{alignat}
+
+\begin{alignat}{3}
+	&r= \mid \vec{r} \mid = \sqrt{R^2+z^2}=\mid \vec{r_p}-\vec{r'} \mid
+\end{alignat}
+
+
+
+ganger igennem med ovenstående. (ligning?)
+
+\begin{alignat}{3}
+	&d\vec{B}=\frac{\mu_0 i}{4\pi} \frac{d\vec{s} \times \vec{r}}{r^3}
+\end{alignat}
+
+	
+\begin{alignat}{3}
+	&d\vec{s}\times(\vec{r_p}-\vec{r'})=R d\phi (-sin(\phi)\hat{i}+cos(\phi)\hat{j})\times (-R cos(\phi)\hat{i}-sin(\phi)\hat{j}+z\hat{k})
+\end{alignat}	
+Som yderligere kan reduceres ned til:
+
+\begin{alignat}{3}
+	R \phi (z cos(\phi)\hat{i}+z sin(\phi)\hat{j}+R\hat{k})
+\end{alignat}
+
+\begin{alignat}{3}
+	&d\vec{B}=\frac{\mu_0 i}{4\pi} \frac{d\vec{s}\times (\vec{r_p}-\vec{r'})}{(\sqrt{R^2+z^2})^2}=\frac{\mu_0 i}{4\pi} \frac{R \phi (z cos(\phi)\hat{i}+z sin(\phi)\hat{j}+R\hat{k})}{(R^2+z^2)^\frac{3}{2}}
+\end{alignat}
+
+
+Ud fra dette, kan x og y komposanterne af B feltet sættes til = 0. Dette bevises ud fra:
+\begin{alignat}{3}
+	&\frac{\mu_0 R z}{4\pi} \int\limits_{0}^{2\pi}cos(\phi)d\phi = 0
+\end{alignat}
+
+
+\begin{alignat}{3}
+	&\frac{\mu_0 R z}{4\pi} \int\limits_{0}^{2\pi}sin(\phi)d\phi = 0
+\end{alignat}
+
+Herefter er der kun z komposanten tilbage:
+\begin{alignat}{3}
+	&B=\frac{\mu_0 R z}{4\pi} \int\limits_{0}^{2\pi}d\phi
+\end{alignat}
+
+Og dermed et udtryk for B i en cirkel.... (ret tekst her samt alle andre steder ved udledning.):
+
+
+\begin{alignat}{3}
+	&B=\frac{\mu_0 iR^2 2\pi}{2(R^2+z^2)^\frac{3}{2}}
+\end{alignat}
+
+
+
+
+Tekst omkring solenoid her samt figur.
+
+
+
+\begin{alignat}{3}
+	&di=inz'
+\end{alignat}
+
+\begin{alignat}{3}
+	&n=\frac{N}{L}
+\end{alignat}
+
+\begin{alignat}{3}
+	&d\vec{B}=\frac{\mu_0 R^2}{2[(z-z')^2+R^2]^\frac{3}{2}}di = \frac{\mu_0 R^2 i n dz'}{2[(z-z')^2+R^2]^\frac{3}{2}}
+\end{alignat}
+
+
+B felt i et givet punkt P centreret ud fra z aksen, med funktion af z er dermed givet ved:
+\begin{alignat}{3}
+	&B(z)=\frac{\mu_0 n R^2 i}{2}\int\limits_{0}^{2\pi}\frac{1}{2[(z-z')^2+R^2]^\frac{3}{2}}dz'
+\end{alignat}
+
+\begin{alignat}{3}
+	&B(z)=\frac{\mu_0 n i}{2}\bigg[\frac{\frac{L}{2}-z}{\sqrt{(\frac{z-L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(\frac{z+L}{2})^2+R^2}}\bigg]
+\end{alignat}
+
