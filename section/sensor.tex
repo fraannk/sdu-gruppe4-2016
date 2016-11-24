@@ -1,14 +1,11 @@
 \chapter{Sensor}\label{kap:chap_sensor}
 
-\section{Kredsløbs design}
-
-\dots
-
+\section{Design af elektriske kredsløb}
 \subsection{Frekvensgenerator}
+...
 
-\dots
-
-\begin{equation}\label{eq:InputsModstand}
+\begin{equation}
+\label{eq:InputsModstand}
 \begin{split}
 D & = 0.51\\
 R_{trigger} & = 10k \Omega \\
@@ -17,18 +14,20 @@ R_{input} & = 392 \Omega
 \end{split}
 \end{equation}
 
-\dots 
+... 
 
-\begin{equation}\label{eq:TriggerKondensator}
+\begin{equation}
+\label{eq:TriggerKondensator}
 \begin{split}
-f & = 50kHz\\
-C_{trigger<0 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_{input} }{36} + \frac{25 \cdot R_{trigger}}{18} \right)\\
+f & = 50kHz \\
+C_{trigger} & = \frac{1}{f \cdot \left( \frac{25 \cdot R_{input} }{36} + \frac{25 \cdot R_{trigger}}{18} \right) }\\
 C_{trigger} & = 1.4nF
 \end{split}
 \end{equation}
 
-\dots
-\begin{equation}\label{eq:TimerTilnærmedeVærdier}
+...
+\begin{equation}
+\label{eq:TimerTilnaermedeVaerdier}
 \begin{split}
 R_{input} & = \frac{1000 \cdot 680}{1000+680} \\
 R_{input} & = 405 \Omega \\
@@ -38,18 +37,20 @@ f & = 47048Hz
 \end{split}
 \end{equation}
 
-\dots
+...
 
 \subsection{Båndpassfilter}
-\dots
+...
 
-\begin{equation}\label{eq:FilterModstande}
+\begin{equation}
+\label{eq:FilterModstande}
+\begin{split}
 C_{filter} & = 390pF\\
 H_o & = 3\\
 Q & = 3\\
 \omega_n & = 2 \cdot \pi \cdot 47048 \\
 R_1 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
-R_2 & = \frac{Q}{ \omega_n \cdot C_{filter} \cdot \left( 2 \cdot Q^2 - H_o \right) \\
+R_2 & = \frac{Q}{ \omega_n \cdot C_{filter} \cdot \left( 2 \cdot Q^2 - H_o \right) } \\
 R_3 & = \frac{2 \cdot Q}{ \omega_n \cdot C} \\
 R_1 & = 8674 \Omega \\
 R_2 & = 1735 \Omega \\
@@ -57,9 +58,10 @@ R_3 & = 5204 \Omega
 \end{split}
 \end{equation}
 
-\dots
+...
 
-\begin{equation}\label{eq:FilterModstandeTilnærmelse}
+\begin{equation}
+\label{eq:FilterModstandeTilnaermelse}
 \begin{split}
 R_1 & = 4700 \Omega + 3300 \Omega + 680 \Omega \\
 R_2 & = 1000 \Omega + 680 \Omega + 100 \Omega \\
@@ -70,36 +72,38 @@ R_3 & = 5170 \Omega
 \end{split}
 \end{equation}
 
-\dots
+...
 
 \subsection{Differens forstærker}
-\dots
+...
 
 Indsæt billede af forstærker tabeller
 
-\dots 
+... 
 
 \subsection{Ensretter}
-\dots
+...
 
-\begin{equation}\label{eq:EnsretterKondensator}
+\begin{equation}
+\label{eq:EnsretterKondensator}
 \begin{split}
 V & = 2V \\
 V_{rip} & = 300mV \\
 R_{load} & = 5k \Omega \\
 t & = 21 \mu S \\
-i & = \frac{V}{R_{load} \\
+i & = \frac{V}{R_{load}} \\
 i & = 400 \mu A \\
-C_{load} & = \frac{i \cdot t}{V_{rip} \\
+C_{load} & = \frac{i \cdot t}{V_{rip} }\\
 C_{load} & = 28nF \\
 \tau & = R_{load} \cdot C_{load} \\
 \tau & = 141 \mu S
 \end{split}
 \end{equation}
 
-\dots
+...
 
-\begin{equation}\label{eq:EnsretterKondensatorTilnærmelse}
+\begin{equation}
+\label{eq:EnsretterKondensatorTilnaermelse}
 \begin{split}
 C_{load} & = 22nF \\
 \tau & = 110 \mu S
