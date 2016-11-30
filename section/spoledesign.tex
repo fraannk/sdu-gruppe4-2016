@@ -147,7 +147,8 @@ Illustration af forklaring her...
 \end {itemize}
 
 \section{Elektriske kredsløb}\label{sec:sec_sparningsreg}
-\subsection{Forsyning og spændingsregulator}
+Der vil i dette afsnit blive gennemgået alle de elektriske kredsløb der er anvendt til projektet. Til hvert kredsløb er der beskrevet problemstilling, hvordan det løses, hvordan beregningerne gennemgås for hvert enkelt komponent, samt hvordan det hele fungerer.
+På pendulet sidder én stor spole parallelt overfor to mindre spoler. Der skal her sendes et signal ind på den store spole således at der opbygges at magnetfelt der overføres til de to mindre spoler via gensidig induktans. Til forsygning på bilen anvendes to batterier der symboliserer to DC kilder. Da der ikke kan opstå gensidig induktans i spoler ved DC skal der findes en alternativ løsning til at opnå et varrierende signal. Af brugbare signaler findes der firkant, trekant og sinus signaler.
 ...
 \subsection{Systemforsyning}
 \begin{itemize}
@@ -200,12 +201,27 @@ Illustration af forklaring her...
 ...
 
 \subsection{Frekvensgenerator}
-...
 
 \subsubsection{Design}
-...
+Til at genererer et signal ud fra batterierne anvendes en timer kreds. Timeren skal her bruges til at lave et puls signal der har en given frekvens og duty cycle, dvs. et firkantet signal. Der er her valgt en konfiguration der hedder A-stabel. Fordelen ved dette er at timeren kan hente sit input direkte fra forsygning der i dette tilfælde er et batteri, dette koster en ekstra modstand men med den fordel at duty cycle og frekvens bliver frie variabler. Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. Den astable konfiguration ser ud som på figur...\\
+
+Der er dog den begrænsning at timeren kun kan lave et firkantet output. Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.\\
+
+Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. Det vil sige at signalet vil svinge mellem 0 og forsygningsspændingen. Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsygningen.\\
+
+Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. Da timeren ikke kan holde til at leverer mere end $225 mA$, sættes en modstand i serie for at begrænse strømmen. Det færdige kredsløb ses på figur...
 
 \subsubsection{Beregninger}
+Til udregning af modstand og kondensatorværdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. Først anvendes ligning 5 i data bladet til at bestemme modstanden $R_5$. Da der ikke er ligninger nok så bliver duty cyclen og modstanden $R_6$ valgt. Duty cyclen sættes til $51 \% $ , og $R_6$ vælges til $15k \Omega $. Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:InputOmskrevet} .
+
+\begin{equation}
+\label{eq:InputOmskrevet}
+R_5 = \frac{R_6}{D} - 2 \cdot R_6
+\end{equation}
+
+Parametrene indæsttes i ligning \ref{eq:InputOmskrevet}.
+Resultatet viser her at $R_5$ skal være $588 \Omega $ for at opnå en duty cycle på $51 \% $.
+\subsection{Forsyning og spændingsregulator}
 \begin{equation}
 \label{eq:InputsModstand}
 \begin{split}
