@@ -1,7 +1,12 @@
 
 \section{Elektriske kredsløb}\label{sec:sec_sparningsreg}
-Der vil i dette afsnit blive gennemgået alle de elektriske kredsløb der er anvendt til projektet. Til hvert kredsløb er der beskrevet problemstilling, hvordan det løses, hvordan beregningerne gennemgås for hvert enkelt komponent, samt hvordan det hele fungerer.
-På pendulet sidder én stor spole parallelt overfor to mindre spoler. Der skal her sendes et signal ind på den store spole således at der opbygges at magnetfelt der overføres til de to mindre spoler via gensidig induktans. Til forsygning på bilen anvendes to batterier der symboliserer to DC kilder. Da der ikke kan opstå gensidig induktans i spoler ved DC skal der findes en alternativ løsning til at opnå et varrierende signal. Af brugbare signaler findes der firkant, trekant og sinus signaler.
+Der vil i dette afsnit blive gennemgået alle de elektriske kredsløb der er anvendt til projektet. 
+Til hvert kredsløb er der beskrevet problemstilling, hvordan det løses, hvordan beregningerne gennemgås for hvert enkelt komponent, samt hvordan det hele fungerer.
+På pendulet sidder én stor spole parallelt overfor to mindre spoler. 
+Der skal her sendes et signal ind på den store spole således at der opbygges at magnetfelt der overføres til de to mindre spoler via gensidig induktans. 
+Til forsyning på bilen anvendes to batterier der symboliserer to DC kilder. 
+Da der ikke kan opstå gensidig induktans i spoler ved DC skal der findes en alternativ løsning til at opnå et varierende signal. 
+Af brugbare signaler findes der firkant, trekant og sinus signaler.
 ...
 \subsection{Systemforsyning}
 \begin{itemize}
@@ -22,30 +27,24 @@ På pendulet sidder én stor spole parallelt overfor to mindre spoler. Der skal 
 	
 	\subsubsection{Beregninger}
 	
-	\begin{equation}
-	\label{eq:RegulatorDesign}
-	\begin{split}
-	V_{in} & = 8.4V \\
-	V_{out} & = 7V \\
-	I_{in} & = 20mA \\
-	I_Z & = 5mA \\
+	\begin{align}
+	V_{in} & = 8.4 \si{\milli\ampere} \nonumber \\
+	V_{out} & = 7 \si{\volt} \nonumber \\
+	I_{in} & = 20\si{\milli\ampere} \nonumber \\
+	I_Z & = 5 \si{\milli\ampere} \nonumber \\
 	I_{out} & = I_{in} - I_Z \\
-	I_{out} & = 15mA \\
-	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \\
-	R_1 & = 70 \Omega 
-	\end{split}
-	\end{equation}
+	I_{out} & = 15 \si{\milli\ampere} \nonumber \\
+	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
+	R_1 & = 70 \si{\nano\ohm} \label{eq:RegulatorModstandBeregnet}
+	\end{align}
 	
 	R1 er lig R2
 	
-	\begin{equation}
-	\label{eq:RegulatorDesignTilnaermelse}
-	\begin{split}
-	R_1 & = 68 \Omega \\
-	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \\
-	V_{out} & = 7.04V
-	\end{split}
-	\end{equation}
+	\begin{align}
+	R_1 & = 68 \si{\ohm} \nonumber \\
+	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \label{eq:RegulatorUdgangsPotentiale} \\
+	V_{out} & = 7.04 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
+	\end{align}
 	
 	\subsubsection{Virkemåde}
 \end{itemize}
@@ -56,56 +55,87 @@ På pendulet sidder én stor spole parallelt overfor to mindre spoler. Der skal 
 \subsection{Frekvensgenerator}
 
 \subsubsection{Design}
-Til at genererer et signal ud fra batterierne anvendes en timer kreds. Timeren skal her bruges til at lave et puls signal der har en given frekvens og duty cycle, dvs. et firkantet signal. Der er her valgt en konfiguration der hedder A-stabel. Fordelen ved dette er at timeren kan hente sit input direkte fra forsygning der i dette tilfælde er et batteri, dette koster en ekstra modstand men med den fordel at duty cycle og frekvens bliver frie variabler. Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. Den astable konfiguration ser ud som på figur...\\
+Til at genererer et signal ud fra batterierne anvendes en timer kreds. 
+Timeren skal her bruges til at lave et puls signal der har en given frekvens og duty-cycle, dvs. et firkantet signal. 
+Der er her valgt en konfiguration der hedder A-stabel. 
+Fordelen ved dette er at timeren kan hente sit input direkte fra forsyning der i dette tilfælde er et batteri, dette koster en ekstra modstand men med den fordel at duty-cycle og frekvens bliver frie variabler. 
+Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. 
+Den astable konfiguration ser ud som på figur...\\
 
-Der er dog den begrænsning at timeren kun kan lave et firkantet output. Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.\\
+Der er dog den begrænsning at timeren kun kan lave et firkantet output. 
+Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.\\
 
-Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. Det vil sige at signalet vil svinge mellem 0 og forsygningsspændingen. Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsygningen.\\
+Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. 
+Det vil sige at signalet vil svinge mellem 0 og forsyningsspændingen. 
+Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. 
+Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. 
+Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsyningen.\\
 
-Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. Da timeren ikke kan holde til at leverer mere end $225 mA$, sættes en modstand i serie for at begrænse strømmen. Det færdige kredsløb ses på figur...
+Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
+Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
+Da timeren ikke kan holde til at leverer mere end $225 mA$, sættes en modstand i serie for at begrænse strømmen. 
+Det færdige kredsløb ses på figur...
 
 \subsubsection{Beregninger}
-Til udregning af modstand og kondensatorværdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. Først anvendes ligning 5 i data bladet til at bestemme modstanden $R_5$. Da der ikke er ligninger nok så bliver duty cyclen og modstanden $R_6$ valgt. Duty cyclen sættes til $51 \% $ , og $R_6$ vælges til $15k \Omega $. Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:InputOmskrevet} .
+Til udregning af modstand og kondensator værdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. 
+Først anvendes ligning 5 i data bladet til at bestemme modstanden $R_5$. 
+Da der ikke er ligninger nok så bliver duty-cyclen og modstanden $R_6$ valgt. 
+Duty-cyclen sættes til $51 \% $ , og $R_6$ vælges til $15k \Omega $. 
+Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:TimerInputModstand} .
 
-\begin{equation}
-\label{eq:InputOmskrevet}
-R_5 = \frac{R_6}{D} - 2 \cdot R_6
-\end{equation}
+\begin{align}
+R_5 & = \frac{R_6}{D} - 2 \cdot R_6 \label{eq:TimerInputModstand} \\
+D & = 0.51 \nonumber \\
+R_6 & = 15 \si{\kilo \ohm} \nonumber
+\end{align}
 
-Parametrene indæsttes i ligning \ref{eq:InputOmskrevet}.
-Resultatet viser her at $R_5$ skal være $588 \Omega $ for at opnå en duty cycle på $51 \% $.
-\begin{equation}
-\label{eq:InputsModstand}
-\begin{split}
-D & = 0.51\\
-R_6 & = 15k \Omega \\
-R_5 & = \frac{R_6}{D} - 2 \cdot R_6 \\
-R_5 & = 588 \Omega 
-\end{split}
-\end{equation}
-
+Parametrene indsættes i ligning \ref{eq:TimerInputModstand}.
+\begin{align}
+R_5 = 588 \si{\ohm} \label{eq:InputBeregnet}
+\end{align}
+Resultatet viser her at $R_5$ skal være $588 \Omega $ for at opnå en duty-cycle på $51 \% $.
+Som det sidste skal der udregnes en kondensator der forbindes til trigger indgangen og til ground. 
+Til dette anvendes ligning 4 i databladet. 
 ... 
 
-\begin{equation}
-\label{eq:TriggerKondensator}
-\begin{split}
-F_c & = 50kHz \\
-C_7 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) }\\
+\begin{align}
+F_c & = 50 \si{\kilo \hertz} \\
+C_7 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) } \\
 C_7 & = 0.9nF
-\end{split}
-\end{equation}
+\end{align}
 
 ...
-\begin{equation}
-\label{eq:TimerTilnaermedeVaerdier}
-\begin{split}
+\begin{align}
 R_5 & = 680 \Omega \\
 C_7 & = 1nF \\
 D & = 0.49 \\
 F_c & = 46936Hz
-\end{split}
-\end{equation}
+\end{align}
 
+...
+
+\begin{align}
+	L & = 205 \si{\micro \henry} \nonumber  \\
+	\omega_c & = 294910 \si{\radian\per\second} \nonumber \\
+	Z_L & = \omega_c \cdot L \\
+	Z_L & = 60.5 \si{\ohm} \\
+	Z_C & = \frac{1}{\omega_c \cdot C} \\
+	Z_L & \gg Z_c \\
+	C & = \frac{1}{\omega_c ^2 \cdot L}	\\
+	C & = 56 \si{\nano\farad}
+	\end{align}
+...
+
+\begin{align}
+	Z_L & = 20 \cdot Z_c \\
+	C & = 1.1 \si{\micro\farad}
+	\end{align}
+...
+\begin{align}
+	R & = 1 \si{\kilo\ohm} \nonumber \\
+	\tau & = R \cdot C \\
+	\tau & = 1 \si{\milli\second} \\
+	\end{align}
 \subsubsection{Virkemåde}
 
 ...
@@ -118,22 +148,17 @@ F_c & = 46936Hz
 
 \subsubsection{Beregninger}
 
-\begin{equation}
-\label{eq:FilterParametre}
-\begin{split}
+\begin{align}
 C_{filter} & = 470pF\\
 H_o & = 3\\
 Q & = 3\\
 F_c & = 46936Hz \\
 \omega_c & = 2 \cdot \pi \cdot F_c
-\end{split}
-\end{equation}
+\end{align}
 
 C10=C11=C17=C16
 
-\begin{equation}
-\label{eq:FilterModstandeBW}
-\begin{split}
+\begin{align}
 B & = \frac{F_c}{Q} \\
 R_8 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
 R_9 & = \frac{Q}{ \omega_n \cdot C_{filter} \cdot \left( 2 \cdot Q^2 - H_o \right) } \\
@@ -142,33 +167,25 @@ B & = 15645Hz \\
 R_8 & = 7215 \Omega \\
 R_9 & = 1430 \Omega \\
 R_{10} & = 43288 \Omega
-\end{split}
-\end{equation}
+\end{align}
 
 R8 er lig R13. R9 er lig R14. R10 er lig R15.
 
-\begin{equation}
-\label{eq:FilterModstandeTilnaermelse}
-\begin{split}
+\begin{align}
 R_8 & = 6.8k \Omega \\
 R_9 & = 1.5k \Omega \\
 R_{10} & = 47k \Omega
-\end{split}
-\end{equation}
-
+\end{align}
 ...
 
-\begin{equation}
-\label{FilterAendringer}
-\begin{split}
+\begin{align}
 F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
 H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
 B & = \frac{F_c}{Q} \\
 F_c & = 44557Hz \\
 H_o & = 3.5 \\
 B & = 14.9kHz
-\end{split}
-\end{equation}
+\end{align}
 
 \subsubsection{Virkemåde}
 ...
@@ -179,33 +196,39 @@ B & = 14.9kHz
 ...
 \subsubsection{Beregninger}
 
-\begin{equation}
-\label{eq:EnsretterKondensator}
-\begin{split}
-V & = 2V \\
-V_{rip} & = 300mV \\
-R_{11} & = 5k \Omega \\
-t & = 21 \mu S \\
-i & = \frac{V}{R_{11}} \\
-i & = 400 \mu A \\
-C_{14} & = \frac{i \cdot t}{V_{rip} }\\
-C_{14} & = 28nF \\
-\tau & = R_{11} \cdot C_{14} \\
-\tau & = 141 \mu S
-\end{split}
-\end{equation}
-
-C14=C20. R11=R16
-
-\begin{equation}
-\label{eq:EnsretterKondensatorTilnaermelse}
-\begin{split}
-C_{14} & = 22nF \\
-R_{11} & = 4.7k \Omega \\
-\tau & = 103 \mu S
-\end{split}
-\end{equation}
-
+\begin{align}
+	V & = 2V \\
+	V_{rip} & = 300mV \\
+	R_{11} & = 5k \Omega \\
+	t & = 21 \mu S \\
+	i & = \frac{V}{R_{11}} \\
+	i & = 400 \mu A \\
+	C_{14} & = \frac{V}{V_{rip} \cdot F_c \cdot R_{11}}\\
+		C_{14} & = 30nF
+\end{align}
+	C14=C20. R11=R16
+...
+\begin{align}
+		R_{11} & = 4.7k \Omega \nonumber \\
+		C_{14} & = 22 \si{\nano\farad} \nonumber \\
+		C_{14} \cdot R_{11} & \gg \frac{1}{F_c} \\
+		\frac{1}{F_c} & = 22 \\
+		T & = \frac{1}{F_c}
+\end{align}
+...
+	\begin{align}
+		\frac{R_{11} \cdot C_{14}}{T} & = 4.6
+	\end{align}
+...
+\begin{align}
+	C_{14} & = 47 \si{\nano\farad} \nonumber \\
+	\frac{R_{11} \cdot C_{14}}{T} & = 9.8
+	\end{align}
+...
+\begin{align}
+	C_{14} & = 100 \si{\nano\farad} \\
+	\frac{R_{11} \cdot C_{14}}{T} & = 21
+	\end{align}
 \subsubsection{Virkemåde}
 
 \subsection{Instrumenteringsforstærker}
@@ -215,7 +238,9 @@ R_{11} & = 4.7k \Omega \\
 
 \subsubsection{Beregninger}
 
-Indsæt billede af forstærker tabeller
+\begin{align}
+	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} 
+	\end{align}
 
 \subsubsection{Virkemåde}
 ... 
