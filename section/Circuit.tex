@@ -47,7 +47,6 @@ På pendulet sidder én stor spole parallelt overfor to mindre spoler. Der skal 
 	\end{split}
 	\end{equation}
 	
-	\subsubsection{Virkemåde}
 \end{itemize}
 
 
@@ -106,7 +105,6 @@ F_c & = 46936Hz
 \end{split}
 \end{equation}
 
-\subsubsection{Virkemåde}
 
 ...
 
@@ -174,10 +172,20 @@ B & = 14.9kHz
 ...
 
 \subsection{Ensretter}
+Da modtagerspolerne får overført signalet der genereres af frekvensgeneratoren, så vil inputtet til instrumenteringsforstærkeren få en tilnærmet sinus. 
+For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
+
 
 \subsubsection{Design}
-...
+Enretteren består af en diode, der er forspændt i lederetningen, der er koblet serielt med en parallelkobling af en spole og en modstand. 
+Diodens funktion er at lade halvdelen af signalet passere, hvilket betyder at signalets negative del frafalder. 
+For ikke at få et variende positivt pulssignal, indsættes kondensatoren for at glatte spændingen ud. Modstandens funktion er at aflade kondensatoren, så
+
+
+\husk{Kenneth}{Billede af ensretter kredsløb} 
+
 \subsubsection{Beregninger}
+Til udregning af komponentværdier til ensretteren, antages at en spænding på 2 volt er tilrådighed. Der vælges en rippelspænding på 15\%. 
 
 \begin{equation}
 \label{eq:EnsretterKondensator}
@@ -206,19 +214,21 @@ R_{11} & = 4.7k \Omega \\
 \end{split}
 \end{equation}
 
-\subsubsection{Virkemåde}
 
 \subsection{Instrumenteringsforstærker}
+For at få en retning ud af spolesignalerne, anvendes instrumenteringsforstærkeren AD623. Instrumenteringsforstærkeren er valgt frem andre operationsforstærker typer, da den har meget større indgangsimpedans, hvilket er hensigtsmæssigt, da strømmene fra modtagerspolerne ikke er særligt store. Valget af instrumenteringsforstærkeren har også den fordel, at forstærkningen kan styres med blot en modstand, hvilket sparer plads på print boardet.
+
+
 
 \subsubsection{Design}
-...
+Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en gain modstand, samt et potentiometer. Dertil er der påsat to afkoblingskondensatorer. Kredsen forsynes med +- 7 volt, da det er max output fra batterierne.
+
+\husk{Kenneth}{Billede af instrumenterings kredsløb} 
 
 \subsubsection{Beregninger}
 
-Indsæt billede af forstærker tabeller
 
-\subsubsection{Virkemåde}
-... 
+\husk{Kenneth}{Husk gain tabel i bilag} 
 
 \subsection{Regulator}
 ...
@@ -228,12 +238,9 @@ Indsæt billede af forstærker tabeller
 ....
 
 \subsubsection{Beregninger}
-
 ...
 
-\subsubsection{Virkemåde}
 
-...
 \section{Motorstyring}\label{sec:sec_motorstyring}
 
 \begin{itemize}
@@ -248,6 +255,3 @@ Indsæt billede af forstærker tabeller
 
 \subsubsection{Beregninger}
 ..
-
-\subsubsection{Virkemåde}
-...
