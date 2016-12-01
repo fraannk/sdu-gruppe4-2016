@@ -8,7 +8,10 @@ Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som s
 
 I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt(B), flux$(\Phi)$, induktans(L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
 
-Der er som udganspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
+Først vil dimensioneringen af den store spole tages højde for, hvorefter der kigges på de 2 små spoler.
+Den færdige dimensionering skal ende ud i et målbart EMF signal.
+
+Der er som udgangspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
 
 
 \begin{figure}[h!]
@@ -18,7 +21,7 @@ Der er som udganspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:
 	\label{fig:spole_fig1}
 \end{figure}
 
-På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som en spole med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkeltret på hinanden.
+På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som den store spole med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkeltret på hinanden.
 
 Med dette kan $d\vec{B}$ feltet tegnes ind, vha. Biot-Savarts lov, eller vha. højrehåndreglen. En mere overskuelig måde at se det på er, at krydsproduktet af 2 vektorer, er en vektor der står vinkeltret på begge. 
 $d\vec{B}$ kan nu deles op i 2 komposanter. En komposant $dB_\parallel$, som står parralelt på z axen og den cirkulære leder. Derudover også en komposant $dB_\perp$, som står vinkeltret på samme.
@@ -55,7 +58,7 @@ Hermed kan et samlet udtryk for $dB_\parallel$ gives:
 &dB_\parallel=\frac{\mu_0 \:i\: cos(\alpha)\:ds}{4\:\pi\: r^2}
 \end{align}
 
-Da det er z der ønskes varieret, bliver et nyt udtryk nødt til at blive dannet, hvor z indgår. Betragt figur \ref{fig:spole_fig1} igen. Her ses, at $r$ og vinklen $\alpha$, er relateret til hinanden, og ved hjælp at Phytagoras, kan disse 2 udtryk findes:
+Da det er z der ønskes varieret, bliver et nyt udtryk nødt til at blive bestemt, hvor z indgår. Betragt figur \ref{fig:spole_fig1} igen. Her ses, at $r$ og vinklen $\alpha$, er relateret til hinanden, og ved hjælp at Phytagoras, kan disse 2 udtryk findes:
 
 
 \begin{align}
@@ -89,32 +92,84 @@ Et endeligt udtryk for magnetfeltet $B(z)$ gives i ligning \ref{eq:Bz_field}.
 \end{align}
 
 
+Da dette udtryk kun er gældende for en cirkulær leder, altså en luftspole med 1 vinding, skal et nyt udtryk bestemmes. Dette udtryk tager udgangspunkt i ligning \ref{eq:Bz_field}, som blev udledt før.
 
-Tekst omkring solenoid her samt figur.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.5\textwidth]{billeder/B_felt2.png}
+	\caption{Solenoid med radius R}
+	\label{fig:spole_fig2}
+\end{figure}
 
-
+Formlen for B feltet i en uendelig lang solenoid er givet ved:
 
 \begin{align}
-	&di=inz'
+	&B=\mu ni
 \end{align}
+
+Hvor $n$ er antal vindinger pr. længde:
+
 
 \begin{align}
 	&n=\frac{N}{L}
 \end{align}
 
+I dette udtryk er B feltet centreret i midten af den uendelig lange solenoide.
+
+Da solenoidestørrelsen er bestemt, og ikke uendelig lang, samt $B$ feltet ligger uden for solenoidens yderkant, skal en ny ligning af $B$ feltet bestemmes.
+Det antages at $B$ feltet er homogent omkring hele fladen, og ikke kun i det punkt der bestemmes.
+
+
+Betragt figur \ref{fig:spole_fig2}. Her ses tværsnittet af en solenoide, med z aksen i centrum. Det ønskede $B$ felt skal bestemmes i punktet $P$.
+
+Det ses at størrelsen af $n$ er proportional med tykkelsen $dz'$:
+
 \begin{align}
-	&d\vec{B}=\frac{\mu_0 R^2}{2[(z-z')^2+R^2]^\frac{3}{2}}di = \frac{\mu_0 R^2 i n dz'}{2[(z-z')^2+R^2]^\frac{3}{2}}
+	&dn=\frac{N}{L} dz'
 \end{align}
 
 
-B felt i et givet punkt P centreret ud fra z aksen, med funktion af z er dermed givet ved:
-\begin{align}
-	&B(z)=\frac{\mu_0 n R^2 i}{2}\int\limits_{0}^{2\pi}\frac{1}{2[(z-z')^2+R^2]^\frac{3}{2}}dz'
-\end{align}
+
+Ud fra ligning \ref{eq:Bz_field}, kan $dB_z$ udtrykkes ved: 
 
 \begin{align}
-	&B(z)=\frac{\mu_0 n i}{2}\bigg[\frac{\frac{L}{2}-z}{\sqrt{(\frac{z-L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(\frac{z+L}{2})^2+R^2}}\bigg]
+	&dB(z)=\frac{\mu_0 \: i \: R^2}{2(R^2+(z-z')^2)^\frac{3}{2}}dn=\frac{\mu_0 \: N \: i \: R^2}{2L(R^2+(z-z')^2)^\frac{3}{2}}dz'
 \end{align}
+
+Ved at integrerer over hele længden på solenoiden fås:
+
+\begin{align}
+	&B(z)=\int\limits_{-\frac{L}{2}}^{\frac{L}{2}}\frac{\mu_0 \: N \: i \: R^2}{2L(R^2+(z-z')^2)^\frac{3}{2}}dz'
+\end{align}
+
+Og et endeligt udtryk:
+\begin{align}
+	&B(z)= \frac{\mu_0 \: i \: R^2 \: N}{2L}\bigg(\frac{\frac{L}{2}-z}{\sqrt{(z-\frac{L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(z+\frac{L}{2})^2+R^2}}\bigg)
+\end{align}
+
+
+%
+%\begin{align}
+%	&di=inz'
+%\end{align}
+%
+%\begin{align}
+%	&n=\frac{N}{L}
+%\end{align}
+%
+%\begin{align}
+%	&d\vec{B}=\frac{\mu_0 R^2}{2[(z-z')^2+R^2]^\frac{3}{2}}di = \frac{\mu_0 R^2 i n dz'}{2[(z-z')^2+R^2]^\frac{3}{2}}
+%\end{align}
+%
+%
+%B felt i et givet punkt P centreret ud fra z aksen, med funktion af z er dermed givet ved:
+%\begin{align}
+%	&B(z)=\frac{\mu_0 n R^2 i}{2}\int\limits_{0}^{2\pi}\frac{1}{2[(z-z')^2+R^2]^\frac{3}{2}}dz'
+%\end{align}
+%
+%\begin{align}
+%	&B(z)=\frac{\mu_0 n i}{2}\bigg[\frac{\frac{L}{2}-z}{\sqrt{(\frac{z-L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(\frac{z+L}{2})^2+R^2}}\bigg]
+%\end{align}
 
 \subsection{3D design/fysisk design af spolehus}
 \begin{itemize}
