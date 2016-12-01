@@ -14,8 +14,9 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 	\item 2 batterier på 7.4V hver. 
 	\item LiPo celler for mest afladekapacitet pga. motor som trækker en del
 	\item Billige og tilgængelige
-	
+\end{itemize}
 \subsection{Spændingsregulator}
+
 \begin{itemize}
 	\item Konstant x antal volt til frekvensgeneratoren
 	\item Tager højde for voltage sag i LiPo batterier
@@ -35,18 +36,18 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 	I_{out} & = I_{in} - I_Z \\
 	I_{out} & = 15 \si{\milli\ampere} \nonumber \\
 	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
-	R_1 & = 70 \si{\nano\ohm} \label{eq:RegulatorModstandBeregnet}
+	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
 	\end{align}
 	
 	R1 er lig R2
-	
+	Den første R1 er den beregnede
 	\begin{align}
 	R_1 & = 68 \si{\ohm} \nonumber \\
-	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \label{eq:RegulatorUdgangsPotentiale} \\
+	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \\
 	V_{out} & = 7.04 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
 	\end{align}
 	
-\end{itemize}
+
 
 
 ...
@@ -100,42 +101,41 @@ Til dette anvendes ligning 4 i databladet.
 \begin{align}
 F_c & = 50 \si{\kilo \hertz} \\
 C_7 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) } \\
-C_7 & = 0.9nF
+C_7 & = 0.9nF \nonumber
 \end{align}
 
 ...
 \begin{align}
-R_5 & = 680 \Omega \\
-C_7 & = 1nF \\
-D & = 0.49 \\
-F_c & = 46936Hz
+R_5 & = 680 \Omega \nonumber \\
+C_7 & = 1nF \nonumber \\
+D & = 0.49 \nonumber \\
+F_c & = 46.936 \si {\kilo\hertz} \nonumber
 \end{align}
 
 ...
 
 \begin{align}
 	L & = 205 \si{\micro \henry} \nonumber  \\
-	\omega_c & = 294910 \si{\radian\per\second} \nonumber \\
+	\omega_c & = 294.910 \si{\kilo\radian\per\second} \nonumber \\
 	Z_L & = \omega_c \cdot L \\
-	Z_L & = 60.5 \si{\ohm} \\
+	Z_L & = 60.5 \si{\ohm} \nonumber \\
 	Z_C & = \frac{1}{\omega_c \cdot C} \\
-	Z_L & \gg Z_c \\
+	Z_L & \gg Z_c \nonumber \\
 	C & = \frac{1}{\omega_c ^2 \cdot L}	\\
-	C & = 56 \si{\nano\farad}
+	C & = 56 \si{\nano\farad} \nonumber
 	\end{align}
 ...
 
 \begin{align}
 	Z_L & = 20 \cdot Z_c \\
-	C & = 1.1 \si{\micro\farad}
+	C_c & = 1.1 \si{\micro\farad} \nonumber
 	\end{align}
 ...
 \begin{align}
 	R & = 1 \si{\kilo\ohm} \nonumber \\
 	\tau & = R \cdot C \\
-	\tau & = 1 \si{\milli\second} \\
-	\end{align}
-
+	\tau & = 1 \si{\milli\second} \nonumber
+\end{align}
 ...
 
 \subsection{Båndpassfilter}
@@ -147,10 +147,10 @@ F_c & = 46936Hz
 \subsubsection{Beregninger}
 
 \begin{align}
-C_{filter} & = 470pF\\
-H_o & = 3\\
-Q & = 3\\
-F_c & = 46936Hz \\
+C_{filter} & = 470pF \nonumber \\
+H_o & = 3 \nonumber \\
+Q & = 3 \nonumber \\
+F_c & = 46.936 \si{\kilo\hertz} \nonumber \\
 \omega_c & = 2 \cdot \pi \cdot F_c
 \end{align}
 
@@ -161,37 +161,33 @@ B & = \frac{F_c}{Q} \\
 R_8 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
 R_9 & = \frac{Q}{ \omega_n \cdot C_{filter} \cdot \left( 2 \cdot Q^2 - H_o \right) } \\
 R_{10} & = \frac{2 \cdot Q}{ \omega_n \cdot C} \\
-B & = 15645Hz \\
-R_8 & = 7215 \Omega \\
-R_9 & = 1430 \Omega \\
-R_{10} & = 43288 \Omega
+B & = 15.645 \si{\kilo\hertz} \nonumber \\
+R_8 & = 7.215 \si{\kilo\hertz} \nonumber \\
+R_9 & = 1.430 \si{\kilo\ohm} \nonumber \\
+R_{10} & = 43.288 \si{\kilo\ohm} \nonumber 
 \end{align}
 
 R8 er lig R13. R9 er lig R14. R10 er lig R15.
 
 \begin{align}
-R_8 & = 6.8k \Omega \\
-R_9 & = 1.5k \Omega \\
-R_{10} & = 47k \Omega
+	R_8 & = 6.8 \si{\kilo\ohm} \nonumber \\
+	R_9 & = 1.5 \si{\kilo\ohm} \nonumber \\
+	R_{10} & = 47 \si{\kilo\ohm} \nonumber
 \end{align}
 ...
-
 \begin{align}
-F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
-H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
-B & = \frac{F_c}{Q} \\
-F_c & = 44557Hz \\
-H_o & = 3.5 \\
-B & = 14.9kHz
+	F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
+	H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
+	B & = \frac{F_c}{Q} \\
+	F_c & = 44.557 \si{\kilo\ohm} \nonumber \\
+	H_o & = 3.5 \nonumber \\
+	B & = 14.9 \si{\kilo\ohm} \nonumber
 \end{align}
-
 \subsubsection{Virkemåde}
 ...
-
 \subsection{Ensretter}
 Da modtagerspolerne får overført signalet der genereres af frekvensgeneratoren, så vil inputtet til instrumenteringsforstærkeren få en tilnærmet sinus. 
 For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
-
 
 \subsubsection{Design}
 Enretteren består af en diode, der er forspændt i lederetningen, der er koblet serielt med en parallelkobling af en spole og en modstand. 
@@ -205,14 +201,13 @@ For ikke at få et variende positivt pulssignal, indsættes kondensatoren for at
 Til udregning af komponentværdier til ensretteren, antages at en spænding på 2 volt er tilrådighed. Der vælges en rippelspænding på 15\%. 
 
 \begin{align}
-	V & = 2V \\
-	V_{rip} & = 300mV \\
-	R_{11} & = 5k \Omega \\
-	t & = 21 \mu S \\
-	i & = \frac{V}{R_{11}} \\
-	i & = 400 \mu A \\
+	V & = 2V \nonumber \\
+	V_{rip} & = 300mV \nonumber \\
+	R_{11} & = 5k \Omega \nonumber \\
+	i & = \frac{V}{R_{11}} \nonumber \\
+	i & = 400 \mu A \nonumber \\
 	C_{14} & = \frac{V}{V_{rip} \cdot F_c \cdot R_{11}}\\
-		C_{14} & = 30nF
+		C_{14} & = 30nF \nonumber
 \end{align}
 	C14=C20. R11=R16
 ...
@@ -234,7 +229,7 @@ Til udregning af komponentværdier til ensretteren, antages at en spænding på 
 	\end{align}
 ...
 \begin{align}
-	C_{14} & = 100 \si{\nano\farad} \\
+	C_{14} & = 100 \si{\nano\farad} \nonumber \\
 	\frac{R_{11} \cdot C_{14}}{T} & = 21
 	\end{align}
 
