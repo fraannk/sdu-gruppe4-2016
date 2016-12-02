@@ -146,7 +146,7 @@ F_c & = 46.936 \si {\kilo\hertz} \nonumber
 \subsubsection{Beregninger}
 
 \begin{align}
-C_{filter} & = 470pF \nonumber \\
+C_{filter} & = 470 \si{\pico\farad} \nonumber \\
 H_o & = 3 \nonumber \\
 Q & = 3 \nonumber \\
 F_c & = 46.936 \si{\kilo\hertz} \nonumber \\
@@ -248,20 +248,20 @@ Da der ikke er ligninger nok til at bestemme alle variable, bestemmes afladnings
 For at få en retning ud af spolesignalerne, anvendes instrumenteringsforstærkeren AD623. Instrumenteringsforstærkeren er valgt frem andre operationsforstærker typer, da den har meget større indgangsimpedans, hvilket er hensigtsmæssigt, da strømmene fra modtagerspolerne ikke er særligt store. Valget af instrumenteringsforstærkeren har også den fordel, at forstærkningen kan styres med blot en modstand, hvilket sparer plads på print boardet.
 
 
-
 \subsubsection{Design}
 Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en gain modstand, samt et potentiometer. Dertil er der påsat to afkoblingskondensatorer. Kredsen forsynes med +- 7 volt, da det er max output fra batterierne. 
 
 \husk{Kenneth}{Billede af instrumenterings kredsløb} 
 
 \subsubsection{Beregninger}
-
 \husk{Kenneth}{Find ud af spændingen før forstærkning. Også i filteret}
+Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 
+Der tilstræbes en forstærkning på 20 gange, og udregnes med ligning \ref{eq:GainModstand}
 \begin{align}
-	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} 
+	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} \label{eq:GainModstand}
 \end{align}
-
+hvor der fås en gainmodstand på 5 \si{\kilo\ohm}
 \husk{Kenneth}{Husk gain tabel i bilag} 
 
 \subsection{Regulator}
