@@ -59,22 +59,22 @@ Til at genererer et signal ud fra batterierne anvendes en timer kreds.
 Timeren skal her bruges til at lave et puls signal der har en given frekvens og duty-cycle, dvs. et firkantet signal. 
 Der er her valgt en konfiguration der hedder A-stabel. 
 Fordelen ved dette er at timeren kan hente sit input direkte fra forsyning der i dette tilfælde er et batteri, dette koster en ekstra modstand men med den fordel at duty-cycle og frekvens bliver frie variabler. 
-Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. 
-Den astable konfiguration ser ud som på figur...\\
+Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. \\
+\husk{Nikolaj}{Indsæt figur af astabel konfiguration}
 
 Der er dog den begrænsning at timeren kun kan lave et firkantet output. 
-Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.\\
+Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.
 
 Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. 
 Det vil sige at signalet vil svinge mellem 0 og forsyningsspændingen. 
 Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. 
 Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. 
-Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsyningen.\\
+Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsyningen.
 
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
-Da timeren ikke kan holde til at leverer mere end $225 mA$, sættes en modstand i serie for at begrænse strømmen. 
-Det færdige kredsløb ses på figur...
+Da timeren ikke kan holde til at leverer mere end $225 mA$, sættes en modstand i serie for at begrænse strømmen.\\
+\husk{Nikolaj}{Indsæt figur af det færdige kredsløb}
 
 \subsubsection{Beregninger}
 Til udregning af modstand og kondensator værdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. 
@@ -84,8 +84,8 @@ Duty-cyclen sættes til $51 \% $ , og $R_6$ vælges til $15k \Omega $.
 Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:TimerInputModstand} .
 
 \begin{align}
-R_5 & = \frac{R_6}{D} - 2 \cdot R_6 \label{eq:TimerInputModstand} \\
-D & = 0.51 \nonumber \\
+R_5 & = \frac{R_6}{DutyCycle} - 2 \cdot R_6 \label{eq:TimerInputModstand} \\
+DutyCycle & = 0.51 \nonumber \\
 R_6 & = 15 \si{\kilo \ohm} \nonumber
 \end{align}
 
@@ -93,56 +93,73 @@ Parametrene indsættes i ligning \ref{eq:TimerInputModstand}.
 \begin{align}
 R_5 = 588 \si{\ohm} \label{eq:InputBeregnet}
 \end{align}
-Resultatet viser her at $R_5$ skal være $588 \Omega $ for at opnå en duty-cycle på $51 \% $.
+Resultatet viser her at $R_5$ skal være 588 \si{\ohm}  for at opnå en duty-cycle på 51 \% .
 Som det sidste skal der udregnes en kondensator der forbindes til trigger indgangen og til ground. 
-Til dette anvendes ligning 4 i databladet. 
-... 
+Til dette anvendes ligning 4 i databladet. Denne ligning isoleres for kondensatoren.
 
+\begin{align}
+	C_7 & = \frac{1}{F_c \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) }
+	\end{align}
+Modstandsværdierne er kendte, og der bestemmes her for en frekvens på 50 \si{\kilo\hertz}.
 \begin{align}
 F_c & = 50 \si{\kilo \hertz} \\
-C_7 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) } \\
-C_7 & = 0.9nF \nonumber
+C_7 & = 0.9 \si{\nano\farad} \nonumber
 \end{align}
-
-...
+Der skal derfor benyttes en kondensator på 0.9 \si{\nano\farad} for at få en frekvens på 50 \si{\kilo\hertz}. 
+Da disse størrelser ikke kan realiseres i SMD vælges derfor tilnærmede værdier. 
+Dette medfører at $R_5$ bliver 680 \si{\ohm} og $C_7$ på 1 \si{\nano\farad}. 
+Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet.
 \begin{align}
-R_5 & = 680 \Omega \nonumber \\
-C_7 & = 1nF \nonumber \\
-D & = 0.49 \nonumber \\
+R_5 & = 680 \si{\ohm} \nonumber \\
+C_7 & = 1 \si{\nano\farad} \nonumber \\
+DutyCycle & = 0.49 \nonumber \\
 F_c & = 46.936 \si {\kilo\hertz} \nonumber
 \end{align}
+I det praktiske kredsløb forventes der derfor en duty-cycle på 49 \% og en frekvens 46.9 \si{\kilo\hertz}. 
+Duty-cyclen ligger tæt på 50 \% og frekvensen den ønskede frekvens er så stor at en lille afvigelse ikke kommer til at have en stor betydning. Denne opstilling accepteres.
 
-...
-
+Der skal herefter sættes en kondensator på udgangen således at udgangsspændingen kan antage både positive og negative værdier. 
+Middelspændingen over en spole er 0 \si{\volt}, det er outputtet ikke, og det er kondensatorens formål. 
 \begin{align}
 	L & = 205 \si{\micro \henry} \nonumber  \\
-	\omega_c & = 294.910 \si{\kilo\radian\per\second} \nonumber \\
+	\omega_c & = 2 \cdot \pi 46936 \\
+	\omega_c & = 294.910 \si{\kilo\radian\per\second} \nonumber 
+	\end{align}
+Det er her ikke ønsket at kondensator og spole impedans bliver lige store idet der opstår en resonanskreds. 
+Der vælges her at spolens impedans skal være 20 gange større end kondensatorens impedans.
+\begin{align}
 	Z_L & = \omega_c \cdot L \\
 	Z_L & = 60.5 \si{\ohm} \nonumber \\
 	Z_C & = \frac{1}{\omega_c \cdot C} \\
-	Z_L & \gg Z_c \nonumber \\
-	C & = \frac{1}{\omega_c ^2 \cdot L}	\\
-	C & = 56 \si{\nano\farad} \nonumber
-	\end{align}
-...
-
-\begin{align}
 	Z_L & = 20 \cdot Z_c \\
-	C_c & = 1.1 \si{\micro\farad} \nonumber
+	C_7 & = 1.1 \si{\micro\farad} \nonumber
 	\end{align}
-...
+Ved en kondensator størrelse på 1.1 \si{\micro\farad} er størrelsesforholdet mellem de 2 impedanser 20 gange. 
+SMD kondensatoren der passer til er på 1 \si{\micro\farad}. Det praktiske størrelsesforhold udregnes igen.
+\begin{align}
+	C_7 & = 1 \si{\micro\farad} \nonumber \\
+	Z_L \cdot Z_c & = 17.8 \nonumber
+	\end{align}
+På grund af modstanden og kondensatoren i kredsløbet så opstår der en forsinkelse i systemet der er lig produktet af kondensatorens og modstandens størrelser. 
 \begin{align}
 	R & = 1 \si{\kilo\ohm} \nonumber \\
 	\tau & = R \cdot C \\
 	\tau & = 1 \si{\milli\second} \nonumber
 \end{align}
-...
-
+En forsinkelse på 1 \si{\milli\second}. 
+Denne forsinkelse er langsom nok til at være acceptabel i systemet. 
 \subsection{Båndpassfilter}
-...
+Til at fjerne støj og andre udefrakommende forstyrrelser i systemet, skal der laves et filter.
+Der vil her blive designet et aktivt båndpas filter, da der kun ønskes at én bestemt frekvens forstærkes.
+Fordelen ved det aktive filter er at den kan både forstærke og filtrerer.
 
 \subsubsection{Design}
-...
+Den valgte opstilling der anvendes er taget fra figur 5.1-4 \cite[side. 208]{Huelsman1993}.
+\husk{Nikolaj}{Indsæt schematic af det aktive filter fra bogen}
+Filteret er designet så modstanden $R_5$ gør forstærkningen ved centerfrekvens bliver en fri variable.
+Heraf designes filteret efter en ønsket båndbredde, centerfrekvens og centerfrekvens forstærkning. Q er systemets 'godhed' og anvendes til at bestemme bredden på båndbredden. 
+$\omega_c$ er centerfrekvensen der ønskes forstærket.
+$H_o$ er forstærkningen ved den ønskede centerfrekvens.
 
 \subsubsection{Beregninger}
 
