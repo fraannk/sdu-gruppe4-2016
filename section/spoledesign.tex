@@ -2,6 +2,7 @@
 
 \subsection{Dimensionering af spoler}
 
+
 For at kunne dimensionere og designe en spole, er det væsentligt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
 
 Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som skal stå for at udsende et signal. Herudover 2 mindre identiske spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se afsnit **.
@@ -12,7 +13,7 @@ Først vil dimensioneringen af den store spole tages højde for, hvorefter der k
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
-
+\subsubsection{Magnetfelt}
 
 \begin{figure}[h!]
 	\centering
@@ -122,7 +123,7 @@ Det antages at $B$ feltet er homogent omkring hele fladen, og ikke kun i det pun
 
 Betragt figur \ref{fig:spole_fig2}. Her ses tværsnittet af en solenoide, med z aksen i centrum. Det ønskede $B$ felt skal bestemmes i punktet $P$.
 
-Det ses at størrelsen af $n$ er proportional med tykkelsen $dz'$:
+Det ses at størrelsen af $dn$ er proportional med tykkelsen $dz'$:
 
 \begin{align}
 	&dn=\frac{N}{L} dz'
@@ -130,7 +131,7 @@ Det ses at størrelsen af $n$ er proportional med tykkelsen $dz'$:
 
 
 
-Ud fra ligning \ref{eq:Bz_field}, kan $dB_z$ udtrykkes ved: 
+Ud fra ligning \ref{eq:Bz_field}, kan $dB(z)$ udtrykkes ved: 
 
 \begin{align}
 	&dB(z)=\frac{\mu_0 \: i \: R^2}{2(R^2+(z-z')^2)^\frac{3}{2}}dn=\frac{\mu_0 \: N \: i \: R^2}{2L(R^2+(z-z')^2)^\frac{3}{2}}dz'
@@ -144,32 +145,64 @@ Ved at integrerer over hele længden på solenoiden fås:
 
 Og et endeligt udtryk:
 \begin{align}
-	&B(z)= \frac{\mu_0 \: i \: R^2 \: N}{2L}\bigg(\frac{\frac{L}{2}-z}{\sqrt{(z-\frac{L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(z+\frac{L}{2})^2+R^2}}\bigg)
+	&B(z)= \frac{\mu_0 \: i \: R^2 \: N}{2L}\left(\frac{\frac{L}{2}-z}{\sqrt{(z-\frac{L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(z+\frac{L}{2})^2+R^2}}\right)
 \end{align}
 
+\subsubsection{Flux og elektromotorisk kraft}
+I dette afsnit vil den magnetiske flux blive bestemt.  
+Faraday lavede et eksperiment, og fandt ud af, at et magnetfelt der ændrer sig over tid i en lukket lederkreds, skabte en induceret EMF inde i kredsen.
+Dette lavede han et udtryk for:
 
-%
-%\begin{align}
-%	&di=inz'
-%\end{align}
-%
-%\begin{align}
-%	&n=\frac{N}{L}
-%\end{align}
-%
-%\begin{align}
-%	&d\vec{B}=\frac{\mu_0 R^2}{2[(z-z')^2+R^2]^\frac{3}{2}}di = \frac{\mu_0 R^2 i n dz'}{2[(z-z')^2+R^2]^\frac{3}{2}}
-%\end{align}
-%
-%
-%B felt i et givet punkt P centreret ud fra z aksen, med funktion af z er dermed givet ved:
-%\begin{align}
-%	&B(z)=\frac{\mu_0 n R^2 i}{2}\int\limits_{0}^{2\pi}\frac{1}{2[(z-z')^2+R^2]^\frac{3}{2}}dz'
-%\end{align}
-%
-%\begin{align}
-%	&B(z)=\frac{\mu_0 n i}{2}\bigg[\frac{\frac{L}{2}-z}{\sqrt{(\frac{z-L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(\frac{z+L}{2})^2+R^2}}\bigg]
-%\end{align}
+\begin{align}
+	&EMF(\xi) = - \frac{d\Phi}{dt}
+\end{align}
+
+Denne lov er også kendt for navnet Lenz's lov, da han kom frem til det omvendte fortegn.
+
+Flux i den lille spole hidrørende fra den store spole, ved fuld overlappelse er bestemt ved:
+
+\begin{align}
+	&\Phi_{21} = BA_2
+\end{align}
+
+Hvor $B$ er det magnetiske felt, og $A_2$ er arealet på den lille spoles overflade.
+Da $B$ feltet er homogent på hele overfladen, antages $B$ konstant. 
+
+Ud fra dette udtryk, kan den totalte EMF, der er induceret over i den lille spole blive bestemt ved følgende udtryk:
+
+\begin{align}
+	&\xi = -N_2\frac{d\Phi_{21}}{dt}
+\end{align}
+
+Hvor $N_2$ er antal vindinger i den lille spole.
+\\ \\
+Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktansen kendes og dermed kan spændingen i den store spole finde ved:
+
+\begin{align}
+	&V = L\frac{di}{dt}
+\end{align}
+ 
+\subsubsection{Simluering}
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.2\textwidth]{billeder/EMF_stor_spole.png}
+	\caption{EMF spænding i stor spole}
+	\label{fig:EMF_stor_spole}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/EMF_lille_spole.png}
+	\caption{EMF spænding i lille spole}
+	\label{fig:EMF_lille_spole}
+\end{figure}
+
+
+
+
+
 
 \subsection{3D design/fysisk design af spolehus}
 \begin{itemize}
