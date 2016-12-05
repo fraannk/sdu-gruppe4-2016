@@ -28,6 +28,7 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 	
 	\subsubsection{Beregninger}
 	
+	
 	\begin{align}
 	V_{in} & = 8.4 \si{\milli\ampere} \nonumber \\
 	V_{out} & = 7 \si{\volt} \nonumber \\
@@ -53,23 +54,21 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 ...
 
 \subsection{Frekvensgenerator}
-
+\husk{Kenneth}{Billede af output fra frekvensgenerator}
 \subsubsection{Design}
 Til at genererer et signal ud fra batterierne anvendes en timer kreds. 
 Timeren skal her bruges til at lave et puls signal der har en given frekvens og duty-cycle, dvs. et firkantet signal. 
 Der er her valgt en konfiguration der hedder A-stabel. 
 Fordelen ved dette er at timeren kan hente sit input direkte fra forsyning der i dette tilfælde er et batteri, dette koster en ekstra modstand men med den fordel at duty-cycle og frekvens bliver frie variabler. 
-Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. 
-Den astable konfiguration ser ud som på figur...\\
+Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. \\
+\husk{Nikolaj}{Indsæt figur af astabel konfiguration}
 
-Der er dog den begrænsning at timeren kun kan lave et firkantet output. 
-Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.\\
+Timeren er designet til at lave et firkant signal, og det er også bestemt at dette signal sendes gennem spolen.
+Skulle denne laves om til en sinus ville det kræve ekstra komponenter og lave en masse effekttab og give et langsommere system.
 
-Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. 
-Det vil sige at signalet vil svinge mellem 0 og forsyningsspændingen. 
-Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. 
-Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. 
-Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsyningen.\\
+Signalet der kommer ud af timeren er begrænset således at udgangsspændingen kun kan antage positive værdier.
+For at løse dette skal der sættes en kondensator i serie med spolen.
+Dette gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
 
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
@@ -84,8 +83,8 @@ Duty-cyclen sættes til 51\%  , og $R_6$ vælges til 15 \si{\kilo\ohm}.
 Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:TimerInputModstand} .
 
 \begin{align}
-R_5 & = \frac{R_6}{D} - 2 \cdot R_6 \label{eq:TimerInputModstand} \\
-D & = 0.51 \nonumber \\
+R_5 & = \frac{R_6}{DutyCycle} - 2 \cdot R_6 \label{eq:TimerInputModstand} \\
+DutyCycle & = 0.51 \nonumber \\
 R_6 & = 15 \si{\kilo \ohm} \nonumber
 \end{align}
 
@@ -93,68 +92,88 @@ Parametrene indsættes i ligning \ref{eq:TimerInputModstand}.
 \begin{align}
 R_5 = 588 \si{\ohm} \label{eq:InputBeregnet}
 \end{align}
-Resultatet viser her at $R_5$ skal være $588 \Omega $ for at opnå en duty-cycle på $51 \% $.
+Resultatet viser her at $R_5$ skal være 588 \si{\ohm}  for at opnå en duty-cycle på 51 \% .
 Som det sidste skal der udregnes en kondensator der forbindes til trigger indgangen og til ground. 
-Til dette anvendes ligning 4 i databladet. 
+Til dette anvendes ligning 4 i databladet. Denne ligning isoleres for kondensatoren.
 
-
+\begin{align}
+	C_7 & = \frac{1}{F_c \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) }
+	\end{align}
+Modstandsværdierne er kendte, og der bestemmes her for en frekvens på 50 \si{\kilo\hertz}.
 \begin{align}
 F_c & = 50 \si{\kilo \hertz} \\
-C_7 & = \frac{1}{f \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) } \\
-C_7 & = 0.9nF \nonumber
+C_7 & = 0.9 \si{\nano\farad} \nonumber
 \end{align}
-
-
+Der skal derfor benyttes en kondensator på 0.9 \si{\nano\farad} for at få en frekvens på 50 \si{\kilo\hertz}. 
+Da disse størrelser ikke kan realiseres i SMD vælges derfor tilnærmede værdier. 
+Dette medfører at $R_5$ bliver 680 \si{\ohm} og $C_7$ på 1 \si{\nano\farad}. 
+Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet.
 \begin{align}
-R_5 & = 680 \Omega \nonumber \\
-C_7 & = 1nF \nonumber \\
-D & = 0.49 \nonumber \\
+R_5 & = 680 \si{\ohm} \nonumber \\
+C_7 & = 1 \si{\nano\farad} \nonumber \\
+DutyCycle & = 0.49 \nonumber \\
 F_c & = 46.936 \si {\kilo\hertz} \nonumber
 \end{align}
+I det praktiske kredsløb forventes der derfor en duty-cycle på 49 \% og en frekvens 46.9 \si{\kilo\hertz}. 
+Duty-cyclen ligger tæt på 50 \% og frekvensen den ønskede frekvens er så stor at en lille afvigelse ikke kommer til at have en stor betydning. Denne opstilling accepteres.
 
-
-
+Der skal herefter sættes en kondensator på udgangen således at udgangsspændingen kan antage både positive og negative værdier. 
+Middelspændingen over en spole er 0 \si{\volt}, det er outputtet ikke, og det er kondensatorens formål. 
 \begin{align}
 	L & = 205 \si{\micro \henry} \nonumber  \\
-	\omega_c & = 294.910 \si{\kilo\radian\per\second} \nonumber \\
+	\omega_c & = 2 \cdot \pi 46936 \\
+	\omega_c & = 294.910 \si{\kilo\radian\per\second} \nonumber 
+	\end{align}
+Det er her ikke ønsket at kondensator og spole impedans bliver lige store idet der opstår en resonanskreds. 
+Der vælges her at spolens impedans skal være 20 gange større end kondensatorens impedans.
+\begin{align}
 	Z_L & = \omega_c \cdot L \\
 	Z_L & = 60.5 \si{\ohm} \nonumber \\
 	Z_C & = \frac{1}{\omega_c \cdot C} \\
-	Z_L & \gg Z_c \nonumber \\
-	C & = \frac{1}{\omega_c ^2 \cdot L}	\\
-	C & = 56 \si{\nano\farad} \nonumber
-	\end{align}
-
-
-\begin{align}
 	Z_L & = 20 \cdot Z_c \\
-	C_c & = 1.1 \si{\micro\farad} \nonumber
+	C_7 & = 1.1 \si{\micro\farad} \nonumber
 	\end{align}
-
+Ved en kondensator størrelse på 1.1 \si{\micro\farad} er størrelsesforholdet mellem de 2 impedanser 20 gange. 
+SMD kondensatoren der passer til er på 1 \si{\micro\farad}. Det praktiske størrelsesforhold udregnes igen.
+\begin{align}
+	C_7 & = 1 \si{\micro\farad} \nonumber \\
+	Z_L \cdot Z_c & = 17.8 \nonumber
+	\end{align}
+På grund af modstanden og kondensatoren i kredsløbet så opstår der en forsinkelse i systemet der er lig produktet af kondensatorens og modstandens størrelser. 
 \begin{align}
 	R & = 1 \si{\kilo\ohm} \nonumber \\
 	\tau & = R \cdot C \\
 	\tau & = 1 \si{\milli\second} \nonumber
 \end{align}
-
+En forsinkelse på 1 \si{\milli\second}. 
+Denne forsinkelse er langsom nok til at være acceptabel i systemet. 
 \subsection{Båndpassfilter}
-...
+Til at fjerne støj og andre udefrakommende forstyrrelser i systemet, skal der laves et filter.
+Der vil her blive designet et aktivt båndpas filter, da der kun ønskes at én bestemt frekvens forstærkes.
+Fordelen ved det aktive filter er at den kan både forstærke og filtrerer.
 
 \subsubsection{Design}
-...
+Den valgte opstilling der anvendes er taget fra figur 5.1-4 \cite[side. 208]{Huelsman1993}.
+\husk{Nikolaj}{Indsæt schematic af det aktive filter fra bogen}
+Filteret er designet så modstanden $R_5$ gør forstærkningen ved centerfrekvens bliver en fri variable.
+Heraf designes filteret efter en ønsket båndbredde, centerfrekvens og centerfrekvens forstærkning. Q er systemets 'godhed' og anvendes til at bestemme bredden på båndbredden. 
+$\omega_c$ er centerfrekvensen der ønskes forstærket.
+$H_o$ er forstærkningen ved den ønskede centerfrekvens.
 
 \subsubsection{Beregninger}
-
+Der ønskes her en centerfrekvens forstærkning på 3 og en 'godhed' på 3. 
+Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren. 
+Heraf skal der vælges kondensator værdier, da der ikke kan regnes modstandsværdier uden. 
+Det er her besluttet at begge kondensatorer skal være lige store.
 \begin{align}
-C_{filter} & = 470pF \nonumber \\
+C_{10} & = 470 \si{\pico\farad} \nonumber \\
 H_o & = 3 \nonumber \\
 Q & = 3 \nonumber \\
 F_c & = 46.936 \si{\kilo\hertz} \nonumber \\
 \omega_c & = 2 \cdot \pi \cdot F_c
 \end{align}
 
-C10=C11=C17=C16
-
+Heraf udregnes båndbredden for filteret og filtermodstandene. \cite[Side. 209]{Huelsman1993}
 \begin{align}
 B & = \frac{F_c}{Q} \\
 R_8 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
@@ -165,15 +184,13 @@ R_8 & = 7.215 \si{\kilo\hertz} \nonumber \\
 R_9 & = 1.430 \si{\kilo\ohm} \nonumber \\
 R_{10} & = 43.288 \si{\kilo\ohm} \nonumber 
 \end{align}
-
-R8 er lig R13. R9 er lig R14. R10 er lig R15.
-
+De teoretiske modstandsværdier skal tilpasses til de SMD modstande der er til rådighed.
 \begin{align}
 	R_8 & = 6.8 \si{\kilo\ohm} \nonumber \\
 	R_9 & = 1.5 \si{\kilo\ohm} \nonumber \\
 	R_{10} & = 47 \si{\kilo\ohm} \nonumber
 \end{align}
-...
+Disse ændringer bruges til at regne ud hvordan dette påvirker det praktiske system. Til udregning af dette omskrives ligningerne 13a, 13b og 13c. \cite[Side. 208]{Huelsman1993}
 \begin{align}
 	F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
 	H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
@@ -182,8 +199,9 @@ R8 er lig R13. R9 er lig R14. R10 er lig R15.
 	H_o & = 3.5 \nonumber \\
 	B & = 14.9 \si{\kilo\ohm} \nonumber
 \end{align}
-
+En forøgelse af forstærkningen er acceptabel så længe instrumenteringsforstærkeren ikke går i mætning, hvilket den er designet til ikke at gøre. En mindre centerfrekvens og båndbredde findes også acceptabel. Båndbredden er stor nok til at systemet ikke bliver bemærkelsesværdigt langsomt, og centerfrekvensen varrierer ikke så meget fra den ønskede at den bliver dæmpet.
 \subsection{Ensretter}
+\husk{Kenneth}{Billede af output fra ensretter}
 Da modtagerspolerne får overført signalet der genereres af frekvensgeneratoren, så vil inputtet til instrumenteringsforstærkeren få en tilnærmet sinus. 
 For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
 
@@ -206,47 +224,45 @@ Der vælges en rippelspænding på 15\% af peakspændingen
 \begin{align}
 	V_{rip} & = 300 \si{\milli\volt} \nonumber
 \end{align}
-Da der ikke er ligninger nok til at bestemme alle variable, bestemmes afladningskondensatoren til
+Da der ikke er ligninger nok til at bestemme alle variable, bestemmes afladningsmodstaden til
 \begin{align}
 	R_{11} & = 5 \si{\kilo\ohm} \nonumber
 \end{align}
-
+Modstanden og kondensatoren sidder parallelt, hvilket gør at strømmen gennem kondensatoren kan beregnes ved Ohm's lov. Denne strøm bruges både til opladning og afladning.
 \begin{align}
 	i & = \frac{V}{R_{11}} \\
 	i & = 400 \si{\mu\ampere}\nonumber
 \end{align}
 
+Den teoretiske værdi for kondensatoren udregnes ved hjælp af ligning 3.36 i bog "\cite[side. 160]{Sedra19uu}".
 \begin{align}
 	C_{14} & = \frac{V}{V_{rip} \cdot F_c \cdot R_{11}}\\
 		C_{14} & = 30nF \nonumber
 \end{align}
-	C14=C20. R11=R16
-...
+
+	
+På grund af komponentværdi begræsninger i SMD rækken (E6) på komponentlageret, vælges afladningsmodstanden $R_{11} = 4.7 \si{\kilo\ohm}$, hvoraf en ny teoretisk kondensatorværdi findes $C_{14} = 22 \si{\nano\farad}$.
+
+
+$\tau$ er tidskonstanten mellem modstanden og kondensatoren, og er forsinkelsen mellem opladning og afladningen. 
 \begin{align}
-		R_{11} & = 4.7k \Omega \nonumber \\
-		C_{14} & = 22 \si{\nano\farad} \nonumber \\
-		C_{14} \cdot R_{11} & \gg \frac{1}{F_c} \\
-		\frac{1}{F_c} & = 22 \\
-		T & = \frac{1}{F_c}
+		\tau & = C_{14} \cdot R_{11}
 \end{align}
-...
-	\begin{align}
-		\frac{R_{11} \cdot C_{14}}{T} & = 4.6
-	\end{align}
-...
+
+Da signalet skal ensrettes, skal tidskonstanten, $\tau$ være meget større end periodetiden $T = \frac{1}{F_c}$, for at glatte signalet ud. Periodetiden udregnes til $T = 22 \si{\micro\second}$.
 \begin{align}
-	C_{14} & = 47 \si{\nano\farad} \nonumber \\
-	\frac{R_{11} \cdot C_{14}}{T} & = 9.8
-	\end{align}
-...
+		\tau & \gg T \nonumber
+\end{align}
+Vælges en kondensatorværdi på $C_{14} = 100 \si{\nano\farad}$ fås et forhold på,
+
 \begin{align}
-	C_{14} & = 100 \si{\nano\farad} \nonumber \\
-	\frac{R_{11} \cdot C_{14}}{T} & = 21
-	\end{align}
+	\frac{\tau}{T} & = 21
+\end{align}
+hvilket svarer til at afladningstiden er 21 gange større end periodetiden. Det er sikre en lille ripplespænding, så er udgangsspændingen tilnærmelsesvis en DC.
 
 \subsection{Instrumenteringsforstærker}
+\husk{Kenneth}{Billede af output fra instrumenteringsforstæker}
 For at få en retning ud af spolesignalerne, anvendes instrumenteringsforstærkeren AD623. Instrumenteringsforstærkeren er valgt frem andre operationsforstærker typer, da den har meget større indgangsimpedans, hvilket er hensigtsmæssigt, da strømmene fra modtagerspolerne ikke er særligt store. Valget af instrumenteringsforstærkeren har også den fordel, at forstærkningen kan styres med blot en modstand, hvilket sparer plads på print boardet.
-
 
 
 \subsubsection{Design}
@@ -255,24 +271,24 @@ Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en 
 \husk{Kenneth}{Billede af instrumenterings kredsløb} 
 
 \subsubsection{Beregninger}
-
 \husk{Kenneth}{Find ud af spændingen før forstærkning. Også i filteret}
+Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 
+Der tilstræbes en forstærkning på 4 - 5 gange, og udregnes med ligning \ref{eq:GainModstand}
 \begin{align}
-	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} 
+	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} \label{eq:GainModstand}
 \end{align}
-
+hvor en gainmodstand på 22 \si{\kilo\ohm} giver en forstærkning på 4.5.
 \husk{Kenneth}{Husk gain tabel i bilag} 
 
-\subsection{Regulator}
+\subsection{PD-Regulator}
 ...
-
 \subsubsection{Design}
 ....
 \subsubsection{Beregninger}
 ...
 
-\section{Motorstyring}\label{sec:sec_motorstyring}
+\subsection{Motorstyring}\label{sec:sec_motorstyring}
 
 \begin{itemize}
 	\item Omsætter volt til ampere (current control)
