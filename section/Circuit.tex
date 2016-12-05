@@ -15,7 +15,9 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 	\item LiPo celler for mest afladekapacitet pga. motor som trækker en del
 	\item Billige og tilgængelige
 \end{itemize}
-\subsection{Spændingsregulator}
+\subsection{Shunt regulator}
+
+
 
 \begin{itemize}
 	\item Konstant x antal volt til frekvensgeneratoren
@@ -241,7 +243,7 @@ Den teoretiske værdi for kondensatoren udregnes ved hjælp af ligning 3.36 i bo
 \end{align}
 
 	
-På grund af komponentværdi begræsninger i SMD rækken på komponentlageret, vælges afladningsmodstanden til $R_{11} = 4.7 \si{\kilo\ohm}$, hvoraf en ny teoretisk kondensatorværdi findes $C_{14} = 22 \si{\nano\farad}$.
+På grund af komponentværdi begræsninger i SMD rækken (E6) på komponentlageret, vælges afladningsmodstanden $R_{11} = 4.7 \si{\kilo\ohm}$, hvoraf en ny teoretisk kondensatorværdi findes $C_{14} = 22 \si{\nano\farad}$.
 
 
 $\tau$ er tidskonstanten mellem modstanden og kondensatoren, og er forsinkelsen mellem opladning og afladningen. 
@@ -274,22 +276,21 @@ Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en 
 \husk{Kenneth}{Find ud af spændingen før forstærkning. Også i filteret}
 Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 
-Der tilstræbes en forstærkning på 20 gange, og udregnes med ligning \ref{eq:GainModstand}
+Der tilstræbes en forstærkning på 4 - 5 gange, og udregnes med ligning \ref{eq:GainModstand}
 \begin{align}
 	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} \label{eq:GainModstand}
 \end{align}
-hvor der fås en gainmodstand på 5 \si{\kilo\ohm}
+hvor en gainmodstand på 22 \si{\kilo\ohm} giver en forstærkning på 4.5.
 \husk{Kenneth}{Husk gain tabel i bilag} 
 
-\subsection{Regulator}
+\subsection{PD-Regulator}
 ...
-
 \subsubsection{Design}
 ....
 \subsubsection{Beregninger}
 ...
 
-\section{Motorstyring}\label{sec:sec_motorstyring}
+\subsection{Motorstyring}\label{sec:sec_motorstyring}
 
 \begin{itemize}
 	\item Omsætter volt til ampere (current control)

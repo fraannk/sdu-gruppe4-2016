@@ -6,6 +6,7 @@
 For at kunne dimensionere og designe en spole, er det væsentligt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
 
 Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som skal stå for at udsende et signal. Herudover 2 mindre identiske spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se afsnit **.
+\husk{Simon}{Indsæt afsnitsnummer}
 
 I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt(B), flux$(\Phi)$, induktans(L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
 
@@ -14,7 +15,7 @@ Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
 \subsubsection{Magnetfelt}
-
+\husk{Kenneth}{Til Simon: Større bogstaver på tegning.}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/B_felt.png}
@@ -93,7 +94,7 @@ Et endeligt udtryk for magnetfeltet $B(z)$ gives i ligning \ref{eq:Bz_field}.
 \end{align}
 
 
-Da dette udtryk kun er gældende for en cirkulær leder, altså en luftspole med 1 vinding, skal et nyt udtryk bestemmes. Dette udtryk tager udgangspunkt i ligning \ref{eq:Bz_field}, som blev udledt før.
+Da dette udtryk kun er gældende for en cirkulær leder, altså en spole med 1 vinding, skal et nyt udtryk bestemmes. Dette udtryk tager udgangspunkt i ligning \ref{eq:Bz_field}, som blev udledt før.
 
 \begin{figure}[h!]
 	\centering
@@ -168,37 +169,52 @@ Flux i den lille spole hidrørende fra den store spole, ved fuld overlappelse er
 Hvor $B$ er det magnetiske felt, og $A_2$ er arealet på den lille spoles overflade.
 Da $B$ feltet er homogent på hele overfladen, antages $B$ konstant. 
 
-Ud fra dette udtryk, kan den totalte EMF, der er induceret over i den lille spole blive bestemt ved følgende udtryk:
+Ud fra dette udtryk, kan den totale EMF, der er induceret over i den lille spole blive bestemt ved følgende udtryk:
 
 \begin{align}
-	&\xi = -N_2\frac{d\Phi_{21}}{dt}
+	&\xi = -N_2\frac{d\Phi_{21}}{dt} \label{eq:emf_lille_spole}
 \end{align}
 
 Hvor $N_2$ er antal vindinger i den lille spole.
 \\ \\
-Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktansen kendes og dermed kan spændingen i den store spole finde ved:
+Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktansen kendes og dermed kan spændingen i den store spole findes ved:
 
 \begin{align}
-	&V = L\frac{di}{dt}
+	&V = L\frac{di}{dt} \label{eq:ldidt}
 \end{align}
- 
-\subsubsection{Simluering}
 
-
+\subsubsection{Udregninger}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.2\textwidth]{billeder/EMF_stor_spole.png}
+	\includegraphics[width=.6\textwidth]{billeder/EMF_stor_spole.png}
 	\caption{EMF spænding i stor spole}
 	\label{fig:EMF_stor_spole}
 \end{figure}
+I figur \ref{fig:EMF_stor_spole}, ses en graf der viser spænding som funktion af tiden i den store spole. se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
 
+\begin{align}
+	&i=0.05\cdot sin(2pi\cdot 47048\cdot t)
+\end{align}
+
+\husk{Simon}{Juster billeder}
+Hvor $0.05$ er peakstrømmen målt i Ampere, og $47048$ er frekvensen i $Hz$.\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/EMF_lille_spole.png}
 	\caption{EMF spænding i lille spole}
 	\label{fig:EMF_lille_spole}
 \end{figure}
+For at plotte spændingen overført i den lille spole, bruges ligning \ref{eq:emf_lille_spole}. Plottet af denne ses i figur \ref{fig:EMF_lille_spole}. Her ses ca. en halvering i spænding. Alle data brugt i udregningerne ses i tabel ***
+ \husk{Simon}{indsæt tabel over data}
 
+ 
+\subsubsection{Simluering}
+I dette underafsnit bliver teorien simulueret.
+Dette gøres vha. simuleringsprogrammet Comspol.
+Der vil derudover blive gjort rede og kommenteret på hver figur. 
+\\
+I simuleringen skal der tages højde for, at strømmen $i$ er givet ved et sinussignal, og ikke et firkantsignal, som det er i det virkelige system.
+Da det er komplekst at simulere et firkantsignal i Comsol, vil dette ikke blive gjort. Det kan dog godt forsvares, ved at sammenligne resultaterne med tabel *** \husk{Simon}{indsæt tabel over resultater}
 
 
 
