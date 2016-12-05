@@ -28,6 +28,7 @@ Af brugbare signaler findes der firkant, trekant og sinus signaler.
 	
 	\subsubsection{Beregninger}
 	
+	
 	\begin{align}
 	V_{in} & = 8.4 \si{\milli\ampere} \nonumber \\
 	V_{out} & = 7 \si{\volt} \nonumber \\
@@ -162,7 +163,7 @@ $\omega_c$ er centerfrekvensen der ønskes forstærket.
 $H_o$ er forstærkningen ved den ønskede centerfrekvens.
 
 \subsubsection{Beregninger}
-
+Der ønskes her en centerfrekvens forstærkning på 3 og en 'godhed' på 3. Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren. Heraf skal der vælges kondensator værdier, da der ikke kan regnes modstandsværdier uden. Det er her besluttet at begge kondensatorer skal være lige store.
 \begin{align}
 C_{filter} & = 470 \si{\pico\farad} \nonumber \\
 H_o & = 3 \nonumber \\
@@ -171,8 +172,7 @@ F_c & = 46.936 \si{\kilo\hertz} \nonumber \\
 \omega_c & = 2 \cdot \pi \cdot F_c
 \end{align}
 
-C10=C11=C17=C16
-
+Heraf udregnes båndbredden for filteret og filtermodstandene. 
 \begin{align}
 B & = \frac{F_c}{Q} \\
 R_8 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
@@ -184,7 +184,6 @@ R_9 & = 1.430 \si{\kilo\ohm} \nonumber \\
 R_{10} & = 43.288 \si{\kilo\ohm} \nonumber 
 \end{align}
 
-R8 er lig R13. R9 er lig R14. R10 er lig R15.
 
 \begin{align}
 	R_8 & = 6.8 \si{\kilo\ohm} \nonumber \\
