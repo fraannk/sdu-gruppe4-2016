@@ -1,1 +1,35 @@
-\section{Shunt\label{sec:shunt}}
+\section{Shunt}\label{sec:shunt}
+\section{Shunt regulator}
+
+
+
+\begin{itemize}
+	\item Konstant x antal volt til frekvensgeneratoren
+	\item Tager højde for voltage sag i LiPo batterier
+\end{itemize}
+
+
+\subsection{Design}
+...
+
+\subsection{Beregninger}
+
+
+\begin{align}
+	V_{in} & = 8.4 \si{\milli\ampere} \nonumber \\
+	V_{out} & = 7 \si{\volt} \nonumber \\
+	I_{in} & = 20\si{\milli\ampere} \nonumber \\
+	I_Z & = 5 \si{\milli\ampere} \nonumber \\
+	I_{out} & = I_{in} - I_Z \\
+	I_{out} & = 15 \si{\milli\ampere} \nonumber \\
+	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
+	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
+\end{align}
+
+R1 er lig R2
+Den første R1 er den beregnede
+\begin{align}
+	R_1 & = 68 \si{\ohm} \nonumber \\
+	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \\
+	V_{out} & = 7.04 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
+\end{align}
