@@ -63,14 +63,12 @@ Fordelen ved dette er at timeren kan hente sit input direkte fra forsyning der i
 Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelse og det vil give en hurtigere respons. \\
 \husk{Nikolaj}{Indsæt figur af astabel konfiguration}
 
-Der er dog den begrænsning at timeren kun kan lave et firkantet output. 
-Hvis firkant signalet skal laves om til et sinus så kræver det nogle ekstra komponenter, hvilket betyder et potentielt langsommere system plus ekstra effekt afsættelse, og dermed en mindre spænding. For spolen betyder det ikke så meget om signalet er firkantet eller sinus formet, så længe det er et tidsvarierende signal, så opstår der gensidig induktans.
+Timeren er designet til at lave et firkant signal, og det er også bestemt at dette signal sendes gennem spolen.
+Skulle denne laves om til en sinus ville det kræve ekstra komponenter og lave en masse effekttab og give et langsommere system.
 
-Den næste ulempe ved timeren er at den ikke kan lave en negativ spænding på udgangen. 
-Det vil sige at signalet vil svinge mellem 0 og forsyningsspændingen. 
-Dette er et problem fordi spolen ikke laver et varierende magnetfelt der varierer mellem plus og minus. For at løse dette problem skal der sættes en kondensator på udgangen. 
-Denne kondensator skal regnes så dens impedans er meget mindre en spolens impedans ved den ønskede frekvens. 
-Dette medfører at signalet på udgangen komme til at svinge mellem en positiv og negativ værdi, svarende til det halve af forsyningen.
+Signalet der kommer ud af timeren er begrænset således at udgangsspændingen kun kan antage positive værdier.
+For at løse dette skal der sættes en kondensator i serie med spolen.
+Dette gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
 
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
@@ -163,16 +161,19 @@ $\omega_c$ er centerfrekvensen der ønskes forstærket.
 $H_o$ er forstærkningen ved den ønskede centerfrekvens.
 
 \subsubsection{Beregninger}
-Der ønskes her en centerfrekvens forstærkning på 3 og en 'godhed' på 3. Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren. Heraf skal der vælges kondensator værdier, da der ikke kan regnes modstandsværdier uden. Det er her besluttet at begge kondensatorer skal være lige store.
+Der ønskes her en centerfrekvens forstærkning på 3 og en 'godhed' på 3. 
+Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren. 
+Heraf skal der vælges kondensator værdier, da der ikke kan regnes modstandsværdier uden. 
+Det er her besluttet at begge kondensatorer skal være lige store.
 \begin{align}
-C_{filter} & = 470 \si{\pico\farad} \nonumber \\
+C_{10} & = 470 \si{\pico\farad} \nonumber \\
 H_o & = 3 \nonumber \\
 Q & = 3 \nonumber \\
 F_c & = 46.936 \si{\kilo\hertz} \nonumber \\
 \omega_c & = 2 \cdot \pi \cdot F_c
 \end{align}
 
-Heraf udregnes båndbredden for filteret og filtermodstandene. 
+Heraf udregnes båndbredden for filteret og filtermodstandene. \cite[Side. 209]{Huelsman1993}
 \begin{align}
 B & = \frac{F_c}{Q} \\
 R_8 & = \frac{Q}{\omega_n \cdot C_{filter} \cdot H_o } \\
@@ -183,14 +184,13 @@ R_8 & = 7.215 \si{\kilo\hertz} \nonumber \\
 R_9 & = 1.430 \si{\kilo\ohm} \nonumber \\
 R_{10} & = 43.288 \si{\kilo\ohm} \nonumber 
 \end{align}
-
-
+De teoretiske modstandsværdier skal tilpasses til de SMD modstande der er til rådighed.
 \begin{align}
 	R_8 & = 6.8 \si{\kilo\ohm} \nonumber \\
 	R_9 & = 1.5 \si{\kilo\ohm} \nonumber \\
 	R_{10} & = 47 \si{\kilo\ohm} \nonumber
 \end{align}
-...
+Disse ændringer bruges til at regne ud hvordan dette påvirker det praktiske system. Til udregning af dette omskrives ligningerne 13a, 13b og 13c. \cite[Side. 208]{Huelsman1993}
 \begin{align}
 	F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
 	H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
@@ -199,7 +199,7 @@ R_{10} & = 43.288 \si{\kilo\ohm} \nonumber
 	H_o & = 3.5 \nonumber \\
 	B & = 14.9 \si{\kilo\ohm} \nonumber
 \end{align}
-
+En forøgelse af forstærkningen er acceptabel så længe instrumenteringsforstærkeren ikke går i mætning, hvilket den er designet til ikke at gøre. En mindre centerfrekvens og båndbredde findes også acceptabel. Båndbredden er stor nok til at systemet ikke bliver bemærkelsesværdigt langsomt, og centerfrekvensen varrierer ikke så meget fra den ønskede at den bliver dæmpet.
 \subsection{Ensretter}
 \husk{Kenneth}{Billede af output fra ensretter}
 Da modtagerspolerne får overført signalet der genereres af frekvensgeneratoren, så vil inputtet til instrumenteringsforstærkeren få en tilnærmet sinus. 
