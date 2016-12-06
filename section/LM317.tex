@@ -1,1 +1,17 @@
-\section{LM317}\label{sec:lm317}
+\section{Lineær spændingsregulator}\label{sec:lm317}
+For at få en konstant spænding på 14\si{\volt} til frekvensgeneratoren, anvendes en LM317, da den har den fordel, at outputspændningen kan styres med kun to modstande.
+
+
+\subsection{Opstilling}
+\husk{Kenneth}{Billede af LM317}
+
+
+For at finde de to modstandsværdier anvendes
+\husk{Kenneth}{Reference til datablad(Formel)}
+\husk{Kenneth}{Undersøge om modstandsværdier skal ændres}
+
+\begin{align}
+	V_{out} & = V_{ref} \cdot \left( 1 + \frac{R_3}{R_4} \right) + I_{ADJ} \cdot R_3
+\end{align}
+
+Hvor $V_{ref} = 1.25\si{\volt}$ og $I_{ADJ} = 100\si{\micro\ampere}$. Indsættes værdierne i formlen fåes en outputspænding på 15\si{\volt}.

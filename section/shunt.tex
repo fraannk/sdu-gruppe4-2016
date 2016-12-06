@@ -1,5 +1,4 @@
-\section{Shunt}\label{sec:shunt}
-\section{Shunt regulator}
+\section{Shunt regulator}\label{sec:shunt}
 
 
 
@@ -10,13 +9,16 @@
 
 
 \subsection{Design}
-...
+En shunt regulator er en spændingsregulator der benytter en zenerdiode til at regulere spændings niveauet.
+Shunt regulatoren har den fordel at uanset ripplen på indgangsspædningen så vil den forsøge at holde udgangsspændingen med en så lille ripple som muligt.
+Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7 \si{\volt}$ på udgangen.
+Spændingen på udgangen skal være henholdsvis $\pm 7 \si{\volt}$ da dette skal bruges til at forsyne operationsforstærkerne i de næste kredsløb.
 
 \subsection{Beregninger}
 
 
 \begin{align}
-	V_{in} & = 8.4 \si{\milli\ampere} \nonumber \\
+	V_{in} & = 8.4 \si{\volt} \nonumber \\
 	V_{out} & = 7 \si{\volt} \nonumber \\
 	I_{in} & = 20\si{\milli\ampere} \nonumber \\
 	I_Z & = 5 \si{\milli\ampere} \nonumber \\
