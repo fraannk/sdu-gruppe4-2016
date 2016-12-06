@@ -1,8 +1,5 @@
 \section{Design af spoler}\label{sec:sec_spole_design}
 
-\subsection{Dimensionering af spoler}
-
-
 For at kunne dimensionere og designe en spole, er det væsentligt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
 
 Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som skal stå for at udsende et signal. Herudover 2 mindre identiske spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se afsnit **.
@@ -14,7 +11,7 @@ Først vil dimensioneringen af den store spole tages højde for, hvorefter der k
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt taget brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
-\subsubsection{Magnetfelt}
+\subsection{Magnetfelt}
 \husk{Kenneth}{Til Simon: Større bogstaver på tegning.}
 \begin{figure}[h!]
 	\centering
@@ -149,7 +146,7 @@ Og et endeligt udtryk:
 	&B(z)= \frac{\mu_0 \: i \: R^2 \: N}{2L}\left(\frac{\frac{L}{2}-z}{\sqrt{(z-\frac{L}{2})^2+R^2}}+\frac{\frac{L}{2}+z}{\sqrt{(z+\frac{L}{2})^2+R^2}}\right)
 \end{align}
 
-\subsubsection{Flux og elektromotorisk kraft}
+\subsection{Flux og elektromotorisk kraft}
 I dette afsnit vil den magnetiske flux blive bestemt.  
 Faraday lavede et eksperiment, og fandt ud af, at et magnetfelt der ændrer sig over tid i en lukket lederkreds, skabte en induceret EMF inde i kredsen.
 Dette lavede han et udtryk for:
@@ -183,11 +180,12 @@ Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktans
 	&V = L\frac{di}{dt} \label{eq:ldidt}
 \end{align}
 
-\subsubsection{Strømfortrængning}
+\subsection{Strømfortrængning}\label{Sec_skineff.}
 I forbindelse med valg af trådtykkelse på kobbertråden, som skal vikles rundt om spolerne, er strømfortrængningen i ledningen væsentlig.\\
 Hvis signalet i spolerne havde været et rent DC signal, kunne strømmen antages homogent i hele tværsnitsarealet i kobbertråden.
 Da dette ikke er tilfældet, vil AC signalet "fotrænge" ud i kanten af koppertrådens tværsnitsareal. 
-Der bliver derved skabt et hulrum inden i koppertråden.
+Der bliver derved skabt et hulrum inden i koppertråden. \\
+Herved bliver modstanden i kobbertråden ændret.
 AC modstanden i koppertråden findes ved ligning \ref{eq:R_AC}.
 
 \begin{align}
@@ -228,40 +226,90 @@ Hvor
 \husk{Simon}{indsæt link som reference: http://chemandy.com/calculators/round-wire-ac-resistance-calculator.htm 5/12-16. kl 13}
 
 
-\subsubsection{Udregninger}
-I følgende afsnit vil den teoretiske del blive anvendt, til at finde de værdier, der bliver brugt i spoledesignet.
+\subsection{Resultater}
+I følgende afsnit vil den teoretiske del blive anvendt, til at finde de værdier, der bliver brugt i spoledesignet.\\
+Derudover, vil målinger foretaget med et oscilloskop blive analyseret og teorien eftervist.\\ 
 Tykkelsen på kobbertråden, vælges meget tynd af flere grunde.
-Én af grundene, er pga. plads. spolens længde $L$ er bestemt til $10mm$.
-\husk{Simon}{Henvis til 3d spoledesign}
-Dette gælder både for den store, og de små spoler. 
-En anden grund til tynd kobbertråd, er strømfortrængning, også kaldet skineffekten. 
-\husk{Simon}{henvis til skineffekt}
+Én af grundene, er pga. plads, men som udangspunkt dimensioneret ud fra afsnit \ref{Sec_skineff.}. \\
+Der ønskes en så lav modstand som muligt.  
+Dette gælder både for den store, og de små spoler.\\
+Med hensyn til det fysiske design af spolehuset, henvises til afsnit\husk{Simon}{Indsæt henvisning}
+Et fuldstændigt overblik over alle værdier for spolerne,som er dimensioneret ud fra teorien, findes herunder.
+\begin{align}
+&i=0.05\cdot sin(2pi\cdot 46936\cdot t) \nonumber
+\end{align}
+\begin{align}
+&\mu_0 =4\pi 10^{-7} \nonumber
+\end{align}
+\begin{align}
+&\mu_r =1 \nonumber
+\end{align}
+\begin{align}
+&l = 0.01\m \nonumber
+\end{align}
+\begin{align}
+&N_1=63\nonumber
+\end{align}
+\begin{align}
+&N_2=300\nonumber
+\end{align}
+\begin{align}
+&R_1=0.0175\m\nonumber
+\end{align}
+\begin{align}
+&R_2=0.00855\m\nonumber
+\end{align}
+\begin{align}
+&A_1=9.6211\cdot 10^{-4} \m^2\nonumber
+\end{align}
+\begin{align}
+&A_2=2.2966\cdot 10^{-4} \m^2\nonumber
+\end{align}
+
+\subsubsection{Stor spole}
+
+Den store spole er bestemt ud fra, at den skal fungere som en enhed, der skal sende et signal videre. 
+Signalet i denne, skal derfor være forholdsvis kraftigt, dermed også B feltet.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.3\textwidth]{billeder/B_felt_stor_spole.png}
+	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra stor spole}
+	\label{fig:B_felt_stor_spole}
+\end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\textwidth]{billeder/EMF_stor_spole.png}
+	\includegraphics[width=.3\textwidth]{billeder/EMF_stor_spole.png}
 	\caption{EMF spænding i stor spole}
 	\label{fig:EMF_stor_spole}
 \end{figure}
 I figur \ref{fig:EMF_stor_spole}, ses en graf der viser spænding som funktion af tiden i den store spole. se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
 
 \begin{align}
-	&i=0.05\cdot sin(2pi\cdot 47048\cdot t)
+&i=0.05\cdot sin(2pi\cdot 46936\cdot t)
 \end{align}
-
-\husk{Simon}{Juster billeder}
-Hvor $0.05$ er peakstrømmen målt i Ampere, og $47048$ er frekvensen i $Hz$.\\
+Frekvensen og peakstrømmen er dimensioneret ud fra afsnit. \husk{Simon}{Ref til Frekv. generator}
+Her ses en induceret spænding med en peak to peak på ca. 6\volt. Denne graf er plottet ud fra ligning
+\subsubsection{Lille spole}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/EMF_lille_spole.png}
 	\caption{EMF spænding i lille spole}
 	\label{fig:EMF_lille_spole}
 \end{figure}
+
+
+
+
+
+\husk{Simon}{Juster billeder}
+Hvor $0.05$ er peakstrømmen målt i Ampere, og $47048$ er frekvensen i $Hz$.\\
+
 For at plotte spændingen overført i den lille spole, bruges ligning \ref{eq:emf_lille_spole}. Plottet af denne ses i figur \ref{fig:EMF_lille_spole}. Her ses ca. en halvering i spænding. Alle data brugt i udregningerne ses i tabel ***
  \husk{Simon}{indsæt tabel over data}
 
  
-\subsubsection{Simluering}
+\subsection{Simluering}
 I dette underafsnit bliver teorien simuleret.
 Dette gøres vha. simuleringsprogrammet Comspol.
 Der vil derudover blive gjort rede og kommenteret på hver figur. 
@@ -269,7 +317,18 @@ Der vil derudover blive gjort rede og kommenteret på hver figur.
 I simuleringen skal der tages højde for, at strømmen $i$ er givet ved et sinussignal, og ikke et firkantsignal, som det er i det virkelige system.
 Da det er komplekst at simulere et firkantsignal i Comsol, vil dette ikke blive gjort. Det kan dog godt forsvares, ved at sammenligne resultaterne med tabel *** \husk{Simon}{indsæt tabel over resultater}
 
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/Comsol_B_field_begge.png}
+	\caption{Magnetfeltet simuleret 13 $\mm$ ud fra stor spole, i ligeposition}
+	\label{fig:B_Comsol_begge}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/Comsol_B_field.png}
+	\caption{Magnetfeltet simuleret 13 $\mm$ ud fra stor spole, ved fuld overlappelse}
+	\label{fig:B_Comsol}
+\end{figure}
 
 
 
