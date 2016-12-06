@@ -8,10 +8,9 @@ For at få en konstant spænding på 14\si{\volt} til frekvensgeneratoren, anven
 
 For at finde de to modstandsværdier anvendes
 \husk{Kenneth}{Reference til datablad(Formel)}
-\husk{Kenneth}{Undersøge om modstandsværdier skal ændres}
 
 \begin{align}
 	V_{out} & = V_{ref} \cdot \left( 1 + \frac{R_3}{R_4} \right) + I_{ADJ} \cdot R_3
 \end{align}
 
-Hvor $V_{ref} = 1.25\si{\volt}$ og $I_{ADJ} = 100\si{\micro\ampere}$. Indsættes værdierne i formlen fåes en outputspænding på 15\si{\volt}.
+Hvor $V_{ref} = 1.25\si{\volt}$ og $I_{ADJ} = 100\si{\micro\ampere}$. Indsættes værdierne i formlen fåes en outputspænding på 15\si{\volt}. Grunden til, at spændingen bliver 15\si{\volt} og ikke 14\si{\volt}, er adjust-ledet, $I_{ADJ} \cdot R_3$, som normalt kan negligeres, hvilket ikke er tilfældet her, da modstandsværdierne er for store. Vælges komponentværdierne $R_3 = 3.3\si{\kilo\ohm}$ og $R_4 = 330\si{\ohm}$ fås en outputspænding på 14.08\si{\volt}. Dog vælges der ikke at ændre komponentværdierne, dels fordi de allerede var loddet på printet, og fordi det frekvensgeneratorens maksimale inputspænding er 16\si{\volt}.
