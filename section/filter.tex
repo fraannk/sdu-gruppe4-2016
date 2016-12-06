@@ -6,16 +6,16 @@ Fordelen ved det aktive filter er at den kan både forstærke og filtrerer.
 \subsection{Design}
 Den valgte opstilling der anvendes er taget fra figur 5.1-4 \cite[side. 208]{Huelsman1993}.
 \husk{Nikolaj}{Indsæt schematic af det aktive filter fra bogen}
-Filteret er designet så modstanden $R_5$ gør forstærkningen ved centerfrekvens bliver en fri variable.
-Heraf designes filteret efter en ønsket båndbredde, centerfrekvens og centerfrekvens forstærkning. Q er systemets 'godhed' og anvendes til at bestemme bredden på båndbredden. 
-$\omega_c$ er centerfrekvensen der ønskes forstærket.
+Filteret er designet så modstanden $R_5$ gør forstærkningen ved centerfrekvens til en fri variable.
+Heraf designes filteret efter en ønsket båndbredde, centerfrekvens og centerfrekvens forstærkning. Q er systemets godhed og anvendes til at bestemme bredden på båndbredden. 
+$\omega_c$ er centerfrekvensen der bestemmer ved hvilken frekvens filterets maksimale forstærkning optræde.
 $H_o$ er forstærkningen ved den ønskede centerfrekvens.
 
 \subsection{Beregninger}
-Der ønskes her en centerfrekvens forstærkning på 3 og en 'godhed' på 3. 
-Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren. 
+Der ønskes her en centerfrekvens forstærkning på 3 og en godhed på 3. 
+Centerfrekvensen der skal have den største forstærkning er frekvensen der kommer på udgangen af timeren.
 Heraf skal der vælges kondensator værdier, da der ikke kan regnes modstandsværdier uden. 
-Det er her besluttet at begge kondensatorer skal være lige store.
+Det er her besluttet at begge kondensatorer skal være lige store for at simplificerer udregningerne.
 \begin{align}
 	C_{10} & = 470 \si{\pico\farad} \nonumber \\
 	H_o & = 3 \nonumber \\
