@@ -183,7 +183,60 @@ Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktans
 	&V = L\frac{di}{dt} \label{eq:ldidt}
 \end{align}
 
+\subsubsection{Strømfortrængning}
+I forbindelse med valg af trådtykkelse på kobbertråden, som skal vikles rundt om spolerne, er strømfortrængningen i ledningen væsentlig.\\
+Hvis signalet i spolerne havde været et rent DC signal, kunne strømmen antages homogent i hele tværsnitsarealet i kobbertråden.
+Da dette ikke er tilfældet, vil AC signalet "fotrænge" ud i kanten af koppertrådens tværsnitsareal. 
+Der bliver derved skabt et hulrum inden i koppertråden.
+AC modstanden i koppertråden findes ved ligning \ref{eq:R_AC}.
+
+\begin{align}
+	& R_{AC}=\frac{\rho l}{A_{eff}} \label{eq:R_AC}
+\end{align}
+Hvor
+\begin{align}
+	& \rho = \text{Resistiviteten i koppertråden} \nonumber
+\end{align}
+\begin{align}
+	& l = \text{Længden af koppertråden} \nonumber
+\end{align}
+\begin{align}
+	& A_{eff} = \text{Det effektive areal af strømfortrængningen = $\delta\pi\times\cdot diameter$} \nonumber
+\end{align}
+	
+Frekvensen i spolerne, er dimensioneret forholdsvis høje, hvilket vil betyde strømfortrængning.  \\
+Formlen for strømfortrænging er givet ved ligning \ref{eq:skineffect}.
+\begin{align}
+	& \delta = \sqrt{\frac{\rho}{\pi f\mu_0\mu_r}} \label{eq:skineffect}
+\end{align}
+
+Hvor 
+
+
+
+\begin{align}
+	& f = \text{Frekvensen} \nonumber
+\end{align}
+
+\begin{align}
+	& \mu_0 = \text{Permabilitetskonstant som er givet ved $4\pi 10^-7\henry/\meter$} \nonumber
+\end{align}
+
+\begin{align}
+	& \mu_r = \text{Den relative permabilitetskonstant for kopper} \nonumber
+\end{align}
+\husk{Simon}{indsæt link som reference: http://chemandy.com/calculators/round-wire-ac-resistance-calculator.htm 5/12-16. kl 13}
+
+
 \subsubsection{Udregninger}
+I følgende afsnit vil den teoretiske del blive anvendt, til at finde de værdier, der bliver brugt i spoledesignet.
+Tykkelsen på kobbertråden, vælges meget tynd af flere grunde.
+Én af grundene, er pga. plads. spolens længde $L$ er bestemt til $10mm$.
+\husk{Simon}{Henvis til 3d spoledesign}
+Dette gælder både for den store, og de små spoler. 
+En anden grund til tynd kobbertråd, er strømfortrængning, også kaldet skineffekten. 
+\husk{Simon}{henvis til skineffekt}
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/EMF_stor_spole.png}
@@ -209,7 +262,7 @@ For at plotte spændingen overført i den lille spole, bruges ligning \ref{eq:em
 
  
 \subsubsection{Simluering}
-I dette underafsnit bliver teorien simulueret.
+I dette underafsnit bliver teorien simuleret.
 Dette gøres vha. simuleringsprogrammet Comspol.
 Der vil derudover blive gjort rede og kommenteret på hver figur. 
 \\
