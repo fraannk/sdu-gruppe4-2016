@@ -33,6 +33,11 @@
 \tableofcontents*												
 \newpage
 
+\DoubleSpacing
+%---------- Kalibrerings side --------
+\input{config/kalib}
+\newpage
+
 %---------- Indledning -------------
 \input{section/indledning}							
 
@@ -60,15 +65,17 @@
 \input{section/signal}	
 
 %---------- Parts ----------------
-\input{section/Circuit}
 \input{section/shunt}
+\input{section/filter}
+\input{section/ensretter}
+\input{section/summa}
+\input{section/delkonklusion_signal}
 
 %---------- Chapter ----------------
 \input{section/motor_reg}
 
 %---------- Parts ----------------
 \input{section/motorstyring}
-\input{section/batteri}
 \input{section/regulering}
 
 
@@ -86,12 +93,10 @@
 
 %--------- Bilag -------------------
 \appendix
-%\input{section/small_model}																
-%\input{section/udstyr}
-%\input{section/ugeplan}
-%\input{section/cd_indhold}
-%\input{section/stykliste}
-%\input{section/diagram}
+\input{section/symbol}
+\input{section/stykliste}
+\input{section/diagrammer}
+\input{section/cd_indhold}
 
 
 \end{document}

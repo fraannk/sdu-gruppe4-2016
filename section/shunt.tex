@@ -1,1 +1,37 @@
-\section{Shunt\label{sec:shunt}}
+\section{Shunt regulator}\label{sec:shunt}
+En shunt regulator er en spændingsregulator der benytter en zenerdiode til at regulere spændings niveauet.
+Idet forsyningsbatterierne ikke kan holde en konstant udgangsspænding, kan operationsforstærkerne ved høj forstærkning gå i mætning. 
+For at undgå det, anvendes shunt regulatoren, da den kan holde en nogenlunde konstant spænding, på trods af batteriernes faldende udgangsspænding.
+
+\subsection{Design}
+Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7\si{\volt}$ på udgangen.
+Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærkerne kræver en positiv og en negativ forsyning på 7 \si{\volt}.
+\husk{Kenneth}{Billede af shunt regulator kreds}
+
+\subsection{Beregninger}
+Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$. 
+For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
+Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
+Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
+Zenerdiodens strøm findes i databladet $I_Z = 5 \si{\milli\ampere}$.
+
+\husk{Kenneth}{Datablad på zenerdiode. (der henvises til den)}
+\husk{Kenneth}{Forkert zenerdiode valgt i stykliste?}
+Da der skal være en konstant strøm i zenerdioden, for at opretholde den rette spænding, udregnes ligning \ref{eq:Udgangsstroem},
+\begin{align}
+	I_{out} & = I_{in} - I_Z \label{eq:Udgangsstroem}
+\end{align}
+og der fås en udgangsstrøm på $I_{out} = 15 \si{\milli\ampere}$.
+
+\begin{align}
+	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
+	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
+\end{align}
+
+R1 er lig R2
+Den første R1 er den beregnede
+\begin{align}
+	R_1 & = 68 \si{\ohm} \nonumber \\
+	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \\
+	V_{out} & = 7.04 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
+\end{align}
