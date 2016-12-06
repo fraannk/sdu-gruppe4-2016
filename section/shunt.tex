@@ -1,29 +1,29 @@
 \section{Shunt regulator}\label{sec:shunt}
-
-
-
-\begin{itemize}
-	\item Konstant x antal volt til frekvensgeneratoren
-	\item Tager højde for voltage sag i LiPo batterier
-\end{itemize}
-
+En shunt regulator er en spændingsregulator der benytter en zenerdiode til at regulere spændings niveauet.
+Idet forsyningsbatterierne ikke kan holde en konstant udgangsspænding, kan operationsforstærkerne ved høj forstærkning gå i mætning. 
+For at undgå det, anvendes shunt regulatoren, da den kan holde en nogenlunde konstant spænding, på trods af batteriernes faldende udgangsspænding.
 
 \subsection{Design}
-En shunt regulator er en spændingsregulator der benytter en zenerdiode til at regulere spændings niveauet.
-Shunt regulatoren har den fordel at uanset ripplen på indgangsspædningen så vil den forsøge at holde udgangsspændingen med en så lille ripple som muligt.
-Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7 \si{\volt}$ på udgangen.
-Spændingen på udgangen skal være henholdsvis $\pm 7 \si{\volt}$ da dette skal bruges til at forsyne operationsforstærkerne i de næste kredsløb.
+Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7\si{\volt}$ på udgangen.
+Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærkerne kræver en positiv og en negativ forsyning på 7 \si{\volt}.
+\husk{Kenneth}{Billede af shunt regulator kreds}
 
 \subsection{Beregninger}
+Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$. 
+For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
+Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
+Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
+Zenerdiodens strøm findes i databladet $I_Z = 5 \si{\milli\ampere}$.
 
+\husk{Kenneth}{Datablad på zenerdiode. (der henvises til den)}
+\husk{Kenneth}{Forkert zenerdiode valgt i stykliste?}
+Da der skal være en konstant strøm i zenerdioden, for at opretholde den rette spænding, udregnes ligning \ref{eq:Udgangsstroem},
+\begin{align}
+	I_{out} & = I_{in} - I_Z \label{eq:Udgangsstroem}
+\end{align}
+og der fås en udgangsstrøm på $I_{out} = 15 \si{\milli\ampere}$.
 
 \begin{align}
-	V_{in} & = 8.4 \si{\volt} \nonumber \\
-	V_{out} & = 7 \si{\volt} \nonumber \\
-	I_{in} & = 20\si{\milli\ampere} \nonumber \\
-	I_Z & = 5 \si{\milli\ampere} \nonumber \\
-	I_{out} & = I_{in} - I_Z \\
-	I_{out} & = 15 \si{\milli\ampere} \nonumber \\
 	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
 	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
 \end{align}
