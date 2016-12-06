@@ -217,7 +217,7 @@ Hvor
 \end{align}
 
 \begin{align}
-	& \mu_0 = \text{Permabilitetskonstant som er givet ved $4\pi 10^-7\henry/\meter$} \nonumber
+	& \mu_0 = \text{Permabilitetskonstant som er givet ved $4\pi 10^{-7}\henry/\meter$} \nonumber
 \end{align}
 
 \begin{align}
@@ -227,25 +227,25 @@ Hvor
 
 
 \subsection{Resultater}
-I følgende afsnit vil den teoretiske del blive anvendt, til at finde de værdier, der bliver brugt i spoledesignet.\\
+I følgende afsnit er den teoretiske del blevet anvendt, til at finde de værdier, der bliver brugt i spoledesignet.\\
 Derudover, vil målinger foretaget med et oscilloskop blive analyseret og teorien eftervist.\\ 
 Tykkelsen på kobbertråden, vælges meget tynd af flere grunde.
 Én af grundene, er pga. plads, men som udangspunkt dimensioneret ud fra afsnit \ref{Sec_skineff.}. \\
 Der ønskes en så lav modstand som muligt.  
 Dette gælder både for den store, og de små spoler.\\
 Med hensyn til det fysiske design af spolehuset, henvises til afsnit\husk{Simon}{Indsæt henvisning}
-Et fuldstændigt overblik over alle værdier for spolerne,som er dimensioneret ud fra teorien, findes herunder.
+Et fuldstændigt overblik over alle værdier for spolerne, som er dimensioneret ud fra teorien, findes herunder.
 \begin{align}
-&i=0.05\cdot sin(2pi\cdot 46936\cdot t) \nonumber
+&i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)} \nonumber
 \end{align}
 \begin{align}
-&\mu_0 =4\pi 10^{-7} \nonumber
-\end{align}
-\begin{align}
-&\mu_r =1 \nonumber
+&\mu_0 =4\pi 10^{-7}T\cdot \m/A \nonumber
 \end{align}
 \begin{align}
 &l = 0.01\m \nonumber
+\end{align}
+\begin{align}
+&\text{Trådtykkelse} = 0.25\mm \nonumber
 \end{align}
 \begin{align}
 &N_1=63\nonumber
@@ -286,10 +286,10 @@ Signalet i denne, skal derfor være forholdsvis kraftigt, dermed også B feltet.
 I figur \ref{fig:EMF_stor_spole}, ses en graf der viser spænding som funktion af tiden i den store spole. se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
 
 \begin{align}
-&i=0.05\cdot sin(2pi\cdot 46936\cdot t)
+&i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)}
 \end{align}
-Frekvensen og peakstrømmen er dimensioneret ud fra afsnit. \husk{Simon}{Ref til Frekv. generator}
-Her ses en induceret spænding med en peak to peak på ca. 6\volt. Denne graf er plottet ud fra ligning
+Frekvensen og peakstrømmen er dimensioneret ud fra afsnit \ref{sec:Frev_gen} \\
+Her ses en induceret spænding med en peak to peak på ca. 6\volt.
 \subsubsection{Lille spole}
 \begin{figure}[h!]
 	\centering
@@ -303,32 +303,13 @@ Her ses en induceret spænding med en peak to peak på ca. 6\volt. Denne graf er
 
 
 \husk{Simon}{Juster billeder}
-Hvor $0.05$ er peakstrømmen målt i Ampere, og $47048$ er frekvensen i $Hz$.\\
 
-For at plotte spændingen overført i den lille spole, bruges ligning \ref{eq:emf_lille_spole}. Plottet af denne ses i figur \ref{fig:EMF_lille_spole}. Her ses ca. en halvering i spænding. Alle data brugt i udregningerne ses i tabel ***
- \husk{Simon}{indsæt tabel over data}
+
 
  
-\subsection{Simluering}
-I dette underafsnit bliver teorien simuleret.
-Dette gøres vha. simuleringsprogrammet Comspol.
-Der vil derudover blive gjort rede og kommenteret på hver figur. 
-\\
-I simuleringen skal der tages højde for, at strømmen $i$ er givet ved et sinussignal, og ikke et firkantsignal, som det er i det virkelige system.
-Da det er komplekst at simulere et firkantsignal i Comsol, vil dette ikke blive gjort. Det kan dog godt forsvares, ved at sammenligne resultaterne med tabel *** \husk{Simon}{indsæt tabel over resultater}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.8\textwidth]{billeder/Comsol_B_field_begge.png}
-	\caption{Magnetfeltet simuleret 13 $\mm$ ud fra stor spole, i ligeposition}
-	\label{fig:B_Comsol_begge}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.8\textwidth]{billeder/Comsol_B_field.png}
-	\caption{Magnetfeltet simuleret 13 $\mm$ ud fra stor spole, ved fuld overlappelse}
-	\label{fig:B_Comsol}
-\end{figure}
+
+
 
 
 
