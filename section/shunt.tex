@@ -22,19 +22,15 @@ Da der skal være en konstant strøm i zenerdioden, for at opretholde den rette 
 	I_{out} & = I_{in} - I_Z \label{eq:Udgangsstroem}
 \end{align}
 og der fås en udgangsstrøm på $I_{out} = 15 \si{\milli\ampere}$.
-
+Modstanden udregnes med ligning \ref{eq:RegulatorModstand}, 
 \begin{align}
-	R_1 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand} \\
-	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
+	R_1 = R_2 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand}
 \end{align}
-
-R1 er lig R2
-Den første R1 er den beregnede
+Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
 \begin{align}
-	R_1 & = 68 \si{\ohm} \nonumber \\
-	V_{out} & = V_{in} - I_{out} \cdot R_s - I_z \cdot R_s \\
-	V_{out} & = 7.04 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
+	V_{out} & = V_{in} - I_{out} \cdot R_1 - I_z \cdot R_1
 \end{align}
+Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
 Ovenstående beregninger er udført for en BZX79C6V8 diode. 
 Da der blev lavet en endelig komponentliste blev der ved et uheld valgt en BZX79C6V2 diode i stedet for. 
