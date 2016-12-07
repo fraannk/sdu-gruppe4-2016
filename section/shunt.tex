@@ -23,12 +23,11 @@ For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først s
 	V_{Z0} & = 6.925 \si{\volt}
 	\end{align}
 For at beregne modstanden på udgangen af kredsen anvendes ligning 3.27 \cite[Side. 149]{Sedra19uu}.
-
+Modstanden udregnes med ligning \ref{eq:RegulatorModstand}, 
 \begin{align}
 	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} \label{eq:RegulatorModstand} \\
-	R_1 & = 70 \si{\ohm} \nonumber \label{eq:RegulatorModstandBeregnet}
 \end{align}
-
+Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
 Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
 Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
 Til dette anvendes ligning 3.24 \cite[Side. 149]{Sedra19uu}.
@@ -36,6 +35,7 @@ Til dette anvendes ligning 3.24 \cite[Side. 149]{Sedra19uu}.
 	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_L \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \\
 	V_{out} & = 7.01 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
 \end{align}
+Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
 Ovenstående beregninger er udført for en BZX79C6V8 diode. 
 Da der blev lavet en endelig komponentliste blev der ved et uheld valgt en BZX79C6V2 diode i stedet for. 
