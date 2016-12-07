@@ -13,25 +13,30 @@ Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$.
 For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
 Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
 Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
-Zenerdiodens strøm findes i databladet $I_Z = 5 \si{\milli\ampere}$.
+Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$.
 
 \husk{Kenneth}{Datablad på zenerdiode. (der henvises til den)}
-Da der skal være en konstant strøm i zenerdioden, for at opretholde den rette spænding, udregnes ligning \ref{eq:Udgangsstroem},
+For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først spændingsfaldet over dioden ved at bruge formel 3.21 \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
 \begin{align}
-	I_{out} & = I_{in} - I_Z \label{eq:Udgangsstroem}
-\end{align}
-og der fås en udgangsstrøm på $I_{out} = 15 \si{\milli\ampere}$.
+	V_o & = V_{Z0} + r_z I_z \\
+	V_{Z0} & = 6.925 \si{\volt}
+	\end{align}
+For at beregne modstanden på udgangen af kredsen anvendes ligning 3.27 \cite[Side. 149]{Sedra19uu}.
 Modstanden udregnes med ligning \ref{eq:RegulatorModstand}, 
 \begin{align}
-	R_1 = R_2 & = \frac{V_{in} - V_{out}}{I_Z + I_{out}} \label{eq:RegulatorModstand}
+	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} \label{eq:RegulatorModstand} \\
 \end{align}
 Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
+Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
+Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
+Til dette anvendes ligning 3.24 \cite[Side. 149]{Sedra19uu}.
 \begin{align}
-	V_{out} & = V_{in} - I_{out} \cdot R_1 - I_z \cdot R_1
+	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_L \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \\
+	V_{out} & = 7.01 \si{\volt} \label{eq:RegulatorBeregnetPotentiale} 
 \end{align}
 Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
 Ovenstående beregninger er udført for en BZX79C6V8 diode. 
 Da der blev lavet en endelig komponentliste blev der ved et uheld valgt en BZX79C6V2 diode i stedet for. 
-Forskellen her er at den nye diode maksimalt kan holde en konstant spænding på $6.6 \si{\volt}$ i udgangsspænding.
-Ved tilsvarende udregninger findes det frem til at udgangsspændingen er $6.5 \si{\volt}$.
+Forskellen her er at den nye diode maksimalt kan holde en konstant spænding på $6.6 \si{\volt}$ i udgangsspænding og diode modstanden er $r_z = 10 \si{\ohm}$.
+Ved tilsvarende udregninger findes det frem til at udgangsspændingen er $6.66 \si{\volt}$.
