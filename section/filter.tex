@@ -36,18 +36,18 @@ Heraf udregnes båndbredden for filteret og filtermodstandene. \cite[Side. 209]{
 	R_{10} & = 43.288 \si{\kilo\ohm} \nonumber 
 \end{align}
 De teoretiske modstandsværdier skal tilpasses til de SMD modstande der er til rådighed.
+De tilpassede komponentværdier kommer til at være. $R_8 = 6.8 \si{\kilo\ohm}$, $R_9 = 1.5 \si{_\kilo\ohm}$ og $R_{10} = 47 \si{\kilo\ohm}$.
+De tilpassede komponenter medfører at systemet har en anden karakteristik end den udregnede. 
+Til udregning anvendes ligningerne 13a, 13b og 13c. \cite[Side. 208]{Huelsman1993}
 \begin{align}
-	R_8 & = 6.8 \si{\kilo\ohm} \nonumber \\
-	R_9 & = 1.5 \si{\kilo\ohm} \nonumber \\
-	R_{10} & = 47 \si{\kilo\ohm} \nonumber
-\end{align}
-Disse ændringer bruges til at regne ud hvordan dette påvirker det praktiske system. Til udregning af dette omskrives ligningerne 13a, 13b og 13c. \cite[Side. 208]{Huelsman1993}
-\begin{align}
-	F_c & = \frac{1}{2 \cdot \pi \cdot C} \cdot \sqrt{\frac{R_8+R_9}{R_8 \cdot R_9 \cdot R_{10}}} \\
-	H_o & = \frac{1}{\left( \frac{R_1}{R_3} \right) \cdot 2} \\
+	F_c & = \frac{\sqrt{1+\frac{R_9}{R_8}}}{\left( 2 \cdot \pi \right) \cdot \sqrt{R_9 \cdot R_{10} \cdot C_{10}^2}} \\
+	Q & = \left( \frac{2 \cdot \sqrt{\frac{R_9 \cdot C_{10}}{R_{10} \cdot C_{10}}}}{\sqrt{1+\frac{R_9}{R_8}}} \right)^{-1} \\
+	H_o & = \frac{\frac{R_{10}}{R_8}}{1+\frac{C_{10}}{C_{10}}} \\
 	B & = \frac{F_c}{Q} \\
 	F_c & = 44.557 \si{\kilo\hertz} \nonumber \\
 	H_o & = 3.5 \nonumber \\
-	B & = 14.9 \si{\kilo\hertz} \nonumber
+	B & = 14.4 \si{\kilo\hertz} \nonumber
 \end{align}
-En forøgelse af forstærkningen er acceptabel så længe instrumenteringsforstærkeren ikke går i mætning, hvilket den er designet til ikke at gøre. En mindre centerfrekvens og båndbredde findes også acceptabel. Båndbredden er stor nok til at systemet ikke bliver bemærkelsesværdigt langsomt, og centerfrekvensen varrierer ikke så meget fra den ønskede at den bliver dæmpet.
+En forøgelse af forstærkningen er acceptabel så længe instrumenteringsforstærkeren ikke går i mætning, hvilket den er designet til ikke at gøre. 
+En mindre centerfrekvens og båndbredde findes også acceptabel. 
+Båndbredden er stor nok til at systemet ikke bliver bemærkelsesværdigt langsomt, og centerfrekvensen varierer ikke så meget fra den ønskede at den bliver dæmpet.
