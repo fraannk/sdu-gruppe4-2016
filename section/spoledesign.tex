@@ -180,28 +180,28 @@ Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktans
 	&V = L\frac{di}{dt} \label{eq:ldidt}
 \end{align}
 
-\subsection{Strømfortrængning}\label{Sec_skineff.}
+\subsection{Strømfortrængning  og impedans}\label{Sec_skineff.}
 I forbindelse med valg af trådtykkelse på kobbertråden, som skal vikles rundt om spolerne, er strømfortrængningen i ledningen væsentlig.\\
 Hvis signalet i spolerne havde været et rent DC signal, kunne strømmen antages homogent i hele tværsnitsarealet i kobbertråden.
-Da dette ikke er tilfældet, vil AC signalet "fotrænge" ud i kanten af koppertrådens tværsnitsareal. 
-Der bliver derved skabt et hulrum inden i koppertråden. \\
-Herved bliver modstanden i kobbertråden ændret.
-AC modstanden i koppertråden findes ved ligning \ref{eq:R_AC}.
+Da dette ikke er tilfældet, vil AC signalet "fotrænge" ud i kanten af kobbertrådens tværsnitsareal. 
+Der bliver derved skabt et hulrum inden i kobbertråden. \\
+Herved bliver modstanden i kobbertråden ændret.\\
+En approximation af AC modstanden i kobbertråden findes ved ligning \ref{eq:R_AC}.
 
 \begin{align}
 	& R_{AC}=\frac{\rho l}{A_{eff}} \label{eq:R_AC}
 \end{align}
 Hvor
 \begin{align}
-	& \rho = \text{Resistiviteten i koppertråden} \nonumber
+	& \rho = \text{Resistiviteten i kobbertråden} \nonumber
 \end{align}
 \begin{align}
-	& l = \text{Længden af koppertråden} \nonumber
+	& l = \text{Længden af kobbertråden} \nonumber
 \end{align}
 \begin{align}
-	& A_{eff} = \text{Det effektive areal af strømfortrængningen = $\delta\pi\times\cdot diameter$} \nonumber
+	& A_{eff} = \text{Det effektive areal af strømfortrængningen = $\pi r^2-\pi(r-\delta)^2$} \nonumber
 \end{align}
-	
+Hvor $r$ er radius på kobbertrådens tværsnit.\\	
 Frekvensen i spolerne, er dimensioneret forholdsvis høje, hvilket vil betyde strømfortrængning.  \\
 Formlen for strømfortrænging er givet ved ligning \ref{eq:skineffect}.
 \begin{align}
@@ -221,14 +221,41 @@ Hvor
 \end{align}
 
 \begin{align}
-	& \mu_r = \text{Den relative permabilitetskonstant for kopper} \nonumber
+	& \mu_r = \text{Den relative permabilitetskonstant for kobber} \nonumber
 \end{align}
 \husk{Simon}{indsæt link som reference: http://chemandy.com/calculators/round-wire-ac-resistance-calculator.htm 5/12-16. kl 13}
+
+\husk{Simon}{evt. henvis til https://mycableengineering.com/knowledge-base/conductor-resistance}
+
+Dette gælder dog kun hvor $r>>\delta$. \\
+Da kobbertråden er valgt meget tynd, vælges der efter analysering af strømfortrængningen at ses bort fra denne. 
+I stedet findes impedansen for den store spole ved en given frekvens ved ligning \ref{eq:impedans}.
+\begin{align}
+	& Z=\sqrt{R^2+X^2} \label{eq:impedans}
+\end{align}
+
+Hvor $R$ er modstanden i spolen, og $X$ er reaktansen, som er givet ved:
+
+\begin{align}
+	& X=2\pi f L \nonumber
+\end{align}
+
+Et samlet udtryk for impedansen er dermed givet i ligning \ref{eq:impedans2}.
+
+\begin{align}
+	& Z=\sqrt{\left(\frac{\rho l}{A_1}\right)^2+\left(2\pi f L\right)^2} \label{eq:impedans2}
+\end{align}
 
 
 \subsection{Resultater}
 I følgende afsnit er den teoretiske del blevet anvendt, til at finde de værdier, der bliver brugt i spoledesignet.\\
 Derudover, vil målinger foretaget med et oscilloskop blive analyseret og teorien eftervist.\\ 
+I det virkelige system, vil frekvensgeneratoren lave et firkantsignal. 
+Dette signal er komplekst at få ind i Matlab, hvorfor der vælges et sinus signal.
+Dog sammenlignes og kommenteres der på firkantsignalet fra det virkelige system, målt med oscillockopet.
+Der vil derimod blive sat en funktionsgenerator til, så der er noget præcist at sammenligne med.\\ 
+
+
 Tykkelsen på kobbertråden, vælges meget tynd af flere grunde.
 Én af grundene, er pga. plads, men som udangspunkt dimensioneret ud fra afsnit \ref{Sec_skineff.}. \\
 Der ønskes en så lav modstand som muligt.  
@@ -236,34 +263,16 @@ Dette gælder både for den store, og de små spoler.\\
 Med hensyn til det fysiske design af spolehuset, henvises til afsnit\husk{Simon}{Indsæt henvisning}
 Et fuldstændigt overblik over alle værdier for spolerne, som er dimensioneret ud fra teorien, findes herunder.
 \begin{align}
-&i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)} \nonumber
-\end{align}
-\begin{align}
-&\mu_0 =4\pi 10^{-7}T\cdot \m/A \nonumber
-\end{align}
-\begin{align}
-&l = 0.01\m \nonumber
-\end{align}
-\begin{align}
-&\text{Trådtykkelse} = 0.25\mm \nonumber
-\end{align}
-\begin{align}
-&N_1=63\nonumber
-\end{align}
-\begin{align}
-&N_2=300\nonumber
-\end{align}
-\begin{align}
-&R_1=0.0175\m\nonumber
-\end{align}
-\begin{align}
-&R_2=0.00855\m\nonumber
-\end{align}
-\begin{align}
-&A_1=9.6211\cdot 10^{-4} \m^2\nonumber
-\end{align}
-\begin{align}
-&A_2=2.2966\cdot 10^{-4} \m^2\nonumber
+i &= 0.05\cdot \sin{(2pi\cdot 46936\cdot t)} \nonumber \\
+\mu_0 &= 4\pi 10^{-7}T\cdot \m/A \nonumber \\
+l &= 0.01\m \nonumber \\
+\text{Trådtykkelse} &= 0.25\mm \nonumber\\
+N_1&=63\nonumber\\
+N_2&=300\nonumber\\
+R_1&=0.0175\m\nonumber\\
+R_2&=0.00855\m\nonumber\\
+A_1&=9.6211\cdot 10^{-4} \m^2\nonumber\\
+A_2&=2.2966\cdot 10^{-4} \m^2\nonumber\\
 \end{align}
 
 \subsubsection{Stor spole}
@@ -272,18 +281,12 @@ Den store spole er bestemt ud fra, at den skal fungere som en enhed, der skal se
 Signalet i denne, skal derfor være forholdsvis kraftigt, dermed også B feltet.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.3\textwidth]{billeder/B_felt_stor_spole.png}
+	\includegraphics[width=1\textwidth]{billeder/B_felt_stor_spole.png}
 	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra stor spole}
 	\label{fig:B_felt_stor_spole}
 \end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.3\textwidth]{billeder/EMF_stor_spole.png}
-	\caption{EMF spænding i stor spole}
-	\label{fig:EMF_stor_spole}
-\end{figure}
-I figur \ref{fig:EMF_stor_spole}, ses en graf der viser spænding som funktion af tiden i den store spole. se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
+I figur , ses en graf der viser spænding som funktion af tiden i den store spole. Se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
 
 \begin{align}
 &i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)}
@@ -293,9 +296,9 @@ Her ses en induceret spænding med en peak to peak på ca. 6\volt.
 \subsubsection{Lille spole}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.6\textwidth]{billeder/EMF_lille_spole.png}
+	\includegraphics[width=1\textwidth]{billeder/EMF_spanding.png}
 	\caption{EMF spænding i lille spole}
-	\label{fig:EMF_lille_spole}
+	\label{fig:EMF_spole}
 \end{figure}
 
 
