@@ -7,7 +7,12 @@ For at undgå det, anvendes shunt regulatoren, da den kan holde en nogenlunde ko
 Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7\si{\volt}$ på udgangen.
 Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærkerne kræver en positiv og en negativ forsyning på 7 \si{\volt}.
 \husk{Kenneth}{Billede af shunt regulator kreds}
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/shunt_pos_png.png}
+	\caption{Her ses outputtet fra den positive shunt regulator}
+	\label{fig:positiv_shunt}
+\end{figure}
 \subsection{Beregninger}
 Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$. 
 For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
@@ -30,6 +35,7 @@ Modstanden udregnes med ligning \ref{eq:RegulatorModstand},
 \end{align}
 Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
 Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
+
 Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
 Til dette anvendes ligning 3.24 \cite[Side. 149]{Sedra19uu}.
 \begin{align}
