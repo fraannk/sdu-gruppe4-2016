@@ -2,10 +2,9 @@ format compact
 clear
 close all
 
-
 S = 0                           % Theta pos for ligevægt
 g = 9.82;                       % tyngde acc.
-l = 0.1;                        % længde af pendul
+l = 0.3;                        % længde af pendul
 
 f_gen = 44E4                    % switch frekvens for sensor system
 w_gen = 2*pi*f_gen
@@ -21,7 +20,7 @@ filter_num = [filter_gain]
 filter_den = [filter_tau 1]
 filter = tf(filter_num, filter_den)
 
-summa = 20
+summa = 5
 
 L_motor = 51E-3
 R_motor = 2

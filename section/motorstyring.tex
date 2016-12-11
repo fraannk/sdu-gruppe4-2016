@@ -1,31 +1,30 @@
 \section{Motorstyring }\label{sec:sec_motorstyring}
-Målinger af vognens dynamik gennemgået i afsnit \ref{sec:sec_motoroverforelse}, er baseret på stepresponset af vognen ved en konstant spænding, men med faste strømbegrænsninger i intervaller.
-
+Målinger af vognens dynamik, der blev gennemgået i afsnit \ref{sec:sec_motoroverforelse}, er baseret på stepresponset af vognen ved en konstant spænding, men med faste strømbegrænsninger i intervaller.
 Dette giver anledning til at vægle en motorstyring der sørger for en konstant strøm til motoren.
- 
-Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, $V_{reg}$ omsættes i motorstyringen til den ønskede strøm $I_{reg}$, der igen giver den ønskede acceleration af vognen.  
+Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, $V_{reg}$ omsættes i motorstyringen til den ønskede strøm $I_{reg}$, der igen giver den ønskede acceleration $a_v$ af vognen.  
 
-
-\begin{itemize}
-	\item Omsætter volt til ampere (current control)
-	\item Pnp og npn transistorer med relativ høj strømrate
-	\item Motor accelererer baseret på ampere. Volt angiver tophastighed.
-	\item Min 1.25A maks 2.25A
-\end{itemize}
-
-\subsection{Design og dimensionering af motorregulering}
-\husk{Kenneth}{Tekst rettes}
+\subsection{Design af motorregulering}
 Da DC-motoren er en kompleks enhed, hvis dynamik og opbygning ligger uden for opfanget af denne rapport. 
-Anvendes en simpel feedback regulering af strømmen igennem transistorerne, således at forholdet mellem indgangs signalet og udgangsstrømmen til motoren holdes konstant, som kan beskrives ved
-\husk{JJ}{teoretisk model for motor styring}
+I figur \ref{fig:motor_diagram} ses det samlede kredsløb af motorreguleringen.
+I motorstyringen anvendes en simpel feedback regulering af strømmen igennem en NPN \emph{(Q10)} og PNP \emph{(Q11)} transistor, således at forholdet mellem indgangssignalet og udgangsstrømmen til motoren holdes konstant.
+Motorstyringen er opbygget som en såkaldt \textit{ Bi-directional DC motor driver} som gør det muligt at styre retningen af strømmen igennem motoren.
+Således vil et positivt styresignal åbne for strømmen fra $+8V Batt$ igennem NPN transistoren \emph{(Q10)} ud til motoren, og et negativt styresignal vil åbne for strømmen fra $GND$ igennem PNP transistoren \emph{(Q11)} til $-8V Batt$, se figur \ref{fig:motor_bidirectional}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/motor_bidirectional.png}
+	\caption{Strømretninger ved positiv (blå) og negativ (rød) styresignal igennem BJT transistorne.}
+	\label{fig:motor_bidirectional}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/motor_cont_schematic.png}
+	\caption{Diagram af motor styringen}
+	\label{fig:motor_diagram}
+\end{figure}
 
-I fig xx ses den valgte typografi af motor regulator.
-\husk{JJ}{Diagram af motorstyring}
-
-\husk{JJ}{Beskrivelse af motor regulator design} 
 \husk{JJ}{Håndtering af transiente spændinger igennem bypass dioder}
 
-\subsection{Beregninger}
+\subsection{Beregninger og dimensionering}
 \husk{JJ}{beregninger af forhold mellem spænding og strøm i regulatoren}
 \husk{JJ}{PSpice simulering af regulator}
 
@@ -35,7 +34,7 @@ For at bestemme dynamikken af DC-motoren opstilles en forenklet model af motoren
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/motor_model.png}
-	\caption[sss]{Model af elektromotorisk system til brug ved modellering af motor\protect\footnotemark.}
+	\caption[Model af elektromotorisk system til brug ved modellering af motor]{Model af elektromotorisk system til brug ved modellering af motor\protect\footnotemark.}
 	\label{fig:motor_model}
 \end{figure}
 \FloatBlock
@@ -49,15 +48,12 @@ Modellen kan således omstilles som
 Måling af strømmen igennem motoren er forstaget over en $0,2 \si{\ohm}$ test-modstand
 \footnote{Modstand med meget lille induktans}.
 Motorens egen modstand er målt til $R_{motor} = 3,2 \si{\ohm}$, hvilket giver en samlet modstand på $R_a = R_{test} + R_{motor} = 3,4 \si{\ohm}$ i test opstillingen. 
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\textwidth]{billeder/motor_L.png}
 	\caption{Måling af transient forløb for strømmen igennem DC-motor.}
 	\label{fig:motor_dynamik_scoop}
 \end{figure}
-
-
 Tidskonstanten for ladning af en spole er, $\tau = \frac{L}{R}$.
 For at bestemme $L$, måles tiden $t$ ved $5\tau$ som er ved
 \begin{align}
@@ -67,10 +63,10 @@ derefter kan $L_a$ bestemmes som, ved aflæst tid på $16,9\si{\milli\second}$ i
 \begin{align}
 	5\tau = \frac{L_a}{R_a} \Rightarrow L_a = 16,9\si{\milli\second} \cdot 3,4 \si{\ohm} = 57,5 \si{\milli\henry}
 \end{align}
-
 Overførelsesfunktion for motoren opstilles som
 \begin{align}
 H_{motor} = \frac{V_o}{V_i} = \frac{s L_a}{s L_a + R_{motor}} = \frac{ \frac{L_a}{R_{motor}}s}{ \frac{L_a}{R_{motor}}s +1} = \frac{\num{18E-3}s}{\num{18E-3}s +1}
 \end{align}  
+
 
 
