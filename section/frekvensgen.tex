@@ -10,14 +10,12 @@ Dette signal skal have en frekvens der er tilpas høj så systemet er mindre mod
 Signalet der kommer ud af timeren er begrænset således at udgangsspændingen kun kan antage positive værdier.
 For at løse dette skal der sættes en kondensator i serie med spolen.
 Dette gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/freq_png.png}
 	\caption{Her ses outputtet fra frekvensgeneratoren}
 	\label{fig:frekvensgenerator}
 \end{figure}
-
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
 Da timeren ikke kan holde til at leverer mere end 225 \si{\milli\ampere}, sættes en modstand i serie for at begrænse strømmen. 
@@ -32,7 +30,6 @@ Ligning 5 i databladet omskrives svarende til i ligning \ref{eq:TimerInputModsta
 \begin{align}
 R_5 & = \frac{R_6}{DutyCycle} - 2 \cdot R_6 \label{eq:TimerInputModstand}
 \end{align}
-
 Parametrene indsættes i ligning \ref{eq:TimerInputModstand}.
 Resultatet viser her at $R_5$ skal være 588 \si{\ohm}  for at opnå en duty-cycle på 51 \% .
 Som det sidste skal der udregnes en kondensator der forbindes til trigger indgangen og til ground. 
@@ -41,7 +38,6 @@ Modstandsværdierne er kendte, og der bestemmes her for en frekvens på $F_c = 5
 \begin{align}
 	C_7 & = \frac{1}{F_c \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) \label{eq:Kondensator_c7}}
 \end{align}
-
 Ud fra ligning \ref{eq:Kondensator_c7} fås en kondensator værdi $C_7 = 0.9\si{\nano\farad}$ for at få en frekvens på 50 \si{\kilo\hertz}. 
 Da disse størrelser ikke kan realiseres i de lagerførte SMD værdier, vælges derfor tilnærmede værdier. 
 Dette medfører at $R_5$ bliver 680 \si{\ohm} og $C_7$ på 1 \si{\nano\farad}. 
