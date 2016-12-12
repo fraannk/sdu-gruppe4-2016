@@ -18,7 +18,7 @@ Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$.
 For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
 Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
 Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
-Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$.
+Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$. \cite[Side. 1 Kolonne 12]{ZenerDiode}
 
 \husk{Kenneth}{Datablad på zenerdiode. (der henvises til den)}
 For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel 3.21 \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
@@ -45,5 +45,5 @@ Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
 Ovenstående beregninger er udført for en BZX79C6V8 diode. 
 Da der blev lavet en endelig komponentliste blev der ved et uheld valgt en BZX79C6V2 diode i stedet for. 
-Forskellen her er at den nye diode maksimalt kan holde en konstant spænding på $6.6 \si{\volt}$ i udgangsspænding og diode modstanden er $r_z = 10 \si{\ohm}$.
+Forskellen her er at den nye diode maksimalt kan holde en konstant spænding på $6.6 \si{\volt}$ i udgangsspænding og diode modstanden er $r_z = 10 \si{\ohm}$ \cite[Side. 1 Kolonne 11]{ZenerDiode}.
 Ved tilsvarende udregninger findes det frem til at udgangsspændingen er $6.66 \si{\volt}$.
