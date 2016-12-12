@@ -238,7 +238,7 @@ Hvor $R$ er modstanden i spolen, og $X$ er reaktansen, som er givet ved:
 \begin{align}
 	& X=2\pi f L \nonumber
 \end{align}
-Hvor induktansen L for en solenoide er givet ved Wheelers formel i ligning \ref{eq:Wheeler}\husk{Simon}{fodnote:http://microblog.routed.net/wp-content/uploads/2008/10/pancakewheel.pdf}
+Hvor induktansen L for en solenoide er givet ved Wheelers formel i ligning\footnote{\url{http://microblog.routed.net/wp-content/uploads/2008/10/pancakewheel.pdf}} \ref{eq:Wheeler}
 \begin{align}
 	& L =\frac{31.6\cdot r_1^2\cdot N^2}{6\cdot r_1+9\cdot l + 10\cdot (r_2-r_1)}  \label{eq:Wheeler}
 \end{align}
@@ -311,8 +311,11 @@ Det ses, at $13\mm$ ud fra den store spole, skulle kunne måles et $B$ felt på 
 	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra stor spole. Funktionen til grafen ses i ligning \ref{eq:B_field2}.}
 	\label{fig:B_felt_stor_spole}
 \end{figure}\\
-For at eftervise dette, blev der i laboratoriet, målt med en Gauss meter af typen. \husk{Simon}{Find ud af Gauss meter model, og lav evt. ny maaling}
-
+For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typen. \husk{Simon}{Find ud af type}
+Med en konstant strøm på $0.05\ampere$ igennem den store spole, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
+Dette svarer til $50 \micro\tesla$. 
+Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
+Da jorden magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
 
 \subsubsection{Flux og elektromotorisk kraft}
 Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
@@ -334,24 +337,23 @@ Dette vil nu eftervises i laboratoriet.
 \end{figure}
 
 I laboratoriet opstilles et kredsløb, som vist på figur \ref{fig:kredslob_spole}, hvor den store spole er blevet målt med et LCR meter, og har en induktans på $205\micro\henry$.
-Det er ønskeligt at have en peakstrøm på $0.05 \ampere$, som i teorien.
+Det er ønskeligt at have en peakstrøm på $0.05 \ampere$, som i teorien.\\
 På funktionsgeneratoren, er der en udgangsimpedans på $50\ohm$.
 I serie med resten af kredsløbet, sidder en $1\ohm$ modstand. Spændingen over denne ønskes bestemt til $0.05\volt$, hvilket vil give de ønskede $0.05\ampere$ igennem spolen.
-Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3.9\volt$.
-
-\begin{figure}[h!]
+Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3.9\volt$.\\
+Resultatet af dette, bliver som vist i figur \ref{fig:EMF_spole_lab}.
+Hvor den gule kurve, er spændingen over den store spole, og den grønne kurve er spændingen over den lille spole.\\
+Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.\\
+\begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
 	\includegraphics[width=.5\textwidth]{billeder/circuit_spole.png}
 	\caption{Laboratorieopstilling med $1\ohm$ modstand i serie, for at måle strømmen}
 	\label{fig:kredslob_spole}
-\end{figure}
-Resultatet af dette, bliver som vist i figur \ref{fig:EMF_spole_lab}.
-Hvor den gule kurve, er spændingen over den store spole, og den grønne kurve er spændingen over den lille spole.\\
-Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.\\
+\end{wrapfigure}
 EMFen i den lille spole i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
 Efter disse resultater, kan det konkluderes, at teorien passer. 
 Også hvis det er et firkantsignal, der gives som input.\\
-
+\husk{Simon}{delkonklusion skal laves}
 
 \begin{figure}[h!]
 	\centering
