@@ -243,7 +243,7 @@ For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typ
 Med en konstant strøm på $0.05\ampere$ igennem den store spole, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
 Dette svarer til $50 \micro\tesla$. 
 Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
-Da jorden magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
+Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
 
 \subsubsection{Flux og elektromotorisk kraft}
 Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
@@ -289,9 +289,10 @@ Disse resultater stemmer overens med hvad der blev beregnet i teorien. Da der bl
 \end{figure}
 \newpage
 \subsubsection{Strømfortrængning og impedans}
-Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.\\
-I laboratoriet er den store spole blevet målt med et LCR meter, som kan vise impedansen ved en given frekvens, samt induktansen. \\
-Induktansen er beregnet fra ligning \ref{eq:Wheeler}.
+Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.
+Der kan derfor ses bort fra strømfortrænging.\\
+I stedet er induktansen og impedansen blevet målt og beregnet.\\
+Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 
 \begin{align}
 	 L_{beregnet} &= 192.04\micro\henry\\
@@ -304,39 +305,6 @@ Impedansen i den store spole, er beregnet ud fra ligning \ref{eq:impedans2}
 	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\\
 	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm               
 \end{align}
-
-
-
-
-
-
-Den store spole er bestemt ud fra, at den skal fungere som en enhed, der skal sende et signal videre. 
-Signalet i denne, skal derfor være forholdsvis kraftigt, dermed også B feltet.
-
-
-I figur , ses en graf der viser spænding som funktion af tiden i den store spole. Se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
-
-\begin{align}
-&i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)}
-\end{align}
-Frekvensen og peakstrømmen er dimensioneret ud fra afsnit \ref{sec:Frev_gen} \\
-Her ses en induceret spænding med en peak to peak på ca. 6\volt.
-
-
-
-
-
-
-\husk{Simon}{Juster billeder}
-
-
-
- 
-
-
-
-
-
 
 \subsection{3D design/fysisk design af spolehus}\label{sec:3D_design}
 For at kunne gøre disse spoler til en realitet, er der lavet specialdesignede spolehuse som passer perfekt til de udregnede værdier. Disse spoler er blevet tegnet i 3D-CAD programmet Inventor, og derefter 3D-printet på en 3D-printer. \\
