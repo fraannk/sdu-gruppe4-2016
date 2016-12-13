@@ -36,22 +36,22 @@ Som det sidste skal der udregnes en kondensator der forbindes til trigger indgan
 Til dette anvendes ligning 4 i databladet \cite[Side 11]{NE555}. Denne ligning isoleres for kondensatoren som givet i ligning \ref{eq:Kondensator_c7}.
 Modstandsværdierne er kendte, og der bestemmes her for en frekvens på $F_n = 50 \si{\kilo\hertz}$.
 \begin{align}
-	C_7 & = \frac{1}{F_c \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) \label{eq:Kondensator_c7}}
+	C_7 & = \frac{1}{F_n \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) \label{eq:Kondensator_c7}}
 \end{align}
 Ud fra ligning \ref{eq:Kondensator_c7} fås en kondensator værdi $C_7 = 0.9\si{\nano\farad}$ for at få en frekvens på 50 \si{\kilo\hertz}. 
 Da disse størrelser ikke kan realiseres i de lagerførte SMD værdier, vælges derfor tilnærmede værdier. 
 Dette medfører at $R_5$ bliver $680 \si{\ohm}$ og $C_7$ på 1 \si{\nano\farad}. 
 Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet. \cite[Side 11.]{NE555}
 
-Dette giver en duty-cycle på $D = 49 \%$ og en frekvens $F_c = 46.9 \si{\kilo\hertz}$. 
-Duty-cyclen ligger tæt på $50 \%$ og frekvensen den ønskede frekvens er så stor at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres.
+Dette giver en duty-cycle på $D = 49 \%$ og en frekvens $F_n = 46.9 \si{\kilo\hertz}$. 
+Duty-cyclen ligger tæt på $50 \%$ og den ønskede frekvens er stadig stor nok at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres.
 
 Der skal herefter sættes en kondensator på udgangen således at udgangsspændingen kan antage både positive og negative værdier. 
 Middelspændingen over en spole er $0 \si{\volt}$, det er outputtet ikke, da den ikke oscillere omkring $0 \si{\volt}$, hvilket er kondensatorens formål. 
 \subsection{Beregning af udgangskondensator}
 For at kunne finde senderspolens impedans, anvendes vinkelfrekvensen $\omega_c$ som udregnes i ligning \ref{eq:vinkelfrekvens}.
 \begin{align}
-	\omega_c & = 2 \cdot \pi \cdot F_c \label{eq:vinkelfrekvens}
+	\omega_c & = 2 \cdot \pi \cdot F_n \label{eq:vinkelfrekvens}
 \end{align}
 Der fås en vinkelfrekvens på $\omega_c = 294.910 \si{\kilo\radian\per\second}$.
 Senderspolens induktans måles ved hjælp af en RLC-meter til $L = 205 \si{\micro \henry}$.

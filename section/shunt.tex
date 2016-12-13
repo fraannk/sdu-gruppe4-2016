@@ -16,7 +16,7 @@ Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærker
 Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$. 
 For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
 Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
-Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
+Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmen.
 Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$. \cite[Side. 1 Kolonne 12]{ZenerDiode}
 
 For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel \ref{eq:BreakdownVolt} \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
@@ -26,7 +26,7 @@ For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først b
 	\end{align}
 Værdien $V_{Z0}$ er diodens breakdown spænding.
 Breakdown er det punkt hvori spændingsfaldet over dioden er konstant og bliver anvendt til at få en konstant udgangsspænding.
-For at beregne modstanden på udgangen af kredsen anvendes ligning \ref{eq:RegulatorModstand} \cite[Side. 149]{Sedra19uu}.
+For at beregne modstanden anvendes ligning \ref{eq:RegulatorModstand} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
 	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} \label{eq:RegulatorModstand}
 \end{align}
@@ -36,7 +36,7 @@ Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælge
 Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
 Til dette anvendes ligning \ref{eq:UdgangShunt} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
-	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_L \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \label{eq:UdgangShunt}
+	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_{out} \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \label{eq:UdgangShunt}
 \end{align}
 Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
