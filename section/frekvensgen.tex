@@ -10,14 +10,12 @@ Dette signal skal have en frekvens der er tilpas høj så systemet er mindre mod
 Signalet der kommer ud af timeren er begrænset således at udgangsspændingen kun kan antage positive værdier.
 For at løse dette skal der sættes en kondensator i serie med spolen.
 Dette gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/freq_png.png}
 	\caption{Her ses outputtet fra frekvensgeneratoren}
 	\label{fig:frekvensgenerator}
 \end{figure}
-
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren leverer en stor strøm. 
 Da timeren ikke kan holde til at leverer mere end $225 \si{\milli\ampere}$, sættes en modstand i serie for at begrænse strømmen. 
