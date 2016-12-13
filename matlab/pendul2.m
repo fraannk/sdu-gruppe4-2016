@@ -22,16 +22,16 @@ filter = tf(filter_num, filter_den)
 
 summa = 5
 
-L_motor = 51E-3
+L_motor = 18E-3
 R_motor = 2
 motor_tau = L_motor/R_motor
 motor_num = [1]
 motor_den = [motor_tau 1]
 motor = tf(motor_num, motor_den)
 
-bil_tau = 1E-4
-bil_num = [1]
-bil_den = [bil_tau 1]
+
+bil_num = [1.37]
+bil_den = [1 0 0]
 bil = tf(bil_num, bil_den)
 bil = 1
 
@@ -91,10 +91,6 @@ Hforward = regulator * motor * bil * pendul
 Hfeedback = filter * summa
 Hclosedloop = feedback(Hforward, Hfeedback)
 
-
-
-   
-
 fig1 = figure(1)
 margin(regulator)
 hold on
@@ -102,10 +98,12 @@ margin(Hopenloop)
 hold on
 margin(Hopenloop*regulator)
 grid
-legend('Reg','OL','OL+Reg')
+legend('PD regulator','Openloop','Openloop + Regulator')
 
 fig2 = figure(2)
 step(Hclosedloop)
+grid
+
 
 
 

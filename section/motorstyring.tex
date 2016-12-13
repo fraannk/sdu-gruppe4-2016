@@ -4,27 +4,33 @@ Dette giver anledning til at vægle en motorstyring der sørger for en konstant 
 Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, $V_{reg}$ omsættes i motorstyringen til den ønskede strøm $I_{reg}$, der igen giver den ønskede acceleration $a_v$ af vognen.  
 
 \subsection{Design af motorregulering}
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\centering
+	\includegraphics[width=.45\textwidth]{billeder/motor_bidirectional.png}
+	\caption{Strømretninger ved positiv (blå) og negativ (rød) styresignal igennem BJT transistorne.}
+	\label{fig:motor_bidirectional}
+\end{wrapfigure}
 Da DC-motoren er en kompleks enhed, hvis dynamik og opbygning ligger uden for opfanget af denne rapport. 
 I figur \ref{fig:motor_diagram} ses det samlede kredsløb af motorreguleringen.
 I motorstyringen anvendes en simpel feedback regulering af strømmen igennem en NPN \emph{(Q10)} og PNP \emph{(Q11)} transistor, således at forholdet mellem indgangssignalet og udgangsstrømmen til motoren holdes konstant.
 Motorstyringen er opbygget som en såkaldt \textit{ Bi-directional DC motor driver} som gør det muligt at styre retningen af strømmen igennem motoren.
 Således vil et positivt styresignal åbne for strømmen fra $+8V Batt$ igennem NPN transistoren \emph{(Q10)} ud til motoren, og et negativt styresignal vil åbne for strømmen fra $GND$ igennem PNP transistoren \emph{(Q11)} til $-8V Batt$, se figur \ref{fig:motor_bidirectional}.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.7\textwidth]{billeder/motor_bidirectional.png}
-	\caption{Strømretninger ved positiv (blå) og negativ (rød) styresignal igennem BJT transistorne.}
-	\label{fig:motor_bidirectional}
-\end{figure}
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/motor_cont_schematic.png}
 	\caption{Diagram af motor styringen}
 	\label{fig:motor_diagram}
 \end{figure}
+\FloatBlock
 
-\husk{JJ}{Håndtering af transiente spændinger igennem bypass dioder}
+For at håndtere de transiente spændings udslag der måtte komme fra motor, idet den som spole er en induktiv belastning på udgangen, er der i kredsløbet anbragt to såkalde \textit{flyback} eller friløbs dioder \emph{(D10)} og \emph{(D11)}.
+Det er valgt at bruge en \textit{Schottky} \emph{1N5819} diode, da denne har et lavere spændingsfald og en hurtigere \textit{reverse recovery}.
+
 
 \subsection{Beregninger og dimensionering}
+
+
 \husk{JJ}{beregninger af forhold mellem spænding og strøm i regulatoren}
 \husk{JJ}{PSpice simulering af regulator}
 
@@ -65,7 +71,7 @@ derefter kan $L_a$ bestemmes som, ved aflæst tid på $16,9\si{\milli\second}$ i
 \end{align}
 Overførelsesfunktion for motoren opstilles som
 \begin{align}
-H_{motor} = \frac{V_o}{V_i} = \frac{s L_a}{s L_a + R_{motor}} = \frac{ \frac{L_a}{R_{motor}}s}{ \frac{L_a}{R_{motor}}s +1} = \frac{\num{18E-3}s}{\num{18E-3}s +1}
+H_{motor} = \frac{V_o}{V_i} = \frac{s L_a}{s L_a + R_{motor}} = \frac{ \frac{L_a}{R_{motor}}s}{ \frac{L_a}{R_{motor}}s +1} = \frac{\num{18E-3}s}{\num{18E-3}s +1} \label{eq:motor_trans}
 \end{align}  
 
 
