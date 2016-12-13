@@ -10,15 +10,15 @@
 Da systemet bliver bygget på en eksisterende vogn, hvis dynamik ikke er kendt, må der derfor findes en måde at modellere denne.
 I forgående afsnit om pendulets dynamik fremkom det, at en acceleration af vognen kan påvirke en ændring af pendulet.
 Generelt for en DC-motor gælder, at den påførte spænding har relation til rotationshastigheden af motoren og strømmen til motorens acceleration.    
-For motorens er det kun kendt at den kommer fra Johnson Electric\footnote{\url{http://www.johnsonelectric.com/en/product-technology/motion/dc-motors}} og at den virker ved max. $12 \si{\volt}$\footnote{Motoren kan muligvis klare en højere spænding, men blev kun testet op til $12\si{\volt}$}. 
+For motoren er det kun kendt at den kommer fra Johnson Electric\footnote{\url{http://www.johnsonelectric.com/en/product-technology/motion/dc-motors}} og at den virker ved max. $12 \si{\volt}$\footnote{Motoren kan muligvis klare en højere spænding, men blev kun testet op til $12\si{\volt}$}. 
 
-Under acceleration, vil DC-motoren trække den nødvendige strøm for at opnå den, af spændingen, fastsatte hastighed. 
+Under acceleration, vil DC-motoren trække den nødvendige strøm for at opnå den, af spændingens, fastsatte hastighed. 
 Det antages at vognens acceleration er konstant for en given strøm så derfor vælges en testopstilling (se figur \ref{fig:testopstilling_vogn}), hvor der med konstant spænding til motoren måles på vognens acceleration ved faste strømbegrænsninger.
 For alle målinger gælder, at vognen står stille ved start.
 Herefter tændes for de strømbegrænsede strømforsyninger der er direkte tilsluttet DC-motoren. 
 
 Der anvendes en konstant spænding til alle tests på $6 \si{\volt}$\footnote{Spændingen på  $6 \si{\volt}$ er valgt ud fra kravet om batteridrift, og den minimale spænding disse kan levere.}.
-Acceleration optages på video med 120 fps. over en strækning af ca. $1 \si{\meter}$ hvorefter opmålingen foretages ved videoanalyse i Tracker\footnote{Tracker, Open Source Physics (OSP) - Video Analysis and Modeling Tool \url{http://physlets.org/tracker/}}.
+Acceleration optages på video med 240 fps. over en strækning af ca. $1 \si{\meter}$ hvorefter opmålingen foretages ved videoanalyse i Tracker\footnote{Tracker, Open Source Physics (OSP) - Video Analysis and Modeling Tool \url{http://physlets.org/tracker/}}.
 I tabel \ref{tab:maaldata_vogn} er de valgte strømbegrænsninger angivet.
 
 \begin{figure}
@@ -35,7 +35,7 @@ I tabel \ref{tab:maaldata_vogn} er de valgte strømbegrænsninger angivet.
 
 Efter databehandling afsættes alle målinger i en graf som ses i figur \ref{fig:vogn_response_a}.
 Grafen viser vognens position som funktion af tiden $p(t)|_{I=n}$.
-Ved hjælp af MatLab beregnes nu vognens hastighed og acceleration ved 
+Ved hjælp af MATLAB beregnes nu vognens hastighed og acceleration ved 
 \begin{align}
 v = \frac{d}{dt}p(t) \quad\quad a= \frac{d^2}{dt^2}p(t)
 \end{align}
@@ -51,13 +51,13 @@ De fundne accelerationer og tilhørende strømbegrænsninger er afsat i figur \r
 	\label{fig:vogn_response}
 \end{figure}
 
-Ved lineær regression på resultaterne af målinger i tabel \ref{tab:maaldata_vogn}, som er afbilledet i firgur \ref{fig:vogn_response} fås en hældningskoefficient på $k_v = 1,3704$ 
+Ved lineær regression på resultaterne af målinger i tabel \ref{tab:maaldata_vogn}, som er afbilledet i figur \ref{fig:vogn_response} fås en hældningskoefficient på $k_v = 1,3704$ 
 Således viser antagelsen om konstant acceleration i det arbejdsområde vi ønsker at holde stik.
-Vognens dynamic kan således beskrives som
+Vognens dynamik kan således beskrives som
 \begin{align}
 I(a) = 1,37a + 0,6639  \label{eq:vogn_dynamic}
 \end{align} 
-Den laplace transformerede af ligning \ref{eq:vogn_dynamic} er således
+Den Laplace-transformerede af ligning \ref{eq:vogn_dynamic} er således
 \begin{align}
 \lapl{ \left[ I(a) \right]} = I(s) = \frac{0,66s + 1,37}{s^2} = \frac{0,66}{s} + \frac{1,37}{s^2} \label{eq:vogn_dynamic_trans}
 \end{align}
@@ -90,12 +90,12 @@ Den laplace transformerede af ligning \ref{eq:vogn_dynamic} er således
 	\end{threeparttable}
 \end{table} 
 
-\section{Delkonklusion for vognens dynamic}
+\section{Delkonklusion for vognens dynamik}
 
 I ligning \ref{eq:vogn_dynamic_trans} er der således fremkommet en beskrivelse af vognens dynamik, som senere kan anvendes til at beskrive hele systemet og dimensionering af regulatoren.
 Denne og bestemmelsen af overførelses funktionen for det fysiske system af pendul og vogn, giver to vigtige byggeklodser til at bestemme overførelses funktionen for hele systemet, som udledes i kapitel \ref{chap:motor_reg}.
-Under test at vognens acceleration gav en for høj strøm ($I > 2,25 \si{\ampere} $ ), anledning til hjulspin og en for lav strøm ($I < 1,00 \si{\ampere} $ ) var ikke i stand til at sætte vognen i bevægelse.
-Derfor vælges et område på ($ 1,00 \si{\ampere} <  I < 2,25 \si{\ampere} $ ) som det arbejdsområde vi ønsker at styre med motorstyring, der bliver beskrevet i kapitel \ref{chap:motor_reg}
+Under test af vognens acceleration gav en for høj strøm ($I > 2,25 \si{\ampere} $ ), anledning til hjulspin og en for lav strøm ($I < 1,00 \si{\ampere} $ ) var ikke i stand til at sætte vognen i bevægelse.
+Derfor vælges et område på ($ 1,00 \si{\ampere} <  I < 2,25 \si{\ampere} $ ) som det arbejdsområde vi ønsker at styre med motorstyringen, der bliver beskrevet i kapitel \ref{chap:motor_reg}
 \husk{JJ}{Lidt mere diskussion og konklusion til dette kapitel}
 
 
