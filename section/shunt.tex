@@ -6,7 +6,6 @@ For at undgå det, anvendes shunt regulatoren, da den kan holde en nogenlunde ko
 \subsection{Design}
 Der skal her designes en shunt regulator der får $8.4 \si{\volt}$ på indgangen, og laver $7\si{\volt}$ på udgangen.
 Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærkerne kræver en positiv og en negativ forsyning på 7 \si{\volt}.
-\husk{Kenneth}{Billede af shunt regulator kreds}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/shunt_pos_png.png}
@@ -20,16 +19,14 @@ Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$.
 Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmens interval.
 Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$. \cite[Side. 1 Kolonne 12]{ZenerDiode}
 
-\husk{Kenneth}{Datablad på zenerdiode. (der henvises til den)}
-For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel 3.21 \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
+For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel \ref{eq:BreakdownVolt} \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
 \begin{align}
-	V_o & = V_{Z0} + r_z I_z \\
+	V_o & = V_{Z0} + r_z I_z \label{eq:BreakdownVolt} \\
 	V_{Z0} & = 6.925 \si{\volt}
 	\end{align}
 Værdien $V_{Z0}$ er diodens breakdown spænding.
 Breakdown er det punkt hvori spændingsfaldet over dioden er konstant og bliver anvendt til at få en konstant udgangsspænding.
-For at beregne modstanden på udgangen af kredsen anvendes ligning 3.27 \cite[Side. 149]{Sedra19uu}.
-Modstanden udregnes med ligning \ref{eq:RegulatorModstand}, 
+For at beregne modstanden på udgangen af kredsen anvendes ligning \ref{eq:RegulatorModstand} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
 	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} \label{eq:RegulatorModstand}
 \end{align}
@@ -37,13 +34,13 @@ Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68
 Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
 
 Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
-Til dette anvendes ligning 3.24 \cite[Side. 149]{Sedra19uu}.
+Til dette anvendes ligning \ref{eq:UdgangShunt} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
-	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_L \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right)
+	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_L \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \label{eq:UdgangShunt}
 \end{align}
 Udgangsspændningen bliver da $V_{out} = 7.04 \si{\volt}$.
 
 Ovenstående beregninger er udført for en BZX79C6V8 diode. 
 Da der blev lavet en endelig komponentliste blev der ved et uheld valgt en BZX79C6V2 diode i stedet for. 
 Forskellen her er at den nye diode maksimalt kan holde en konstant spænding på $6.6 \si{\volt}$ i udgangsspænding og diode modstanden er $r_z = 10 \si{\ohm}$ \cite[Side. 1 Kolonne 11]{ZenerDiode}.
-Ved tilsvarende udregninger findes det frem til at udgangsspændingen er $6.66 \si{\volt}$.
+Ved tilsvarende udregninger findes det frem til at udgangsspændingen er $6.66 \si{\volt}$ ved en modstand på $68 \si{\ohm}$.
