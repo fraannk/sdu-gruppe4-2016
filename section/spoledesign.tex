@@ -9,9 +9,8 @@ I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lag
 Først vil dimensioneringen af den store spole tages højde for, hvorefter der kigges på de 2 små spoler.
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
-Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}, 
+Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}.
 \subsection{Magnetfelt}
-\husk{Kenneth}{Til Simon: Større bogstaver på tegning.}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.6\textwidth]{billeder/B_felt.png}
@@ -243,7 +242,7 @@ For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typ
 Med en konstant strøm på $0.05\ampere$ igennem den store spole, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
 Dette svarer til $50 \micro\tesla$. 
 Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
-Da jorden magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
+Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
 
 \subsubsection{Flux og elektromotorisk kraft}
 Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
@@ -289,9 +288,10 @@ Disse resultater stemmer overens med hvad der blev beregnet i teorien. Da der bl
 \end{figure}
 \newpage
 \subsubsection{Strømfortrængning og impedans}
-Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.\\
-I laboratoriet er den store spole blevet målt med et LCR meter, som kan vise impedansen ved en given frekvens, samt induktansen. \\
-Induktansen er beregnet fra ligning \ref{eq:Wheeler}.
+Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.
+Der kan derfor ses bort fra strømfortrænging.\\
+I stedet er induktansen og impedansen blevet målt og beregnet.\\
+Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 \begin{align}
 	 L_{beregnet} &= 192.04\micro\henry\\
      L_{\text{målt}} &= 205\micro\henry
@@ -302,47 +302,32 @@ Impedansen i den store spole, er beregnet ud fra ligning \ref{eq:impedans2}
 	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\\
 	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm               
 \end{align}
-Den store spole er bestemt ud fra, at den skal fungere som en enhed, der skal sende et signal videre. 
-Signalet i denne, skal derfor være forholdsvis kraftigt, dermed også B feltet.
-
-I figur , ses en graf der viser spænding som funktion af tiden i den store spole. Se ligning \ref{eq:ldidt}, hvor $i$ er givet ved: 
-
-\begin{align}
-&i=0.05\cdot \sin{(2pi\cdot 46936\cdot t)}
-\end{align}
-Frekvensen og peakstrømmen er dimensioneret ud fra afsnit \ref{sec:Frev_gen} \\
-Her ses en induceret spænding med en peak to peak på ca. 6\volt.
-
-\husk{Simon}{Juster billeder}
-
-
-
- 
-
-
 \subsection{3D design/fysisk design af spolehus}\label{sec:3D_design}
 For at kunne gøre disse spoler til en realitet, er der lavet specialdesignede spolehuse som passer perfekt til de udregnede værdier. Disse spoler er blevet tegnet i 3D-CAD programmet Inventor, og derefter 3D-printet på en 3D-printer. \\
 
 Spolerne er designet således at når den store spole er i nul (i midten) overlapper den de mindre spoler så de er dækket præcist 50\percent. Når den store spole så er i sin fulde udslagsvinkel er hhv. den ene mindre spole dækket helt, hvor den anden slet ikke er dækket. \\
 
-\husk{fraannk}{Overvej om dette er overflødigt}
-
 Disse spoler er designet med brugervenlighed i bagtankerne. For at vi ikke skal designe et nyt spolehus for hver gang vi vikler en ny spole, er der lavet et Plug-n-play system hvor kan nemt kan "klikke" nye spoler i. Dette er lige så meget for at undgå spild af filament. Derudover er der lavet huller, så det er nemt at putte dem i vindingsmaskinen. \\
 
-Da basen af køretøjet er noget der er taget fra et tidligere projekt, er spolerne lavet sådan, at de nemt er til at klikke på det nuværende pendul, samt køretøjets bundplade. (Det gennemsigtige på figur \ref{fig:spole_3d_fig} er resten af bilen.)\\
+Da basen af køretøjet er noget der er taget fra et tidligere projekt, er spolerne lavet sådan, at de nemt er til at klikke på det nuværende pendul, samt køretøjets bundplade. (Det gennemsigtige på figur \ref{fig:spole_3d_fig} er resten af bilen.)
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.8\textwidth]{billeder/spoler_3d.png}
-	\caption{CAD-tegning af spolerne}
-	\label{fig:spole_3d_fig}
+	\subbottom[]{%
+		\includegraphics[width=.49\textwidth]{billeder/spoler_3d.png}
+		\label{fig:spole_3d_fig}}
+	\subbottom[]{%
+		\includegraphics[width=.49\textwidth]{billeder/printmount_3d.png}
+		\label{fig:printmount_3d}}
+	\caption{De 3 spoler (a), samt batteriholder og printmount (b).}
 \end{figure}
+
+\subsection{Afsenderspolen}
+Den store spole (afsenderspolen) har følgende mål; 
+Diameteren er $35\milli\meter$, og dens dybde er $10\milli\meter$. Derudover har den en kant på $2.5\milli\meter$ så der er plads til tråden. Tykkelsen på denne kant er $1\milli\meter$. 
+
+\subsection{Modtagerspolerne}
+De små spoler (modtagerspolerne) har følgende mål; 
+Diameteren er $17.1\milli\meter$, og dens dybde er også $10\milli\meter$. Kanten er den samme som på afsenderspolen. Centrum af disse spoler er på linje med ydrekanten af den store spoles $35\milli\meter$ da vi på denne måde opnår den største følsomhed. \\
 
 Derudover er der designet en batteriholder samt printmonteringsplade som også udnytter de nuværende huller i bilens bundplade. Batterierne kan slides ind i to holdere under printet, så stikkene kan gå direkte op i printet. Se figur \ref{fig:printmount_3d}.\\
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.8\textwidth]{billeder/printmount_3d.png}
-	\caption{CAD-tegning af printmountet}
-	\label{fig:printmount_3d}
-\end{figure}
