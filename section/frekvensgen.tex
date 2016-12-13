@@ -2,14 +2,14 @@
 I dette afsnit vil alle overvejelser omkring frekvensgeneratoren blive gennemgået, hertil designvalg og beregninger. 
 \subsection{Design}
 Til at generere et signal ud fra batterierne anvendes en timer-kreds. 
-Timeren skal her bruges til at lave et puls-signal der har en given frekvens og duty-cycle, dvs. et firkantet signal. 
+Timeren skal her bruges til at lave et puls-signal der har en given frekvens og duty-cycle, i dette projekt et firkantsignal. 
 Der er her valgt en konfiguration der hedder A-stable. 
-Fordelen ved dette er at timeren kan hente sit input direkte fra forsyningen der i dette tilfælde er et batteri. Dette koster en ekstra modstand men med den fordel at duty-cycle og frekvens bliver frie variabler. 
-Dette signal skal have en frekvens der er tilpas høj så systemet er mindre modtagelig overfor forstyrrelser samt det vil give en hurtigere respons. 
+Fordelen ved dette er at timeren kan hente sit input direkte fra forsyningen der i dette tilfælde er et batteri. Dette koster en ekstra modstand men har den fordel, at duty-cycle og frekvens bliver frie variabler. 
+Dette signal skal have en frekvens, der er tilpas høj, så systemet er mindre modtagelig overfor forstyrrelser, og det vil samtidig give en hurtigere responstid. 
 
-Signalet der kommer ud af timeren er begrænset således at udgangsspændingen kun kan antage positive værdier.
-For at løse dette skal der sættes en kondensator i serie med spolen.
-Dette gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
+Outputsignalet fra timeren er begrænset således, at udgangsspændingen kun kan antage positive værdier.
+For at løse dette, sættes en kondensator i serie med spolen.
+Det gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/freq_png.png}
