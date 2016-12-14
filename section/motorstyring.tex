@@ -1,6 +1,6 @@
 \section{Motorstyring }\label{sec:sec_motorstyring}
 Målinger af vognens dynamik, der blev gennemgået i afsnit \ref{sec:sec_motoroverforelse}, er baseret på stepresponset af vognen ved en konstant spænding, men med faste strømbegrænsninger i intervaller.
-Dette giver anledning til at vægle en motorstyring der sørger for en konstant strøm til motoren.
+Dette giver anledning til at vælge en motorstyring, der sørger for en konstant strøm til motoren.
 Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, $V_{reg}$ omsættes i motorstyringen til den ønskede strøm $I_{reg}$, der igen giver den ønskede acceleration $a_v$ af vognen.  
 
 \subsection{Design af motorregulering}
@@ -10,7 +10,7 @@ Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, 
 	\caption{Strømretninger ved positiv (blå) og negativ (rød) styresignal igennem BJT transistorne.}
 	\label{fig:motor_bidirectional}
 \end{wrapfigure}
-Da DC-motoren er en kompleks enhed, hvis dynamik og opbygning ligger uden for opfanget af denne rapport. 
+Da DC-motoren er en kompleks enhed, hvis dynamik og opbygning ligger uden for omfanget af denne rapport. 
 I figur \ref{fig:motor_diagram} ses det samlede kredsløb af motorreguleringen.
 I motorstyringen anvendes en simpel feedback regulering af strømmen igennem en NPN \emph{(Q10)} og PNP \emph{(Q11)} transistor, således at forholdet mellem indgangssignalet og udgangsstrømmen til motoren holdes konstant.
 Motorstyringen er opbygget som en såkaldt \textit{ Bi-directional DC motor driver} som gør det muligt at styre retningen af strømmen igennem motoren.
