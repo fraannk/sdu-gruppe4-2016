@@ -2,7 +2,7 @@
 I dette afsnit vil alle overvejelser omkring frekvensgeneratoren blive gennemgået, hertil designvalg og beregninger. 
 \subsection{Design}
 Til at generere et signal ud fra batterierne anvendes en timer-kreds. 
-Timeren skal her bruges til at lave et puls-signal der har en given frekvens og duty-cycle, i dette projekt et firkantsignal. 
+Timeren skal her bruges til at lave et puls-signal, der har en given frekvens og duty-cycle, i dette projekt et firkantsignal. 
 Der er her valgt en konfiguration der hedder A-stable. 
 Fordelen ved dette er at timeren kan hente sit input direkte fra forsyningen der i dette tilfælde er et batteri. Dette koster en ekstra modstand men har den fordel, at duty-cycle og frekvens bliver frie variabler. 
 Dette signal skal have en frekvens, der er tilpas høj, så systemet er mindre modtagelig overfor forstyrrelser, og det vil samtidig give en hurtigere responstid. 
@@ -46,7 +46,7 @@ Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet. 
 Dette giver en duty-cycle på $D = 49\%$ og en frekvens $F_n = 46.9\si{\kilo\hertz}$. 
 Duty-cyclen ligger tæt på $50\%$ og den ønskede frekvens er stadig stor nok til at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres.
 
-Der skal herefter sættes en kondensator på udgangen således at udgangsspændingen kan antage både positive og negative værdier. 
+Der skal herefter sættes en kondensator på udgangen, således at udgangsspændingen kan antage både positive og negative værdier. 
 Middelspændingen over en spole er $0\si{\volt}$, men det er outputtet ikke, da den ikke oscillerer omkring $0 \si{\volt}$, hvilket er kondensatorens formål. 
 \subsection{Beregning af udgangskondensator}
 For at kunne finde afsenderspolens impedans, anvendes vinkelfrekvensen $\omega_c$ som udregnes i ligning \ref{eq:vinkelfrekvens}.
@@ -57,6 +57,7 @@ Der fås en vinkelfrekvens på $\omega_c = 294.910\si{\kilo\radian\per\second}$.
 Afsenderspolens induktans måles ved hjælp af en RLC-meter til $L = 205\si{\micro \henry}$.
 Det ønskes ikke at spolens impedans bliver lige så stor som kondensatorens, idet der så opstår en resonanskreds. 
 Spolens impedans udregnes ved ligning \ref{eq:spole_impedans}
+\husk{Simon}{udregning af impedans, går igen i mit kapitel.}
 \begin{align}
 	Z_L & = \omega_c \cdot L = 60.5 \si{\ohm} \label{eq:spole_impedans}
 \end{align}
@@ -65,7 +66,7 @@ Der vælges her at spolens impedans skal være 20 gange større end kondensatore
 	Z_{C9} & = \frac{20}{\omega_c \cdot C_9} \rightarrow C_9 = 1.1 \si{\micro\farad} \label{eq:kondensator_c9}
 \end{align}
 Ved en kondensator størrelse på $1.1\si{\micro\farad}$ er størrelsesforholdet mellem de 2 impedanser 20 gange. 
-SMD kondensatoren der passer til er på $1\si{\micro\farad}$. Det praktiske størrelsesforhold udregnes igen hvor $C_9 = 1\si{\micro\farad}$. Størrelsesforholdet bliver da $Z_L \cdot Z_c = 17.8$ gange, hvilket er acceptabelt.
+SMD kondensatoren der passer til er på $1\si{\micro\farad}$. Det praktiske størrelsesforhold udregnes igen hvor $C_9 = 1\si{\micro\farad}$. Størrelsesforholdet bliver da $\si{Z_L \per Z_{C9}} = 17.8$ gange, hvilket er acceptabelt.
 
 På grund af modstanden og kondensatoren i kredsløbet, opstår der en forsinkelse i systemet, der er lig produktet af kondensatoren $C_9$ og modstanden $R_7$. $R_7$ er et potentiometer, så i beregningen anvendes højeste værdi, som er $1\si{\kilo\ohm}$.
 \begin{align}
