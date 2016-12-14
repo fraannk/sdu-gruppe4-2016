@@ -1,12 +1,9 @@
 \section{Design af spoler}\label{sec:sec_spole_design}
-For at kunne dimensionere og designe en spole, er det vigtigt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
-
-Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som skal stå for at udsende et signal. Herudover 2 mindre identiske spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se afsnit **.
-\husk{Simon}{Indsæt afsnitsnummer}
-
+For at kunne dimensionere og designe en spole, er det vigtigt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. \\
+Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 afsenderspole, som skal stå for at udsende et signal. Herudover 2 mindre identiske modtager spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se figur \ref{fig:spole_3d_fig}.\\
 I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt (B), flux $(\Phi)$, induktans (L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
 
-Først vil dimensioneringen af den store spole tages højde for, hvorefter der kigges på de 2 små spoler.
+Først vil dimensioneringen af afsenderspolen tages højde for, hvorefter der kigges på de 2 modtagerspoler.
 \husk{fraannk}{omskrives}
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
@@ -19,7 +16,7 @@ Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning 
 	\label{fig:spole_fig1}
 \end{figure}
 
-På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken, også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som den store spole med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkelret på hinanden.
+På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken, også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som afsenderspolen med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkelret på hinanden.
 
 Med dette kan $d\vec{B}$ feltet tegnes ind, vha. Biot-Savarts lov, eller vha. højrehåndsreglen. En mere overskuelig måde at se det på er, at krydsproduktet af 2 vektorer, er en vektor der står vinkeltret på begge. 
 $d\vec{B}$ kan nu deles op i 2 komposanter. En komposant $dB_\parallel$, som står parralelt på z axen og den cirkulære leder. Derudover også en komposant $dB_\perp$, som står vinkeltret på samme.
@@ -123,20 +120,20 @@ Dette lavede han et udtryk for:
 \end{align}
 Denne lov er også kendt for navnet Lenz's lov, da han kom frem til det omvendte fortegn.
 
-Flux i den lille spole hidrørende fra den store spole, ved fuld overlappelse er bestemt ved:
+Flux i modtagerspolen hidrørende fra afsenderspolen, ved fuld overlappelse er bestemt ved:
 \husk{fraannk}{hidrørende?}
 \begin{align}
 	&\Phi_{21} = BA_2
 \end{align}
-hvor $B$ er det magnetiske felt, og $A_2$ er arealet på den lille spoles overflade.
+hvor $B$ er det magnetiske felt, og $A_2$ er arealet på modtagerspolens overflade.
 Da $B$ feltet er homogent på hele overfladen, antages $B$ som værende konstant. 
 
-Ud fra dette udtryk, kan den totale EMF, der er induceret over i den lille spole blive bestemt ved følgende udtryk:
+Ud fra dette udtryk, kan den totale EMF, der er induceret over i modtagerspolen blive bestemt ved følgende udtryk:
 \begin{align}
 	&\xi = -N_2\frac{d\Phi_{21}}{dt} \label{eq:emf_lille_spole}
 \end{align}
-Hvor $N_2$ er antal vindinger i den lille spole.
-Det er ikke nødvendigt at beregne den store spoles flux, i og med selvinduktansen kendes og dermed kan spændingen i den store spole findes ved:
+Hvor $N_2$ er antal vindinger i modtagerspolen.
+Det er ikke nødvendigt at beregne afsenderspolens flux, i og med selvinduktansen kendes og dermed kan spændingen i afsenderspolen findes ved:
 \begin{align}
 	&V = L\frac{di}{dt} \label{eq:ldidt}
 \end{align}
@@ -146,7 +143,7 @@ Hvis signalet i spolerne havde været et rent DC signal, kunne strømmen antages
 Da dette ikke er tilfældet, vil AC signalet "fotrænge" ud i kanten af kobbertrådens tværsnitsareal. 
 Der bliver derved skabt et hulrum inden i kobbertråden. \\
 Herved bliver modstanden i kobbertråden ændret.\\
-En approximation af AC modstanden i kobbertråden findes ved ligning \ref{eq:R_AC}.
+En approximation af AC modstanden i kobbertråden findes ved ligning\footnote{\url{http://chemandy.com/calculators/round-wire-ac-resistance-calculator.htm}} \ref{eq:R_AC}.
 \begin{align}
 	& R_{AC}=\frac{\rho l}{A_{eff}} \label{eq:R_AC}
 \end{align}
@@ -158,13 +155,9 @@ Formlen for strømfortrænging er givet ved ligning \ref{eq:skineffect}.
 	& \delta = \sqrt{\frac{\rho}{\pi f\mu_0\mu_r}} \label{eq:skineffect}
 \end{align}
 Hvor $f = \text{Frekvensen}$, $\mu_0 = \text{Permabilitetskonstant som er givet ved $4\pi 10^{-7}\henry/\meter$}$ og $\mu_r = \text{Den relative permabilitetskonstant for kobber}$.
-\husk{Simon}{indsæt link som reference: http://chemandy.com/calculators/round-wire-ac-resistance-calculator.htm 5/12-16. kl 13}
-
-\husk{Simon}{evt. henvis til https://mycableengineering.com/knowledge-base/conductor-resistance}
-
 Dette gælder dog kun hvor $r>>\delta$. \\
 Da kobbertråden er valgt meget tynd, vælges der efter analysering af strømfortrængningen, at ses bort fra denne. 
-I stedet findes impedansen for den store spole ved en given frekvens ved ligning \ref{eq:impedans}.
+I stedet findes impedansen for afsenderspolen ved en given frekvens ved ligning \ref{eq:impedans}.
 \begin{align}
 	& Z=\sqrt{R^2+X^2} \label{eq:impedans}
 \end{align}
@@ -195,83 +188,70 @@ Igennem hele kapitlet, antages det at strømmen $i$ er givet ved:
 \end{align}
 Med mindre andet er angivet.\\
 Denne strøm er givet ved, hvordan det virkelige system ville opføre sig rent teoretisk, uden støj og andre forstyrrelser.
-Derudover er der i alle laboratorieopstillinger, sat en $1\ohm$ modstand i serie med den store spole, for at kunne detektere den angivne strøm i spolen.
+Derudover er der i alle laboratorieopstillinger, sat en $1\ohm$ modstand i serie med afsenderspolen, for at kunne detektere den angivne strøm i spolen.
 Hav in mente, at frekvensgeneratoren i afsnit \ref{sec:frekv_gen} laver et $\textbf{firkantsignal}$.\\ 
 Hele teorien afhænger af spolernes fysiske design, derfor er disse dimensioneret på forhånd, og kan ses i afsnit \ref{sec:3D_design}.
-
-%\begin{align}
-%	i &= 0.05\cdot \sin{(2pi\cdot 46936\cdot t)} \nonumber \\
-%	\mu_0 &= 4\pi 10^{-7}T\cdot \m/A \nonumber \\
-%	l &= 0.01\m \nonumber \\
-%	\text{Trådtykkelse} &= 0.00025\m \nonumber\\
-%	N_1&=63\nonumber\\
-%	N_2&=300\nonumber\\
-%	R_1&=0.0175\m\nonumber\\
-%	R_2&=0.00855\m\nonumber\\
-%	A_1&=9.6211\cdot 10^{-4} \m^2\nonumber\\
-%	A_2&=2.2966\cdot 10^{-4} \m^2\nonumber
-%\end{align}
 \subsubsection{Magnetfelt}
-Magnetfeltet er dimensioneret $13\mm$ ud fra den store spoles centrum.
+Magnetfeltet er dimensioneret $13\mm$ ud fra afsenderspolens centrum.
 Det antages at magnetfeltets størrelse er homogent i alle punkter i dette spektrum.
 Dette svarer præcist til centrum af modtagerspolerne ved fuld overlappelse.\\
 Da magnetfeltet afhænger meget af strømmens størrelse og antal vindinger, bliver der dimensioneret ud fra dette.
 Kobbertråden der er valgt, har en diameter på $0.25\mm$.
-Dette gælder både for den store og de to små spoler.
+Dette gælder både for afsenderspolen og de to mindre modtagerspoler.
 Da der ønskes så lidt tab, i overførelsen mellem sender og modtagerspole, anvendes Faradays lov, til at bestemme viklingsforholdet.
 Der er taget udgangspunkt i ligning \ref{eq:emf_lille_spole}, hvor det ses at vindingstallet er proportionalt med ændring i fluxen.
 Derfor vælges $N_2>>N_1$, hvor $N_1 = 63$ og $N_2 = 300$.
 
 hvilket giver en trådlængde på hhv.:
 \begin{align}
-	\text{Trådlængde stor spole} & \approx 7\m  \nonumber \\
-	\text{Trådlængde lille spole} & \approx 16\m \nonumber
+	\text{Trådlængde afsenderspole} & \approx 7\m  \nonumber \\
+	\text{Trådlængde modtagerspole} & \approx 16\m \nonumber
 \end{align}
 
 Strømmen vælges forholdsvis lav, da kobbertråden er meget tynd, hvilket resulterer lav modstand. 
 Dog ønskes så høj strøm som muligt, da modtagerspolerne gerne skulle kunne registrere et signal.\\
-Peakstrømmen i den store spole vælges derfor til $I_{Peak} = 0.05\si{\ampere}$.
+Peakstrømmen i afsenderspolen vælges derfor til $I_{Peak} = 0.05\si{\ampere}$.
 
 I figur \ref{fig:B_felt_stor_spole}, ses et plot over magnetfeltet, der ændrer sig i form af en sinus, hvor tiden varierer.
-Det ses, at $13\mm$ ud fra den store spole, skulle kunne måles et $B$ felt på ca. $60\micro\tesla$.\\
+Det ses, at $13\mm$ ud fra afsenderspolen, skulle kunne måles et $B$ felt på ca. $60\micro\tesla$.\\
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/B_felt_stor_spole.png}
-	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra stor spole. Funktionen til grafen ses i ligning \ref{eq:B_field2}.}
+	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra afsenderspolen. Funktionen til grafen ses i ligning \ref{eq:B_field2}.}
 	\label{fig:B_felt_stor_spole}
 \end{figure}\\
 For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typen. \husk{Simon}{Find ud af type}
-Med en konstant strøm på $0.05\ampere$ igennem den store spole, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
+Med en konstant strøm på $0.05\ampere$ igennem afsenderspolen, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
 Dette svarer til $50 \micro\tesla$. 
 Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
 Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
 
 \subsubsection{Flux og elektromotorisk kraft}
 Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
-I det virkelige system, vil spændingssignalet i den store spole, være et firkant signal.
+I det virkelige system, vil spændingssignalet i afsenderspolen, være et firkant signal.
 Da dette ikke kan eftervises på nogen hensigtsmæssig måde i MATLAB, tages der udgangspunkt i et sinussignal.
 Dette laves også i laboratoriet vha. af en funktionsgenerator.
 På den måde kan teorien bedst sammenlignes med praksis.\\
 Betragt figur \ref{fig:EMF_spole}. Her ses to grafer.
-Den røde indikerer spændingen over den store spole.
-Den blå indikerer spændingen over den lille spole, vel og mærke ved fuld overlappelse af arealerne på hhv. stor og lille spole.\\
-Det ses, at i følge Faradays lov, skal peakspændingen i den lille spole ligge på ca. $1.2\volt$.
+Den røde indikerer spændingen over afsenderspolen.
+Den blå indikerer spændingen over modtagerspolen, vel og mærke ved fuld overlappelse af arealerne på hhv. afsender og modtagerspole.\\
+Det ses, at i følge Faradays lov, skal den inducerede peakspænding i modtagerspolen ligge på ca. $1.2\volt$.
 Dette eftervises i laboratoriet.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/EMF_spanding.png}
-	\caption{EMF spænding i stor og lille spole}
+	\caption{EMF spænding i afsender og modtagerspole.}
 	\label{fig:EMF_spole}
 \end{figure}
 
-I laboratoriet opstilles et kredsløb, som vist på figur \ref{fig:kredslob_spole}, hvor den store spole er blevet målt med et LCR meter, og har en induktans på $205\micro\henry$.
+I laboratoriet opstilles et kredsløb, som vist på figur \ref{fig:kredslob_spole}, hvor afsenderspolen er blevet målt med et LCR meter, og har en induktans på $205\micro\henry$.
 Det er ønskeligt at have en peakstrøm på $0.05 \ampere$, som i teorien.\\
 På funktionsgeneratoren, er der en udgangsimpedans på $50\ohm$.
 I serie med resten af kredsløbet, sidder en $1\ohm$ modstand. Spændingen over denne ønskes bestemt til $0.05\volt$, hvilket vil give de ønskede $0.05\ampere$ igennem spolen.
 Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3.9\volt$.\\
 Resultatet af dette, bliver som vist i figur \ref{fig:EMF_spole_lab}.
-Hvor den gule kurve, er spændingen over den store spole, og den grønne kurve er spændingen over den lille spole.\\
+Hvor den gule kurve, er spændingen over afsenderspolen, og den grønne kurve er spændingen over modtagerspolen.\\
 Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.\\
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
@@ -279,13 +259,13 @@ Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en t
 	\caption{Laboratorieopstilling med $1\ohm$ modstand i serie, for at måle strømmen}
 	\label{fig:kredslob_spole}
 \end{wrapfigure}
-EMF'en i den lille spole i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
+EMF'en i modtagerspolen i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
 Disse resultater stemmer så vidt muligt overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/vin_vout_png.png}
-	\caption{EMF spænding i stor og lille spole, målt i laboratorie}
+	\caption{EMF spænding i afsender og modtagerspole, målt i laboratorie}
 	\label{fig:EMF_spole_lab}
 \end{figure}
 \newpage
@@ -298,7 +278,7 @@ Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 	 L_{beregnet} &= 192.04\micro\henry\\
      L_{\text{målt}} &= 205\micro\henry
 \end{align}
-Impedansen i den store spole, er beregnet ud fra ligning \ref{eq:impedans2}
+Impedansen i afsenderspolen, er beregnet ud fra ligning \ref{eq:impedans2}
 \begin{align}
 	 Z_{\text{beregnet-100k\hertz}}&=120.69\ohm\\
 	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\\
