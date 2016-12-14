@@ -6,8 +6,18 @@ S = 0                           % Theta pos for ligevægt
 g = 9.82;                       % tyngde acc.
 l = 0.3;                        % længde af pendul
 
-f_gen = 44E4                    % switch frekvens for sensor system
+f_gen = 44E3                    % switch frekvens for sensor system
 w_gen = 2*pi*f_gen
+
+motor_tau = 18E-3
+motor_num = [motor_tau 0]
+motor_den = [motor_tau 1]
+motor = 1,6 * tf(motor_num, motor_den)
+
+vogn_num = [1.37]
+vogn_den = [1 0 0]
+vogn = tf(vogn_num, vogn_den)
+vogn = 1.37
 
 pendul_num = [1];
 pendul_den = [l 0 -g]
@@ -15,27 +25,21 @@ pendul = tf(pendul_num, pendul_den)
 
 filter_tau_per_volt = 0.3491
 filter_gain = 3.5 * filter_tau_per_volt
-filter_tau = 1E-3
+filter_tau = 3.571E-6
 filter_num = [filter_gain]
 filter_den = [filter_tau 1]
 filter = tf(filter_num, filter_den)
 
-summa = 5
+ensretter_gain = 1
+ensretter_tau = 4.7E-4
+ensretter_num = [ensretter_gain]
+ensretter_den = [ensretter_tau 1]
+ensretter = tf(ensretter_num, ensretter_den)
 
-L_motor = 18E-3
-R_motor = 2
-motor_tau = L_motor/R_motor
-motor_num = [1]
-motor_den = [motor_tau 1]
-motor = tf(motor_num, motor_den)
+summa = 4.5
 
 
-bil_num = [1.37]
-bil_den = [1 0 0]
-bil = tf(bil_num, bil_den)
-bil = 1
-
-Hopenloop = motor * bil * pendul * filter * summa
+Hopenloop = motor * vogn * pendul * filter * ensretter * summa
 
 [Gm, Pm, Wgm, Wpm] = margin(Hopenloop)
 
@@ -44,23 +48,23 @@ Hopenloop = motor * bil * pendul * filter * summa
 Phi_m_deg = 60
 Phi_m = (2*pi*Phi_m_deg)/360
 
-Pboost = Phi_m_deg-Pm
-Kc = 1/Gm
-Kboost = tan((0.25*pi) + ((Pboost*pi)/(4*180)))
-Wz = Wpm/Kboost
-Wp = Kboost*Wpm
+%Pboost = Phi_m_deg-Pm
+%Kc = 1/Gm
+%Kboost = tan((0.25*pi) + ((Pboost*pi)/(4*180)))
+%Wz = Wpm/Kboost
+%Wp = Kboost*Wpm
 
 s = tf('s');
-PID_regulator = (Kc/s)*((1+s/Wz)^2/(1+s/Wp)^2)
+%PID_regulator = (Kc/s)*((1+s/Wz)^2/(1+s/Wp)^2)
 
 % PD regulator beregninger
 % Ønsket fasemargin Phi_m
 % Reg. bog side 278
 
 alfa = (1-sin(Phi_m))/(1+sin(Phi_m))
-%alfa=0.01
+%alfa=0.1
 Am = 20*log(1/sqrt(alfa))
-Wm = 27.9% aflæst, hvor A = -Am
+Wm = 22.1% aflæst, hvor A = -Am
 Tau_d = 1/(Wm*sqrt(alfa))
 
 %alfa = 0.1
@@ -87,8 +91,8 @@ regulator = PD_regulator
 regulator_num = Gc_num{1,1}
 regulator_den = Gc_den{1,1}
 
-Hforward = regulator * motor * bil * pendul
-Hfeedback = filter * summa
+Hforward = regulator * motor * vogn * pendul
+Hfeedback = filter * ensretter * summa
 Hclosedloop = feedback(Hforward, Hfeedback)
 
 fig1 = figure(1)
@@ -99,12 +103,12 @@ hold on
 margin(Hopenloop*regulator)
 grid
 legend('PD regulator','Openloop','Openloop + Regulator')
+print( fig1, '-dpng', '-r200', 'reg_bode_all.png')
 
 fig2 = figure(2)
 step(Hclosedloop)
 grid
-
-
+print( fig2, '-dpng', '-r200', 'reg_step_response.png')
 
 
 
