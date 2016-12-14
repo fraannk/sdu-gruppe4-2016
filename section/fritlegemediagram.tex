@@ -8,13 +8,13 @@
 \end{wrapfigure}
 \FloatBlock
 
-Det inverterede pendul er monteret på en vogn med hjul, som vist i figur \ref{fig:pendul_vogn}.
-Således er det muligt at flytte vognen samtidig med at der er fri bevægelse af pendulet rundt om pendulets rotations punkt, der er fastgjort på vognen.
-Der er således kun tale om én-dimensional bevægelse af vognen.
+Det inverterede pendul er monteret på en vogn med hjul, som vist på figur \ref{fig:pendul_vogn}.
+Således er det muligt at flytte vognen samtidig med at der er fri bevægelse af pendulet, som er fastgjort på vognen, rundt om pendulets rotationspunkt.
+Der er her kun tale om en én-dimensionel bevægelse af vognen.
 
-Det vælges at analysere pendulet og vognen hver for sig.
+Der vælges at analysere pendulet og vognen hver for sig.
 Pendulet anses som en masseløs stang hvor massen er fastgjort for enden af stangen. 
-Således angiver $T$ den trækkraft der er mellem vogn og pendul.
+Her angiver $T$ den trækkraft der er mellem vogn og pendul.
 \begin{figure}
 	\centering
 	\subbottom[]{%
@@ -46,13 +46,13 @@ Opsummering af kræfter på pendulet som ses i frit-legeme diagrammet i figur \r
 	\label{fig:pendul_vogn_polaer}
 \end{wrapfigure}
 
-Den relative acceleration af pendulet udledes i polær koordinater med retnings reference som angivet i figur \ref{fig:pendul_vogn_polaer}. 
+Den relative acceleration af pendulet udledes i polært koordinatsystem med retningsreference som angivet på figur \ref{fig:pendul_vogn_polaer}. 
 \begin{align}
 \vec{a}_p &= \vec{a}_v + \vec{a}_{p/v} \\
 &= \ddot{x} \hat{i} + \left( L\ddot{\theta}\hat{\theta} - L\dot{\theta}^2\hat{r} \right)
 \end{align}
 
-Accelerationsvektoren $\vec{a}_p$, for pendulet omskrives nu fra polær-koordinator til kartesiske koordinator  
+Accelerationsvektoren $\vec{a}_p$, for pendulet omskrives nu fra polære koordinater til kartesiske koordinater  
 \begin{align}
 \vec{a}_p &=  \ddot{x} \hat{i} 
 				+ L\ddot{\theta} \left( \cos{\theta}\hat{i} - \sin{\theta}\hat{j} \right) 
@@ -88,7 +88,7 @@ F_c - m_p \ddot{x} - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\t
 F_c - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\theta} &= (m_v + m_p)  \ddot{x} \label{eq:vogn_mellem}
 \end{align}
 
-Ligningerne af det fysiske system for pendul og vogn fremstår i nu i \ref{eq:pendul_mellem} og \ref{eq:vogn_mellem}. Disse to ligninger er ikke lineære. En forudsætning for at kunne gennemføre en linearisering er at antage, at udefrakommende påvirkninger til systemet er så små, at små forstyrrelser kun give anledning til små ændringer af vinkelen $\theta$ og en approksimmering kan antages som
+Ligningerne af det fysiske system for pendul og vogn fremstår nu i \ref{eq:pendul_mellem} og \ref{eq:vogn_mellem}. Disse to ligninger er ikke lineære. En forudsætning for at kunne gennemføre en linearisering er at antage, at udefrakommende påvirkninger til systemet er så små, at små forstyrrelser kun giver anledning til små ændringer af vinklen $\theta$ og en approksimmering kan antages som
 \begin{align}
 \sin{\theta} \approxeq \theta \quad og \cos{\theta} \approxeq 1
 \end{align} 

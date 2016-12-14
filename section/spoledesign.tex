@@ -1,12 +1,13 @@
 \section{Design af spoler}\label{sec:sec_spole_design}
-For at kunne dimensionere og designe en spole, er det væsentligt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
+For at kunne dimensionere og designe en spole, er det vigtigt at vide hvilket formål spolen skal bruges til. Spolen har mange egenskaber, og i dette projekt vil de blive designet, så de kan bruges som sensorer. Altså en enhed der opfanger eller udsender et analogt signal. 
 
 Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 stor spole, som skal stå for at udsende et signal. Herudover 2 mindre identiske spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se afsnit **.
 \husk{Simon}{Indsæt afsnitsnummer}
 
-I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt(B), flux$(\Phi)$, induktans(L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
+I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt (B), flux $(\Phi)$, induktans (L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
 
 Først vil dimensioneringen af den store spole tages højde for, hvorefter der kigges på de 2 små spoler.
+\husk{fraannk}{omskrives}
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}.
@@ -18,9 +19,9 @@ Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning 
 	\label{fig:spole_fig1}
 \end{figure}
 
-På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som den store spole med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkeltret på hinanden.
+På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken, også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som den store spole med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkelret på hinanden.
 
-Med dette kan $d\vec{B}$ feltet tegnes ind, vha. Biot-Savarts lov, eller vha. højrehåndreglen. En mere overskuelig måde at se det på er, at krydsproduktet af 2 vektorer, er en vektor der står vinkeltret på begge. 
+Med dette kan $d\vec{B}$ feltet tegnes ind, vha. Biot-Savarts lov, eller vha. højrehåndsreglen. En mere overskuelig måde at se det på er, at krydsproduktet af 2 vektorer, er en vektor der står vinkeltret på begge. 
 $d\vec{B}$ kan nu deles op i 2 komposanter. En komposant $dB_\parallel$, som står parralelt på z axen og den cirkulære leder. Derudover også en komposant $dB_\perp$, som står vinkeltret på samme.
 
 Summen af alle de vinkeltrette komposanter går ud da $d\vec{s}\times d\vec{B}_\perp=0$, og tilbage står kun de parallelle komposanter $dB_\parallel$, hvilket resulterer i:
@@ -57,7 +58,7 @@ Da det er z der ønskes varieret, bliver et nyt udtryk nødt til at blive bestem
 &cos(\alpha)=\frac{R}{r}=\frac{R}{\sqrt{R^2+z^2}}
 \end{align}
 
-Da $i, R$ og $z$ alle har samme værdi for alle $ds$ hele vejen rundt i den cirklære leder, kan man vha. integration summere op, på samme måde som deffineret i ligning \ref{eq:B_field}, og der fås dermed et udtryk for B:
+Da $i, R$ og $z$ alle har samme værdi for alle $ds$ hele vejen rundt i den cirkulære leder, kan man vha. integration summere op, på samme måde som defineret i ligning \ref{eq:B_field}, og der fås dermed et udtryk for B:
 \begin{align}
 &B=\frac{\mu_0 \: i \: R}{4\pi(R^2+z^2)^\frac{3}{2}}\int ds
 \end{align}
@@ -76,7 +77,7 @@ Da dette udtryk kun er gældende for en cirkulær leder, altså en spole med 1 v
 	\caption{Solenoid med radius R}
 	\label{fig:spole_fig2}
 \end{figure}
-Formlen for B feltet i en uendelig lang solenoid er givet ved:
+Formlen for B feltet i en uendelig lang solenoide er givet ved:
 \begin{align}
 	&B=\mu ni
 \end{align}
@@ -103,7 +104,7 @@ Ud fra ligning \ref{eq:Bz_field}, kan $dB(z)$ udtrykkes ved:
 	&dB(z)=\frac{\mu_0 \: i \: R^2}{2(R^2+(z-z')^2)^\frac{3}{2}}dn=\frac{\mu_0 \: N \: i \: R^2}{2L(R^2+(z-z')^2)^\frac{3}{2}}dz'
 \end{align}
 
-Ved at integrerer over hele længden på solenoiden fås:
+Ved at integrere over hele længden på solenoiden fås:
 
 \begin{align}
 	&B(z)=\int\limits_{-\frac{L}{2}}^{\frac{L}{2}}\frac{\mu_0 \: N \: i \: R^2}{2L(R^2+(z-z')^2)^\frac{3}{2}}dz'
@@ -123,11 +124,12 @@ Dette lavede han et udtryk for:
 Denne lov er også kendt for navnet Lenz's lov, da han kom frem til det omvendte fortegn.
 
 Flux i den lille spole hidrørende fra den store spole, ved fuld overlappelse er bestemt ved:
+\husk{fraannk}{hidrørende?}
 \begin{align}
 	&\Phi_{21} = BA_2
 \end{align}
-Hvor $B$ er det magnetiske felt, og $A_2$ er arealet på den lille spoles overflade.
-Da $B$ feltet er homogent på hele overfladen, antages $B$ konstant. 
+hvor $B$ er det magnetiske felt, og $A_2$ er arealet på den lille spoles overflade.
+Da $B$ feltet er homogent på hele overfladen, antages $B$ som værende konstant. 
 
 Ud fra dette udtryk, kan den totale EMF, der er induceret over i den lille spole blive bestemt ved følgende udtryk:
 \begin{align}
@@ -161,18 +163,18 @@ Hvor $f = \text{Frekvensen}$, $\mu_0 = \text{Permabilitetskonstant som er givet 
 \husk{Simon}{evt. henvis til https://mycableengineering.com/knowledge-base/conductor-resistance}
 
 Dette gælder dog kun hvor $r>>\delta$. \\
-Da kobbertråden er valgt meget tynd, vælges der efter analysering af strømfortrængningen at ses bort fra denne. 
+Da kobbertråden er valgt meget tynd, vælges der efter analysering af strømfortrængningen, at ses bort fra denne. 
 I stedet findes impedansen for den store spole ved en given frekvens ved ligning \ref{eq:impedans}.
 \begin{align}
 	& Z=\sqrt{R^2+X^2} \label{eq:impedans}
 \end{align}
 
-Hvor $R$ er modstanden i spolen, og $X$ er reaktansen, som er givet ved:
+hvor $R$ er modstanden i spolen, og $X$ er reaktansen, som er givet ved:
 
 \begin{align}
 	& X=2\pi f L \nonumber
 \end{align}
-Hvor induktansen L for en solenoide er givet ved Wheelers formel i ligning\footnote{\url{http://microblog.routed.net/wp-content/uploads/2008/10/pancakewheel.pdf}} \ref{eq:Wheeler}
+hvor induktansen L for en solenoide er givet ved Wheelers formel i ligning\footnote{\url{http://microblog.routed.net/wp-content/uploads/2008/10/pancakewheel.pdf}} \ref{eq:Wheeler}
 \begin{align}
 	& L =\frac{31.6\cdot r_1^2\cdot N^2}{6\cdot r_1+9\cdot l + 10\cdot (r_2-r_1)}  \label{eq:Wheeler}
 \end{align}
@@ -194,7 +196,7 @@ Igennem hele kapitlet, antages det at strømmen $i$ er givet ved:
 Med mindre andet er angivet.\\
 Denne strøm er givet ved, hvordan det virkelige system ville opføre sig rent teoretisk, uden støj og andre forstyrrelser.
 Derudover er der i alle laboratorieopstillinger, sat en $1\ohm$ modstand i serie med den store spole, for at kunne detektere den angivne strøm i spolen.
-Have in mente, at frekvensgeneratoren i afsnit \ref{sec:frekv_gen} laver et $\textbf{firkantsignal}$.\\ 
+Hav in mente, at frekvensgeneratoren i afsnit \ref{sec:frekv_gen} laver et $\textbf{firkantsignal}$.\\ 
 Hele teorien afhænger af spolernes fysiske design, derfor er disse dimensioneret på forhånd, og kan ses i afsnit \ref{sec:3D_design}.
 
 %\begin{align}
@@ -220,14 +222,14 @@ Da der ønskes så lidt tab, i overførelsen mellem sender og modtagerspole, anv
 Der er taget udgangspunkt i ligning \ref{eq:emf_lille_spole}, hvor det ses at vindingstallet er proportionalt med ændring i fluxen.
 Derfor vælges $N_2>>N_1$, hvor $N_1 = 63$ og $N_2 = 300$.
 
-Hvilket giver en trådlængde på hhv.:
+hvilket giver en trådlængde på hhv.:
 \begin{align}
 	\text{Trådlængde stor spole} & \approx 7\m  \nonumber \\
 	\text{Trådlængde lille spole} & \approx 16\m \nonumber
 \end{align}
 
 Strømmen vælges forholdsvis lav, da kobbertråden er meget tynd, hvilket resulterer lav modstand. 
-Dog ønskes så høj strøm som muligt, da modtagerspolerne gerne skulle kunne registrerer et signal.\\
+Dog ønskes så høj strøm som muligt, da modtagerspolerne gerne skulle kunne registrere et signal.\\
 Peakstrømmen i den store spole vælges derfor til $I_{Peak} = 0.05\si{\ampere}$.
 
 I figur \ref{fig:B_felt_stor_spole}, ses et plot over magnetfeltet, der ændrer sig i form af en sinus, hvor tiden varierer.
@@ -247,14 +249,14 @@ Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnet
 \subsubsection{Flux og elektromotorisk kraft}
 Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
 I det virkelige system, vil spændingssignalet i den store spole, være et firkant signal.
-Da dette ikke kan eftervises på nogen nem måde i MatLab, tages der udgangspunkt i et sinussignal.
+Da dette ikke kan eftervises på nogen hensigtsmæssig måde i MATLAB, tages der udgangspunkt i et sinussignal.
 Dette laves også i laboratoriet vha. af en funktionsgenerator.
 På den måde kan teorien bedst sammenlignes med praksis.\\
-Betragt figur \ref{fig:EMF_spole}, her ses to grafer.
+Betragt figur \ref{fig:EMF_spole}. Her ses to grafer.
 Den røde indikerer spændingen over den store spole.
 Den blå indikerer spændingen over den lille spole, vel og mærke ved fuld overlappelse af arealerne på hhv. stor og lille spole.\\
 Det ses, at i følge Faradays lov, skal peakspændingen i den lille spole ligge på ca. $1.2\volt$.
-Dette vil nu eftervises i laboratoriet.
+Dette eftervises i laboratoriet.
 
 \begin{figure}[h!]
 	\centering
@@ -277,8 +279,8 @@ Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en t
 	\caption{Laboratorieopstilling med $1\ohm$ modstand i serie, for at måle strømmen}
 	\label{fig:kredslob_spole}
 \end{wrapfigure}
-EMFen i den lille spole i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
-Disse resultater stemmer overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
+EMF'en i den lille spole i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
+Disse resultater stemmer så vidt muligt overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
 
 \begin{figure}[h!]
 	\centering
@@ -292,19 +294,16 @@ Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.
 Der kan derfor ses bort fra strømfortrænging.\\
 I stedet er induktansen og impedansen blevet målt og beregnet.\\
 Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
-
 \begin{align}
 	 L_{beregnet} &= 192.04\micro\henry\\
      L_{\text{målt}} &= 205\micro\henry
 \end{align}
-
 Impedansen i den store spole, er beregnet ud fra ligning \ref{eq:impedans2}
 \begin{align}
 	 Z_{\text{beregnet-100k\hertz}}&=120.69\ohm\\
 	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\\
 	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm               
 \end{align}
-
 \subsection{3D design/fysisk design af spolehus}\label{sec:3D_design}
 For at kunne gøre disse spoler til en realitet, er der lavet specialdesignede spolehuse som passer perfekt til de udregnede værdier. Disse spoler er blevet tegnet i 3D-CAD programmet Inventor, og derefter 3D-printet på en 3D-printer. \\
 
