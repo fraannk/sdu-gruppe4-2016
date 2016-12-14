@@ -14,12 +14,12 @@ Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærker
 \end{figure}
 \subsection{Beregninger}
 Indgangsspændingen fra batterierne er $V_{in} = \pm 8.4 \si{\volt}$. 
-For at overskueligegøre beregningerne, anvendes kun den positive spændingen, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
+For at overskueligegøre beregningerne, anvendes kun den positive spænding, hvoraf komponentværdierne antager samme værdi for den negative spænding, dog bliver zenerdioden forspændt i modsat retning.
 Udgangsspændingen ønskes at $V_{out} = 7 \si{\volt}$. 
 Indgangsstrømmen vælges til $I_{in} = 20\si{\milli\ampere}$, og bruges til at bestemme udgangsstrømmen.
 Zenerdiodens strøm og modstand findes i databladet $I_Z = 5 \si{\milli\ampere}$ $r_z = 15 \si{\ohm}$. \cite[Side. 1 Kolonne 12]{ZenerDiode}
 
-For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel \ref{eq:BreakdownVolt} \cite[Side. 146]{Sedra19uu} formelen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
+For at der skal ligge en konstant spænding på $7 \si{\volt}$ udregnes først breakdown spændingen over dioden ved at bruge formel \ref{eq:BreakdownVolt} \cite[Side. 146]{Sedra19uu} formlen for spændingen over dioden er den samme som udgangsspændingen på loaden. 
 \begin{align}
 	V_o & = V_{Z0} + r_z I_z \label{eq:BreakdownVolt} \\
 	V_{Z0} & = 6.925 \si{\volt}
@@ -32,7 +32,7 @@ For at beregne modstanden anvendes ligning \ref{eq:RegulatorModstand} \cite[Side
 \end{align}
 Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
 Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
-
+\husk{Simon}{2 linjer over her er ens?}
 Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
 Til dette anvendes ligning \ref{eq:UdgangShunt} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
