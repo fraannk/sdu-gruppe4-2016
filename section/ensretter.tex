@@ -1,6 +1,5 @@
 \section{Ensretter}\label{sec:ensretter}
 Da modtagerspolerne får overført signalet der genereres af frekvensgeneratoren, så vil inputtet til instrumenteringsforstærkeren få en tilnærmet sinus.
-\husk{Simon}{en sinus?} 
 For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
 \begin{figure}[h!]
 	\centering
@@ -8,12 +7,10 @@ For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
 	\caption{Her ses signalet, efter det er blevet ensrettet.}
 	\label{fig:filter_out}
 \end{figure}
-
 \subsection{Design}
 Ensretteren består af en diode, forspændt i lederetningen, der er koblet serielt med en parallelkobling af en spole og en modstand. 
 Diodens funktion er at lade halvdelen af signalet passere, hvilket betyder at signalets negative del frafalder. 
-For ikke at få et variende positivt pulssignal, indsættes kondensatoren for at glatte spændingen ud. Modstandens funktion er at aflade kondensatoren, så
-\husk{Simon}{something is missing here?}
+For ikke at få et variende positivt pulssignal, indsættes kondensatoren for at glatte spændingen ud. Modstandens funktion er at aflade kondensatoren, så der fås en passende ripplespænding.
 
 \husk{Kenneth}{Billede af ensretter kredsløb} 
 
