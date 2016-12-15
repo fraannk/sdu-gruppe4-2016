@@ -27,14 +27,14 @@ Filterets indgangsmodstand er med til at påvirke systemets centerfrekvens forst
 \begin{align}
 	R_9 & = \frac{Q_g}{ \omega_c \cdot C_{10} \cdot \left( 2 \cdot Q_g^2 - H_o \right) } \label{eq:R9}
 	\end{align}
-Modstanden $R_9$ er med til at gøre forstærkningen til en fri variabel, hvis denne ikke var med så havde filterets forstærkning været afhængig af godheden.
+Modstanden $R_9$ er med til at gøre forstærkningen til en fri variabel, hvis denne ikke var med, så havde filterets forstærkning været afhængig af godheden.
 \begin{align}
 	R_{10} & = \frac{2 \cdot Q_g}{ \omega_c \cdot C} \label{eq:R10}
 \end{align}
 Feedback modstanden regnes ved ligning \ref{eq:R10}.
 Dette medfører. $R_8 = 7.215 \si{\kilo\ohm}$, $R_9 = 1.430 \si{\kilo\ohm}$, $R_{10} = 43.288 \si{\kilo\ohm}$ og $B_w = 15.645 \si{\kilo\hertz}$.
 Da disse modstands værdier ikke kan realiseres i SMD, vælges derfor tilnærmede størrelser.
-De tilnærmede komponentværdier kommer til at være. $R_8 = 6.8 \si{\kilo\ohm}$, $R_9 = 1.5 \si{_\kilo\ohm}$ og $R_{10} = 47 \si{\kilo\ohm}$.
+De tilnærmede komponentværdier kommer til at være. $R_8 = 6.8 \si{\kilo\ohm}$, $R_9 = 1.5 \si{\kilo\ohm}$ og $R_{10} = 47 \si{\kilo\ohm}$.
 De tilpassede komponenter medfører at systemet har en anden karakteristik end den udregnede. 
 Til udregning anvendes ligningerne 13a, 13b og 13c \cite[Side. 208]{Huelsman1993}. 
 \begin{align}
@@ -53,8 +53,8 @@ Tilsvarende for godheden så har kondensatorene ikke nogen påvirkning når de e
 Dette medfører at systemets karakteristik er. 
 $H_o = 3.5$, $f_0 = 44.557 \si{\kilo\hertz}$, $Q_g = 3.1$ og $B_w = 14.4 \si{\kilo\hertz}$. 
 En forøgelse på $16 \%$ på forstærkningen kommer ikke til at blive et problem så længe instrumenterings forstærkeren ikke går i mætning. 
-Centerfrekvens ændringen er acceptabel da den ikke ligger så langt fra den teoretiske at det forårsager den dæmpning af spændingen.
-En højere godhed medfører at båndbredden bliver mindre, men da båndbredden stadig er stor så kommer det ikke til at gøre systemet signifikant langsommere.
+Centerfrekvens ændringen er acceptabel, da den ikke ligger så langt fra den teoretiske at det forårsager den dæmpning af spændingen.
+En højere godhed medfører at båndbredden bliver mindre, men da båndbredden stadig er stor, så kommer det ikke til at gøre systemet signifikant langsommere.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/filter_in_png.png}

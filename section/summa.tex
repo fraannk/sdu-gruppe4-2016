@@ -1,5 +1,6 @@
 \section{Instrumenteringsforstærker}\label{sec:summa}
-For at få en retning ud af spolesignalerne, anvendes instrumenteringsforstærkeren AD623. Instrumenteringsforstærkeren er valgt frem andre operationsforstærker typer, da den har meget større indgangsimpedans, hvilket er hensigtsmæssigt, da strømmene fra modtagerspolerne ikke er særligt store. Valget af instrumenteringsforstærkeren har også den fordel, at forstærkningen kan styres med blot en modstand, hvilket sparer plads på print boardet.
+For at få en retning ud af spolesignalerne, anvendes instrumenteringsforstærkeren AD623. Denne IC har to input pins - en til hver af modtagerspolerne.
+Netop instrumenteringsforstærkeren AD623, er valgt frem for andre operationsforstærker typer, af grundlæggende årsager; for det første er det en differensforstærker, hvilket betyder at den forstærker differensspændingen som fås ved $V_{udgangssignal} = V_{in_1} - V_{in_2}$. Da instrumenteringsforstærkeren internt består af flere operationsforstærkere, har den en høj indgangsimpedans, og samtadig kan forstærkningen styres med blot en gainmodstand, hvilket sparer plads på print boardet.
 
 \begin{figure}[h!]
 	\centering
@@ -18,6 +19,7 @@ Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en 
 Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 
 Der tilstræbes en forstærkning på 4 - 5 gange. Forstærkningen udregnes med ligning \ref{eq:GainModstand}.
+\husk{Kenneth}{Link til datablad}
 \begin{align}
 	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} \label{eq:GainModstand}
 \end{align}

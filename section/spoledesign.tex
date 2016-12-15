@@ -121,7 +121,6 @@ Dette lavede han et udtryk for:
 Denne lov er også kendt for navnet Lenz's lov, da han kom frem til det omvendte fortegn.
 
 Flux i modtagerspolen hidrørende fra afsenderspolen, ved fuld overlappelse er bestemt ved:
-\husk{fraannk}{hidrørende?}
 \begin{align}
 	&\Phi_{21} = BA_2
 \end{align}
@@ -261,6 +260,7 @@ Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en t
 \end{wrapfigure}
 EMF'en i modtagerspolen i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
 Disse resultater stemmer så vidt muligt overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
+Det opfangede signal fra modtagerspolen i det virkelige system ses i figur \ref{fig:filter_in}.
 
 \begin{figure}[h!]
 	\centering
@@ -275,14 +275,14 @@ Der kan derfor ses bort fra strømfortrænging.\\
 I stedet er induktansen og impedansen blevet målt og beregnet.\\
 Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 \begin{align}
-	 L_{beregnet} &= 192.04\micro\henry\\
-     L_{\text{målt}} &= 205\micro\henry
+	 L_{beregnet} &= 192.04\micro\henry\nonumber\\
+     L_{\text{målt}} &= 205\micro\henry\nonumber
 \end{align}
 Impedansen i afsenderspolen, er beregnet ud fra ligning \ref{eq:impedans2}
 \begin{align}
-	 Z_{\text{beregnet-100k\hertz}}&=120.69\ohm\\
-	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\\
-	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm               
+	 Z_{\text{beregnet-100k\hertz}}&=120.69\ohm\nonumber\\
+	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\nonumber\\
+	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm\nonumber               
 \end{align}
 \subsection{3D design/fysisk design af spolehus}\label{sec:3D_design}
 For at kunne gøre disse spoler til en realitet, er der lavet specialdesignede spolehuse som passer perfekt til de udregnede værdier. Disse spoler er blevet tegnet i 3D-CAD programmet Inventor, og derefter 3D-printet på en 3D-printer. \\
@@ -313,3 +313,6 @@ De små spoler (modtagerspolerne) har følgende mål;
 Diameteren er $17.1\milli\meter$, og dens dybde er også $10\milli\meter$. Kanten er den samme som på afsenderspolen. Centrum af disse spoler er på linje med ydrekanten af den store spoles $35\milli\meter$ da vi på denne måde opnår den største følsomhed. \\
 
 Derudover er der designet en batteriholder samt printmonteringsplade som også udnytter de nuværende huller i bilens bundplade. Batterierne kan slides ind i to holdere under printet, så stikkene kan gå direkte op i printet. Se figur \ref{fig:printmount_3d}.\\
+
+\section{Opsummering af sensor}
+Dette kapitel redegjorde for de forskellige komponenter der udgør sensoren på køretøjet. Den ene "side" af sensoren skulle afgive et signal bestående af en frekvens og en spole som afsender. Herefter blev dette signal induceret ind i modtagerspolerne afhængigt af pendulets position. Dette signal skal derefter signalbehandles, hvilket bliver diskuteret i næste kapitel. 
