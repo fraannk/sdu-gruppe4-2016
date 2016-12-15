@@ -19,7 +19,7 @@ Det gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket
 Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren levere en stor strøm. 
 Da timeren ikke kan holde til at levere mere end $225 \si{\milli\ampere}$, sættes en modstand i serie for at begrænse strømmen. 
-Det færdige kredsløb ses på figur \husk{Kenneth}{indsættelse af figur}
+Det færdige kredsløb ses på figur \husk{Kenneth}{indsættelse af kredsløb}
 
 \subsection{Beregninger af komponenter}
 Til udregning af modstandens og kondensatorens værdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. 
@@ -38,12 +38,12 @@ Modstandsværdierne er kendte, og der bestemmes her for en frekvens på $F_n = 5
 \begin{align}
 	C_7 & = \frac{1}{F_n \cdot \left( \frac{25 \cdot R_5 }{36} + \frac{25 \cdot R_6}{18} \right) \label{eq:Kondensator_c7}}
 \end{align}
-Ud fra ligning \ref{eq:Kondensator_c7} fås en kondensator værdi på $C_7 = 0.9\si{\nano\farad}$ for at få en frekvens på 50 \si{\kilo\hertz}. 
+Ud fra ligning \ref{eq:Kondensator_c7} fås en kondensator værdi på $C_7 = \SI{0.9}{\nano\farad}$ for at få en frekvens på 50 \si{\kilo\hertz}. 
 Da disse størrelser ikke kan realiseres i de lagerførte SMD værdier, vælges derfor tilnærmede værdier. 
 Dette medfører at $R_5$ bliver $680\si{\ohm}$ og $C_7$ på $1\si{\nano\farad}$. 
 Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet. \cite[Side 11.]{NE555}
 
-Dette giver en duty-cycle på $D = 49\%$ og en frekvens $F_n = 46.9\si{\kilo\hertz}$. 
+Dette giver en duty-cycle på $D = 49\%$ og en frekvens $F_n = \SI{46.9}{\kilo\hertz}$. 
 Duty-cyclen ligger tæt på $50\%$ og den ønskede frekvens er stadig stor nok til at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres.
 
 Der skal herefter sættes en kondensator på udgangen, således at udgangsspændingen kan antage både positive og negative værdier. 
@@ -53,20 +53,18 @@ For at kunne finde afsenderspolens impedans, anvendes vinkelfrekvensen $\omega_c
 \begin{align}
 	\omega_c & = 2 \cdot \pi \cdot F_n \label{eq:vinkelfrekvens}
 \end{align}
-Der fås en vinkelfrekvens på $\omega_c = 294.910\si{\kilo\radian\per\second}$.
+Der fås en vinkelfrekvens på $\omega_c = \SI{294.91}{\kilo\radian\per\second}$.
 Afsenderspolens induktans måles ved hjælp af en RLC-meter til $L = 205\si{\micro \henry}$.
 Det ønskes ikke at spolens impedans bliver lige så stor som kondensatorens, idet der så opstår en resonanskreds. 
-Spolens impedans udregnes ved ligning \ref{eq:spole_impedans}
-\husk{Simon}{udregning af impedans, går igen i mit kapitel.}
-\begin{align}
-	Z_L & = \omega_c \cdot L = 60.5 \si{\ohm} \label{eq:spole_impedans}
-\end{align}
+Spolens impedans udregnes ved ligning \ref{eq:impedans2}.
+
+Den udregnede impedans er $Z_L = \SI{60.5}{\ohm}$.
 Der vælges her at spolens impedans skal være 20 gange større end kondensatorens impedans. Størrelsen på kondensatoren udregnes ved ligningen \ref{eq:kondensator_c9}.
 \begin{align}
-	Z_{C9} & = \frac{20}{\omega_c \cdot C_9} \rightarrow C_9 = 1.1 \si{\micro\farad} \label{eq:kondensator_c9}
+	Z_{C9} & = \frac{20}{\omega_c \cdot C_9} \rightarrow C_9 = \SI{1.1}{\micro\farad} \label{eq:kondensator_c9}
 \end{align}
-Ved en kondensator størrelse på $1.1\si{\micro\farad}$ er størrelsesforholdet mellem de 2 impedanser 20 gange. 
-SMD kondensatoren der passer til er på $1\si{\micro\farad}$. Det praktiske størrelsesforhold udregnes igen hvor $C_9 = 1\si{\micro\farad}$. Størrelsesforholdet bliver da $\si{Z_L \per Z_{C9}} = 17.8$ gange, hvilket er acceptabelt.
+Ved en kondensator størrelse på $C_9 = \SI{1.1}{\micro\farad}$ er størrelsesforholdet mellem de 2 impedanser 20 gange. 
+SMD kondensatoren der passer til er på $ 1\si{\micro\farad}$. Det praktiske størrelsesforhold udregnes igen hvor $ 1\si{\micro\farad}$. Størrelsesforholdet bliver da $\si{Z_L \per Z_{C9}} = \num{17.8}$ gange, hvilket er acceptabelt.
 
 På grund af modstanden og kondensatoren i kredsløbet, opstår der en forsinkelse i systemet, der er lig produktet af kondensatoren $C_9$ og modstanden $R_7$. $R_7$ er et potentiometer, så i beregningen anvendes højeste værdi, som er $1\si{\kilo\ohm}$.
 \begin{align}
