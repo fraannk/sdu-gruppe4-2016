@@ -15,12 +15,10 @@ Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en 
 \husk{Kenneth}{Billede af instrumenterings kredsløb} 
 
 \subsection{Beregninger}
-\husk{Kenneth}{Find ud af spændingen før forstærkning. Også i filteret}
 Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 
-Der tilstræbes en forstærkning på 4 - 5 gange. Forstærkningen udregnes med ligning \ref{eq:GainModstand}.
-\husk{Kenneth}{Link til datablad}
+Der tilstræbes en forstærkning på 4 - 5 gange. Forstærkningen udregnes med ligningen fra fra databladet \cite[side 11]{AD623}.
 \begin{align}
-	R_G & = \frac{100 \si{\kilo\ohm}}{G-1} \label{eq:GainModstand}
+	R_G & = \frac{100 \si{\kilo\ohm}}{G-1}
 \end{align}
-hvor en gainmodstand på 22 \si{\kilo\ohm} giver en forstærkning på 4.5.
+hvor en gainmodstand på $R_G = 22 \si{\kilo\ohm}$ giver en forstærkning på 4.5.

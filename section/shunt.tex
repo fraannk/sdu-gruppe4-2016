@@ -28,12 +28,10 @@ Værdien $V_{Z0}$ er diodens breakdown spænding.
 Breakdown er det punkt hvori spændingsfaldet over dioden er konstant og bliver anvendt til at få en konstant udgangsspænding.
 For at beregne modstanden anvendes ligning \ref{eq:RegulatorModstand} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
-	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} \label{eq:RegulatorModstand}
+	R_1 & = \frac{V_{in}-V_{Z0}-r_z I_z}{I_z+I_{out}} = 70\si{\ohm} \label{eq:RegulatorModstand}
 \end{align}
-Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $68 \si{\ohm}$.
-Det kan ikke lade sig gøre at få en modstand på $70 \si{\ohm}$, derfor vælges $R_1 = 68 \si{\ohm}$.
-\husk{Simon}{2 linjer over her er ens?}
-Heraf udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
+Modstanden udregnes til $70 \si{\ohm}$, hvoraf den tilnærmede værdi bliver $R_1 = 68 \si{\ohm}$.
+Herefter udregnes udgangsspændingen for den nye modstand, for at se hvordan dette påvirker systemet.
 Til dette anvendes ligning \ref{eq:UdgangShunt} \cite[Side. 149]{Sedra19uu}.
 \begin{align}
 	V_{out} & = V_{Z0} \cdot \left( \frac{R_1}{R_1+r_z} \right) + V_{in} \cdot \left( \frac{r_z}{R_1+r_z} \right) - I_{out} \cdot \left( \frac{r_z \cdot R_1}{r_z+R_1} \right) \label{eq:UdgangShunt}
