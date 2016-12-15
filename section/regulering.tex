@@ -103,7 +103,7 @@ For at opnå bedst følsomhed af sensoren, vil et optimalt signal til vinkel væ
 Med de forgående beskrivelser af overførelsesfunktionerne i figur \ref{fig:reg_diagram} , er $H_{OL}$ for systemet bestemt til
 \begin{align}
 H_{OL} &= H_{regulator} \cdot H_{motor} \cdot H_{vogn} \cdot H_{pendul} \cdot H_{filter} \cdot H_{ensretter} \cdot H_{summa} \\
-&= \frac{7,533}{\num{5.035e-10} s^4 + \num{1.421E-4} s^3 + 0.3 s^2 - \num{4.65E-3 }s - 9.82}
+&= \frac{7,533}{\num{5.035e-10} s^4 + \num{1.421E-4} s^3 + 0,3 s^2 - \num{4.65E-3 }s - 9,82}
 \end{align} 
 $H_{OL}$ er afbilledet i figur \ref{fig:reg_bode_all} som den røde kurve.
 Her ses det at for hele frekvensområdet, er fasedrejningen $180^{\circ}$ eller derover.
@@ -128,7 +128,7 @@ Først skal $\alpha$ bestemmes ud fra den ønskede fase drejning $\varphi_m$. So
 PD-regulatorens krydsfrekvens $\omega_m$ skal nu findes til det punkt hvor den ønskede fasedrejning skal bruges til at kompensere og stabilisere systemet.
 Amplituden $A_m$ for regulatoren kan bestemmes ved \cite[s. 277, fig. 6.21]{Reg2015}
 \begin{align}
-A_m = 20 \log \left(\frac{1}{\sqrt{\alpha}}\right) =  20 \log \left(\frac{1}{\sqrt{0,0718}}\right) = 26.3392 \si{\decibel}
+A_m = 20 \log \left(\frac{1}{\sqrt{\alpha}}\right) =  20 \log \left(\frac{1}{\sqrt{0,0718}}\right) = 26,3392 \si{\decibel}
 \end{align}
 $\omega_m$ kan nu findes ud fra det uregulerede $H_{OL}$ plot hvor $|H_{OL}| = -A_m$.
 Her bliver $\omega_m$ aflæst i figur \ref{fig:reg_bode_all} til $22,1 \si{\radian\per\second}$. 
@@ -136,11 +136,10 @@ Nu kan $\tau_d$ bestemmes som \cite[s. 279, (6.13)]{Reg2015}
 \begin{align}
 \tau_d = \frac{1}{\omega_m\sqrt{\alpha}} = \frac{1}{22,1 \si{\radian\per\second}\sqrt{0,0718}} = 0,1689 \si{\second}
 \end{align}
-\husk{JJ}{Kp skal rettes til, se side 261 for Er,ss}
 
 Den endelige PD-regulator har således overførelses funktionen
 \begin{align}
-H_{regulator}(s) = K_p \frac{0,1689 s + 1}{0,0121 s + 1}  \label{eq:reg_pd_final}
+H_{regulator}(s) = 26,3392 \frac{0,1689 s + 1}{0,0121 s + 1}  \label{eq:reg_pd_final}
 \end{align}	
 
 
@@ -184,8 +183,22 @@ Ved at fastsætte $R_{22}$ til $1\si{\kilo\ohm}$ kan resten af værdierne bestem
 R_{20}=12,9\si{\kilo\ohm} \quad, \quad R_{21}=367\si{\kilo\ohm} \quad, \quad C_{20} = 13\si{\micro\farad}
 \end{align}
 
-\section{Delkonklusion af regulering og motorstyring}
-\husk{JJ}{Samle op her}
+\subsection{Måling af systemet overførelsesfunktion med Bode 100}
+Afslutningsvis blev det forsøgt at lave en brugbar måling af systemets overførelsesfunktion med Bode 100\footnote{OMNICRON Lab Bode 100 - \url{https://www.omicron-lab.com/bode-100/}}, når vognen med pendul var i stabil drift.
+Det var meget svært at få brugbare data som kunne bruges til verifikation af den teoretisk opstillede model af systemet.
+Resultatet er her medtaget i figur \ref{}, men vil ikke anvendes yderligt.
+%\begin{figure}[h!]
+%	\centering
+%	\includegraphics[width=.8\textwidth]{billeder/bode100.png}
+%	\caption{Måling af system med Bode 100.}
+%	\label{fig:bode100}
+%\end{figure}
+
+\section{Opsamling af regulering og motorstyring}
+Motorstyringen der skal bruges på vognen er blevet realiseret og dimensioneret og efterfølgende modificeret, så motor på vognen kan forsynes med en stor nok strøm der giver vognen den ønskede bevægelse.
+Derudover viste det sig også muligt at bestemme overførelses funktionerne, ikke kun for pendul og den elektriske del af motoren, men også for alle andre dele af systemet, således at det blev muligt at designe og dimensionere en regulator der gjorde systemet af pendul og vogn stabilt.
+Det må konkluderes at tilgangen har været tilstrækkeligt, da det endelige produkt viste sig at være stabilt.
+
 
 
 
