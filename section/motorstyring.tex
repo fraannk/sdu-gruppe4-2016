@@ -86,9 +86,10 @@ derefter kan $L_a$ bestemmes som, ved aflæst tid på $16,9\si{\milli\second}$ i
 \begin{align}
 	5\tau = \frac{L_a}{R_a} \Rightarrow L_a = 16,9\si{\milli\second} \cdot 3,4 \si{\ohm} = 57,5 \si{\milli\henry}
 \end{align}
-Overførelsesfunktion for motoren opstilles som
+Overførelsesfunktion for motoren opstilles som, hvori ligning \ref{eq:motor_styr_trans} for $H_{motorstyring}$ medtages
 \begin{align}
-H_{motor} = \frac{V_o}{V_i} = \frac{s L_a}{s L_a + R_{motor}} = \frac{ \frac{L_a}{R_{motor}}s}{ \frac{L_a}{R_{motor}}s +1} = \frac{\num{18E-3}s}{\num{18E-3}s +1} \label{eq:motor_trans}
+H_{motor} &= \frac{V_o}{V_i} \cdot H_{motorstyring} = \frac{s L_a}{s L_a + R_{motor}} \cdot H_{motorstyring} = \frac{ \frac{L_a}{R_{motor}}s}{ \frac{L_a}{R_{motor}}s +1} \cdot H_{motorstyring} \\
+ &= 1,6 \cdot \frac{\num{18E-3}s}{\num{18E-3}s +1}  \label{eq:motor_trans}
 \end{align}  
 
 

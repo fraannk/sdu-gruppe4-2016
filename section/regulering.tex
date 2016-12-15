@@ -1,7 +1,7 @@
 \section{Regulering}\label{sec:regulering}
 
-Som vist i afsnit xx, er det omvendte pendul et grundlæggende ustabilt system.
-I ligning xx blev overførelses funktionen for pendulet fysiske system fundet.
+Som vist i afsnit \ref{sec:sec_penduloverforelse}, er det omvendte pendul et grundlæggende ustabilt system.
+I figur \ref{fig:pendul_trans_clean} blev overførelses funktionen for pendulet fysiske system fundet.
 Hvis der ses bort fra de udefra kommende forstyrrelser, vil pendulets overførelses funktion være.
 \begin{align}
 H_{pendul}(s) = \frac{1}{Ls^2 - g} \label{eq:h_pendul}
@@ -29,7 +29,7 @@ Regulatoren der er det endelige mål, indgår ikke i $H_{ol}$ og bliver derfor s
 
 Motorens dynamik beskrevet i afsnit \ref{sec:sec_motorstyring}, ligning \ref{eq:motor_trans} giver os den elektriske dynamik for motoren
 \begin{align}
-H_{motor}(s) = \frac{\num{18E-3}s}{\num{18E-3}s +1}
+H_{motor}(s) = 1,6 \cdot \frac{\num{18E-3}s}{\num{18E-3}s +1}
 \end{align}
 
 For at kunne beskrive selv vognen, blev der i afsnit \ref{sec:sec_motoroverforelse} udledt ligning \ref{eq:vogn_dynamic_trans}
@@ -40,7 +40,7 @@ Under målingerne af vognens dynamik i afsnit \ref{sec:sec_motoroverforelse} kom
 Vi vælger derfor kun at medtage den del at dynamikken der ligger inde for det område hvor vognen er i bevægelse og ser derfor bort fra, at vi ikke kan beskrive den dynamik der ligger mellem $-1 \si{\ampere} < I < 1 \si{\ampere}$. 
 Således kan dynamikken for vognen forenkles til
 \begin{align}
- H_{vogn}(s) = \frac{1,37}{s^2} 
+ H_{vogn}(s) = 1,37
 \end{align}
 
 For pendulet vil vi anvende $H_{pendul}$ i ligning \ref{eq:h_pendul}.
@@ -69,33 +69,103 @@ H_{summa}(s) = 4,5
 
 \subsection{Forhold mellem sensor signal og pendul vinkel}
 Det er i dimensioneringen af vores reguleringssystem, vigtigt at kende forholdet mellem pendulets vinken $\theta$ og signalstyrken på indgangen til filteret.
-\husk{JJ}{theta indgangssignal måling og kommentar at den ikke kan bruges}
+Ved at video optage pendulet i frit fald, samtidig med at signalet fra den ene af modtagerspolerne blev optaget på et oscilloskop, er det muligt at plotte dette forhold i en graf. Resultatet ses i figur xx.
+Vinklen af pendulet blev målt ved videoanalyse i Tracker, hvor der i figur \ref{fig:pendul_fald_vid} er vist et billede fra video optagelsen.
+Dataerne fra to forskellige kilder blev efterbehandlet i Matlab og synkroniseret ud fra slutpunktet for faldet.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.6\textwidth]{billeder/pendul_fald_vid.png}
+	\caption{Enkelt billed fra video optagelsen til måling af forhold mellem pendul vinkel og signal. Rød pil viser frit falds retning af pendul.}
+	\label{fig:pendul_fald_vid}
+\end{figure}
+\FloatBlock
+Som det ses ud fra resultaterne i figur \ref{fig:pendul_fald_res}, er forholdet mellem pendulets vinkel og signalet efter signal behandlingen ikke lineært.
+Dette betyder at der omkring pendulet arbejdspunkt ved nul grader, skal findes en lineær model.  
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.7\textwidth]{billeder/pendul_fald_res.png}
+	\caption{Forholdet mellem signalspændingen fra modtagerspolen og pendulet vinkel.}
+	\label{fig:pendul_fald_res}
+\end{figure}
+\FloatBlock
+Der viste sig desværre at være problemer med forsyningen til afsenderspolen, således at det målte signal ikke havde den tiltænke styrke.
+Efter tilretning af forsyningen skal denne måling foretages igen, og den korrekte værdi bruges.
+Desværre var det ikke muligt at nå indenfor afsatte tidsramme, så i de efterfølgende beregninger anvendes et estimat.
+
+For at opnå bedst følsomhed af sensoren, vil et optimalt signal til vinkel være at have et spændingsinterval på signalet mellem $0-5\si{\volt}$ for $10^{\circ}$ 
+\begin{align}
+5\si{\volt} = \frac{\pi}{180} \cdot 10^{\circ} \Rightarrow \frac{\si{\volt}}{rad} = \frac{\pi}{180} \cdot 2 = 0,0349
+\end{align}
 
 
 \subsection{Dimensionering og valg af regulator}
-Ud fra xx, ses det at en forøgelse af fasemarginen ved xx rad/s, vi kunne give et stabilt system.
-\husk{JJ}{Beskrivelse fra matlab beregninger og Reg bog}
+Med de forgående beskrivelser af overførelsesfunktionerne i figur \ref{fig:reg_diagram} , er $H_{OL}$ for systemet bestemt til
+\begin{align}
+H_{OL} &= H_{regulator} \cdot H_{motor} \cdot H_{vogn} \cdot H_{pendul} \cdot H_{filter} \cdot H_{ensretter} \cdot H_{summa} \\
+&= \frac{7,533}{\num{5.035e-10} s^4 + \num{1.421E-4} s^3 + 0.3 s^2 - \num{4.65E-3 }s - 9.82}
+\end{align} 
+$H_{OL}$ er afbilledet i figur \ref{fig:reg_bode_all} som den røde kurve.
+Her ses det at for hele frekvensområdet, er fasedrejningen $180^{\circ}$ eller derover.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/reg_bode_all.png}
+	\caption{Bodeplot for $H_{OL}$ (rød), Regulatoren (blå) og $H_{OL}$ med regulator (gul).}
+	\label{fig:reg_bode_all}
+\end{figure}
+\FloatBlock 
+Det vælges derfor at dimensionere regulatoren som en P-lead regulator (PD).
+Denne type regulator vil kun give et positivt fase bidrag, og vil derfor egne sig særligt godt her.
+PD regulatoren kan beskrives som \cite[s.276, (6.7)]{Reg2015}
+\begin{align}
+G_c(s) = K_p \frac{\tau_d s + 1}{\alpha \tau_d s + 1} \quad, \quad \alpha < 1  \label{eq:reg_gc}
+\end{align}	
+Her er $G_c(s)$ det samme som $H_{regulator}$. 
+Først skal $\alpha$ bestemmes ud fra den ønskede fase drejning $\varphi_m$. Som udgangspunkt vil en fasedrejning på $\varphi_m = 60^{\circ}$ var ønskeligt \cite[s. 278]{Reg2015}
+\begin{align}
+\alpha = \frac{1 - \sin{\varphi_m}}{1 + \sin{\varphi_m}} = \frac{1 - \sin{60^{\circ}}}{1 + \sin{60^{\circ}}} = 0,0718
+\end{align}
+PD-regulatorens krydsfrekvens $\omega_m$ skal nu findes til det punkt hvor den ønskede fasedrejning skal bruges til at kompensere og stabilisere systemet.
+Amplituden $A_m$ for regulatoren kan bestemmes ved \cite[s. 277, fig. 6.21]{Reg2015}
+\begin{align}
+A_m = 20 \log \left(\frac{1}{\sqrt{\alpha}}\right) =  20 \log \left(\frac{1}{\sqrt{0,0718}}\right) = 26.3392 \si{\decibel}
+\end{align}
+$\omega_m$ kan nu findes ud fra det uregulerede $H_{OL}$ plot hvor $|H_{OL}| = -A_m$.
+Her bliver $\omega_m$ aflæst i figur \ref{fig:reg_bode_all} til $22,1 \si{\radian\per\second}$. 
+Nu kan $\tau_d$ bestemmes som \cite[s. 279, (6.13)]{Reg2015}
+\begin{align}
+\tau_d = \frac{1}{\omega_m\sqrt{\alpha}} = \frac{1}{22,1 \si{\radian\per\second}\sqrt{0,0718}} = 0,1689 \si{\second}
+\end{align}
+\husk{JJ}{Kp skal rettes til, se side 261 for Er,ss}
+
+Den endelige PD-regulator har således overførelses funktionen
+\begin{align}
+H_{regulator}(s) = K_p \frac{0,1689 s + 1}{0,0121 s + 1}  \label{eq:reg_pd_final}
+\end{align}	
 
 
 \subsection{Simulering af reguleret system}
+I Matlab er det samlede system blevet designet i SimuLink, for at efterprøver om regulatoren kan sørge for at stabilisere system som tiltænkt.
+I figur \ref{fig:transfunc_sim} ses den samlede simulering model.
+Med i simuleringen er der også taget de fysiske begrænsninger der er ved fx. udgangsspændingen fra operationsforstærkere i regulatoren, og de strømbegrænsninger der findes for motor og vogn dynamikken.
+Endeligt har simuleringen fået tilføjet en tilfældig pulsgenerator, som tilføjer tilfældige forstyrrelser under simuleringen.
+Da det ønskes at sætte fokus på pendul vinklen $\theta$ i simulerings resultattern, er regulator signalet og forstyrrelsen blevet faktoriseret, således at detaljerne for pendul vinklen ikke bliver udvisket.
+Resultatet af simuleringen kan ses i figur \ref{fig:system_sim_stimuli}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/transfunc_sim.png}
 	\caption{Simulink simulering model af det samlede system.}
 	\label{fig:transfunc_sim}
 \end{figure}
-\FloatBlock 
 
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/system_sim_stimuli.png}
-	\caption{Systemsimulering med tilfældige forstyrrelser.}
+	\caption[Systemsimulering med tilfældige forstyrrelser.]{Systemsimulering med tilfældige forstyrrelser. Pendul vinkel (rød), Forstyrrelse (blå) og Regulator signal (grøn)}
 	\label{fig:system_sim_stimuli}
 \end{figure}
 \FloatBlock 
-
-\husk{JJ}{kort beskrivelse af simulering og resultat}
 
 \subsection{Implementering af regulator}
 \begin{figure}[h!]
@@ -104,10 +174,15 @@ Ud fra xx, ses det at en forøgelse af fasemarginen ved xx rad/s, vi kunne give 
 \caption{Kredsløbsdiagram af den implementerede PD regulator.}
 \label{fig:pd_schematic}
 \end{figure}
-\FloatBlock 
-
-\husk{JJ}{Udledning af komponent størrelser}
-
+Med den endelige PD-regulator i ligning \ref{eq:reg_pd_final} og med de ovenstående værdier $K_p$, $\tau_d$ og $\alpha$ kan denne realiseres \cite[s. 349]{Reg2015} som
+\begin{align}
+K_p = \frac{R_{21}}{R_{20} + R_{22}} \quad , \quad \tau_d = R_{22}C_{20} \quad, \quad \alpha\tau_d = \frac{R_{20} R_{22} C_{20}}{R_{20} + R_{22}}
+\end{align}
+hvor parameterne fastsættes iht. kredsløbet i figur \ref{fig_pd_schematic}.
+Ved at fastsætte $R_{22}$ til $1\si{\kilo\ohm}$ kan resten af værdierne bestemmes til
+\begin{align}
+R_{20}=12,9\si{\kilo\ohm} \quad, \quad R_{21}=367\si{\kilo\ohm} \quad, \quad C_{20} = 13\si{\micro\farad}
+\end{align}
 
 \section{Delkonklusion af regulering og motorstyring}
 \husk{JJ}{Samle op her}
