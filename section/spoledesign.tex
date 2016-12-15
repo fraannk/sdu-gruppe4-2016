@@ -3,8 +3,7 @@ For at kunne dimensionere og designe en spole, er det vigtigt at vide hvilket fo
 Som beskrevet tidligere, består systemet af i alt 3 spoler. 1 afsenderspole, som skal stå for at udsende et signal. Herudover 2 mindre identiske modtager spoler, som skal opfange signalerne. For et illustrativt billede af opsætningen se figur \ref{fig:spole_3d_fig}.\\
 I den følgende tekst, vil der blive beskrevet hvilke faktorer der er blevet lagt vægt på, samt hvordan nogle af Maxwells ligninger er blevet brugt til at dimensionere de enkelte spoler. Herunder begreber som magnetfelt (B), flux $(\Phi)$, induktans (L) og elektromotorisk kraft som fremadrettet vil blive betegnet som EMF$(\xi)$. 
 
-Først vil dimensioneringen af afsenderspolen tages højde for, hvorefter der kigges på de 2 modtagerspoler.
-\husk{fraannk}{omskrives}
+Dimensioneringen af spolerne sker i prioriteret rækkefølge, med afsenderspolen først og modtagerspolerne til sidst.
 Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}.
@@ -219,14 +218,15 @@ Det ses, at $13\mm$ ud fra afsenderspolen, skulle kunne måles et $B$ felt på c
 	\caption{Magnetfeltet beregnet 13 $\mm$ ud fra afsenderspolen. Funktionen til grafen ses i ligning \ref{eq:B_field2}.}
 	\label{fig:B_felt_stor_spole}
 \end{figure}\\
-For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typen. \husk{Simon}{Find ud af type}
+For at eftervise dette, blev der i laboratoriet, målt ved hjælp af et Gaussmeter.
+
 Med en konstant strøm på $0.05\ampere$ igennem afsenderspolen, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
 Dette svarer til $50 \micro\tesla$. 
 Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
 Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
 
 \subsubsection{Flux og elektromotorisk kraft}
-Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.\\
+Efter at have bestemt magnetfeltets styrke, i forrige afsnit, kan den magnetiske flux og den elektromotoriske kraft bestemmes.
 I det virkelige system, vil spændingssignalet i afsenderspolen, være et firkant signal.
 Da dette ikke kan eftervises på nogen hensigtsmæssig måde i MATLAB, tages der udgangspunkt i et sinussignal.
 Dette laves også i laboratoriet vha. af en funktionsgenerator.
