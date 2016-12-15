@@ -19,7 +19,7 @@
 \hline
 R1,R2 & $\SI{68}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
 R3 & $\SI{10}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R4 & $\SI{1}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
+R4,R30,R31 & $\SI{1}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
 R5 & $\SI{680}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
 R6 & $\SI{15}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
 R7,R17 & $\SI{1}{\kilo\ohm}$		& Potentiometer		& $\pm 10\%$ 		 & $\SI{0.5}{\watt}$	  & 100ppm/\si{\celsius}  & 3296 Square Trimpot, Bourns  \\
@@ -31,8 +31,8 @@ R18 & $\SI{1.5}{\kilo\ohm}$		& Metalfilm	& $\pm 1\%$ 		 & $\SI{0.6}{\watt}$	  & 
 R40 & $\SI{15}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
 R41 & $\SI{1}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
 R42 & $\SI{330}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
-C1,C2,C4,C6,C20, C40 & $\SI{10}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt}  & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
-C3,C5,C12,C13,C14,C15,C18,C19,C21,C22, C41,C42 & $\SI{100}{\nano\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
+C1,C2,C4,C6,C20, C32,C33 C40 & $\SI{10}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt}  & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
+C3,C5,C12,C13,C14,C15,C18,C19,C21,C22, C30,C31,C34,C35 C41,C42 & $\SI{100}{\nano\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
 C7 & $\SI{1}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & NP0-serie 1206, Phycomp \\
 C8 & $\SI{10}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & NP0-serie 0805, Phycomp \\
 C9 & $\SI{1}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 0805, Phycomp \\
@@ -40,11 +40,14 @@ C10,C11,C16,C17 & $\SI{470}{\pico\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\
 D1,D2 & BZX79C6V2 & Zener diode & $\pm 5 \%$ & \SI{0.5}{\watt} & \SI{4}{\milli\watt\per\celsius} & Fairchild Semiconductor \\
 D3,D4 & 1N4148 & Ensretter diode & N/A & \SI{0.5}{\watt} & \SI{5}{\milli\watt\per\celsius} & Fairchild Semiconductor \\
 D5 & LED grøn 3mm & Grøn lysdiode & N/A & \SI{0.1}{\watt} & N/A & Ukendt \\
+D30,D31 & 1N5819B & Schottky diode & N/A & N/A & N/A & Vishay \\
 IC1 & NE555P & Timerkreds SMD & $V_{cc}= 18 \si{\volt}$ & N/A & 50ppm/\si{\celsius} & Texas Instruments \\
-IC2,IC3,IC40 & TL071P & Op. Amp SMD & $V_{cc}=\pm 18 \si{\volt}$ & N/A & \SI{18}{\micro\volt\per\celsius} & Texas Instruments \\
+IC2,IC3,IC30,IC40 & TL071P & Op. Amp SMD & $V_{cc}=\pm 18 \si{\volt}$ & N/A & \SI{18}{\micro\volt\per\celsius} & Texas Instruments \\
 IC4 & AD623AN & Op. Amp SMD & $V_{cc} = 12 \si{\volt}$ & \SI{650}{\milli\watt} & 50ppm/\si{\celsius} & Analog Devices \\
 IC5 & LM317T & Spændingsregulator & $V_{o} , V_{i} = 40 \si{\volt}$ & \SI{20}{\watt} & $i_{max} = 1.5 \si{\ampere}$ & Motorola \\
 SW1 & 6-polet knap & N/A & N/A & N/A & N/A & Shadow \\
+Q30 & BD437 & NPN-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & ON Semiconductor \\
+Q31 & BD438 & PNP-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & ON Semiconductor \\
 
 \hline
 \bottomrule
