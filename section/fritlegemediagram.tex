@@ -29,7 +29,7 @@ Her angiver $T$ den trækkraft der er mellem vogn og pendul.
 
 Opsummering af kræfter på vognen som ses i frit-legeme diagrammet i figur \ref{fig:fridiagram_vogn}. 
 \begin{alignat}{3}
-&\hat{i} : \quad && F_c + T sin{\theta} && = m_v \ddot{x} \label{eq:vogn_x}\\
+&\hat{i} : \quad && F_v + T sin{\theta} && = m_v \ddot{x} \label{eq:vogn_x}\\
 &\hat{j} : \quad && -g m_v + N && = 0 
 \end{alignat}
 
@@ -84,8 +84,8 @@ Ligning \ref{eq:pendul_x3} og \ref{eq:pendul_y3} adderes
 
 I ligning \ref{eq:vogn_x} fjernes $T$ ved at substituere med ligning \ref{eq:pendul_x2}
 \begin{align}
-F_c - m_p \ddot{x} - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\theta} &= m_v \ddot{x} \Leftrightarrow \\
-F_c - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\theta} &= (m_v + m_p)  \ddot{x} \label{eq:vogn_mellem}
+F_v - m_p \ddot{x} - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\theta} &= m_v \ddot{x} \Leftrightarrow \\
+F_v - m_p L\ddot{\theta}\cos{\theta} + m_p L\dot{\theta}^2\sin{\theta} &= (m_v + m_p)  \ddot{x} \label{eq:vogn_mellem}
 \end{align}
 
 Ligningerne af det fysiske system for pendul og vogn fremstår nu i \ref{eq:pendul_mellem} og \ref{eq:vogn_mellem}. Disse to ligninger er ikke lineære. En forudsætning for at kunne gennemføre en lineaerisering er at antage, at udefrakommende påvirkninger til systemet er så små, at små forstyrrelser kun giver anledning til små ændringer af vinklen $\theta$ og en approksimmering kan antages som
@@ -106,16 +106,16 @@ Det ønskes at få et udtryk der forbinder position $x$ med vinklen $\theta$ for
 
 Nu tages \ref{eq:pendul_lin} og indsættes i ligning \ref{eq:vogn_mellem}
 \begin{align}
-F_c - m_p L\ddot{\theta} + m_p L\theta &= (m_v + m_p)(g \theta -L \ddot{\theta})  \\
-F_c  - m_p L\ddot{\theta} + m_p L\theta &= m_v g \theta +  m_p g \theta - m_v L \ddot{\theta} - m_p L \ddot{\theta}
+F_v - m_p L\ddot{\theta} + m_p L\theta &= (m_v + m_p)(g \theta -L \ddot{\theta})  \\
+F_v  - m_p L\ddot{\theta} + m_p L\theta &= m_v g \theta +  m_p g \theta - m_v L \ddot{\theta} - m_p L \ddot{\theta}
 \end{align}
 
-I ovenstående udtryk, erstattes $F_c = ma_v$ for og reduceres
+I ovenstående udtryk, erstattes $F_v = ma_v$ for og reduceres
 \begin{align}
 m a_v - \hcancel[red]{ m_p L\ddot{\theta}} + m_p L\theta &= (m_v + m_p) g \theta - m_v L \ddot{\theta} - \hcancel[red]{ m_p L\ddot{\theta}} \Leftrightarrow \\
 m_v L \ddot{\theta} - m g \theta &= - m_p L\theta -m a_v \label{eq:system_final}
 \end{align} 
 
-Ligning \ref{eq:system_final} er således den endelige beskrivelse af pendul og vogn hvori systemets overførelses funktion kan findes.
+Ligning \ref{eq:system_final} er således den endelige beskrivelse af pendul og vogn hvori systemets overførelsesfunktion kan findes.
 På højre side ses de eksterne forstyrrelser. 
 $m_pL\theta $ er påvirkningen af en lille ændring af pendulet, og $m a_v$ er en ændring i vognens acceleration.
