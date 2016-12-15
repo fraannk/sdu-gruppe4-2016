@@ -168,7 +168,7 @@ hvor $R$ er modstanden i spolen, og $X$ er reaktansen, som er givet ved:
 \end{align}
 hvor induktansen L for en solenoide er givet ved Wheelers formel i ligning\footnote{\url{http://microblog.routed.net/wp-content/uploads/2008/10/pancakewheel.pdf}} \ref{eq:Wheeler}
 \begin{align}
-	& L =\frac{31.6\cdot r_1^2\cdot N^2}{6\cdot r_1+9\cdot l + 10\cdot (r_2-r_1)}  \label{eq:Wheeler}
+	& L =\frac{31,6\cdot r_1^2\cdot N^2}{6\cdot r_1+9\cdot l + 10\cdot (r_2-r_1)}  \label{eq:Wheeler}
 \end{align}
 Et samlet udtryk for impedansen er dermed givet i ligning \ref{eq:impedans2}.
 
@@ -183,7 +183,7 @@ Der vil blive gjort rede for de forskellige dimensioneringer og valg - derudover
 Resultaterne vil blive delt op i undersektioner, så hvert emne passer i rækkefølge med kapitlet.\\
 Igennem hele kapitlet, antages det at strømmen $i$ er givet ved:
 \begin{align}
-	 i&=0.05\sin{(2\pi46936 t)} \nonumber
+	 i&=0,05\sin{(2\pi46936 t)} \nonumber
 \end{align}
 Med mindre andet er angivet.\\
 Denne strøm er givet ved, hvordan det virkelige system ville opføre sig rent teoretisk, uden støj og andre forstyrrelser.
@@ -195,7 +195,7 @@ Magnetfeltet er dimensioneret $13\mm$ ud fra afsenderspolens centrum.
 Det antages at magnetfeltets størrelse er homogent i alle punkter i dette spektrum.
 Dette svarer præcist til centrum af modtagerspolerne ved fuld overlappelse.\\
 Da magnetfeltet afhænger meget af strømmens størrelse og antal vindinger, bliver der dimensioneret ud fra dette.
-Kobbertråden der er valgt, har en diameter på $0.25\mm$.
+Kobbertråden der er valgt, har en diameter på $0,25\mm$.
 Dette gælder både for afsenderspolen og de to mindre modtagerspoler.
 Da der ønskes så lidt tab, i overførelsen mellem sender og modtagerspole, anvendes Faradays lov, til at bestemme viklingsforholdet.
 Der er taget udgangspunkt i ligning \ref{eq:emf_lille_spole}, hvor det ses at vindingstallet er proportionalt med ændring i fluxen.
@@ -209,7 +209,7 @@ hvilket giver en trådlængde på hhv.:
 
 Strømmen vælges forholdsvis lav, da kobbertråden er meget tynd, hvilket resulterer lav modstand. 
 Dog ønskes så høj strøm som muligt, da modtagerspolerne gerne skulle kunne registrere et signal.\\
-Peakstrømmen i afsenderspolen vælges derfor til $I_{Peak} = 0.05\si{\ampere}$.
+Peakstrømmen i afsenderspolen vælges derfor til $I_{Peak} = 0,05\si{\ampere}$.
 
 I figur \ref{fig:B_felt_stor_spole}, ses et plot over magnetfeltet, der ændrer sig i form af en sinus, hvor tiden varierer.
 Det ses, at $13\mm$ ud fra afsenderspolen, skulle kunne måles et $B$ felt på ca. $60\micro\tesla$.\\
@@ -220,7 +220,7 @@ Det ses, at $13\mm$ ud fra afsenderspolen, skulle kunne måles et $B$ felt på c
 	\label{fig:B_felt_stor_spole}
 \end{figure}\\
 For at eftervise dette, blev der i laboratoriet, målt med et Gauss meter af typen. \husk{Simon}{Find ud af type}
-Med en konstant strøm på $0.05\ampere$ igennem afsenderspolen, blev der målt $0.5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
+Med en konstant strøm på $0,05\ampere$ igennem afsenderspolen, blev der målt $0,5 \gauss$ ca. $13\mm$ ud fra spolens centrum. 
 Dette svarer til $50 \micro\tesla$. 
 Ses der på figur \ref{fig:B_felt_stor_spole}, er der et peak magnetfelt på ca. $60\micro\tesla$.
 Da jordens magnetfelt\footnote{\url{https://en.wikipedia.org/wiki/Earth's_magnetic_field}} i sig selv, ligger mellem $25-65\micro\tesla$, kan denne måling ikke antages fuldstændig præcist.
@@ -245,10 +245,10 @@ Dette eftervises i laboratoriet.
 \end{figure}
 
 I laboratoriet opstilles et kredsløb, som vist på figur \ref{fig:kredslob_spole}, hvor afsenderspolen er blevet målt med et LCR meter, og har en induktans på $205\micro\henry$.
-Det er ønskeligt at have en peakstrøm på $0.05 \ampere$, som i teorien.\\
+Det er ønskeligt at have en peakstrøm på $0,05 \ampere$, som i teorien.\\
 På funktionsgeneratoren, er der en udgangsimpedans på $50\ohm$.
-I serie med resten af kredsløbet, sidder en $1\ohm$ modstand. Spændingen over denne ønskes bestemt til $0.05\volt$, hvilket vil give de ønskede $0.05\ampere$ igennem spolen.
-Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3.9\volt$.\\
+I serie med resten af kredsløbet, sidder en $1\ohm$ modstand. Spændingen over denne ønskes bestemt til $0,05\volt$, hvilket vil give de ønskede $0,05\ampere$ igennem spolen.
+Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3,9\volt$.\\
 Resultatet af dette, bliver som vist i figur \ref{fig:EMF_spole_lab}.
 Hvor den gule kurve, er spændingen over afsenderspolen, og den grønne kurve er spændingen over modtagerspolen.\\
 Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.\\
@@ -258,7 +258,7 @@ Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en t
 	\caption{Laboratorieopstilling med $1\ohm$ modstand i serie, for at måle strømmen}
 	\label{fig:kredslob_spole}
 \end{wrapfigure}
-EMF'en i modtagerspolen i praksis, er ca. $0.25\volt$ fra teorien.\\ \\
+EMF'en i modtagerspolen i praksis, er ca. $0,25\volt$ fra teorien.\\ \\
 Disse resultater stemmer så vidt muligt overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
 Det opfangede signal fra modtagerspolen i det virkelige system ses i figur \ref{fig:filter_in}.
 
@@ -275,14 +275,14 @@ Der kan derfor ses bort fra strømfortrænging.\\
 I stedet er induktansen og impedansen blevet målt og beregnet.\\
 Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 \begin{align}
-	 L_{beregnet} &= 192.04\micro\henry\nonumber\\
+	 L_{beregnet} &= 192,04\micro\henry\nonumber\\
      L_{\text{målt}} &= 205\micro\henry\nonumber
 \end{align}
 Impedansen i afsenderspolen, er beregnet ud fra ligning \ref{eq:impedans2}
 \begin{align}
-	 Z_{\text{beregnet-100k\hertz}}&=120.69\ohm\nonumber\\
-	 Z_{\text{målt-100k\hertz}}&=129.3\ohm\nonumber\\
-	 Z_{\text{beregnet-46.9k\hertz}}&= 56.7\ohm\nonumber               
+	 Z_{\text{beregnet-100k\hertz}}&=120,69\ohm\nonumber\\
+	 Z_{\text{målt-100k\hertz}}&=129,3\ohm\nonumber\\
+	 Z_{\text{beregnet-46,9k\hertz}}&= 56.7\ohm\nonumber               
 \end{align}
 \subsection{3D design/fysisk design af spolehus}\label{sec:3D_design}
 For at kunne gøre disse spoler til en realitet, er der lavet specialdesignede spolehuse som passer perfekt til de udregnede værdier. Disse spoler er blevet tegnet i 3D-CAD programmet Inventor, og derefter 3D-printet på en 3D-printer. \\
