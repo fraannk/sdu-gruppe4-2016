@@ -18,6 +18,14 @@ ylabel('Magnitude [dB]')
 grid
 
 hold on
+subplot(2,1,2)
+semilogx(f,f_phase-180,'LineWidth',2,'Color','Red')
+title('Phase')
+xlabel('Frequency [Hz]')
+ylabel('Phase [deg]')
+grid
+
+print( fig1, '-dpng', '-r200', 'bode100.png')
 
 
 

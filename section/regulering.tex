@@ -1,8 +1,8 @@
 \section{Regulering}\label{sec:regulering}
 
 Som vist i afsnit \ref{sec:sec_penduloverforelse}, er det omvendte pendul et grundlæggende ustabilt system.
-I figur \ref{fig:pendul_trans_clean} blev overførelses funktionen for pendulet fysiske system fundet.
-Hvis der ses bort fra de udefra kommende forstyrrelser, vil pendulets overførelses funktion være.
+I figur \ref{fig:pendul_trans_clean} blev overførelsesfunktionen for pendulet fysiske system fundet.
+Hvis der ses bort fra de udefra kommende forstyrrelser, vil pendulets overførelsesfunktion være.
 \begin{align}
 H_{pendul}(s) = \frac{1}{Ls^2 - g} \label{eq:h_pendul}
 \end{align} 
@@ -137,7 +137,7 @@ Nu kan $\tau_d$ bestemmes som \cite[s. 279, (6.13)]{Reg2015}
 \tau_d = \frac{1}{\omega_m\sqrt{\alpha}} = \frac{1}{22,1 \si{\radian\per\second}\sqrt{0,0718}} = 0,1689 \si{\second}
 \end{align}
 
-Den endelige PD-regulator har således overførelses funktionen
+Den endelige PD-regulator har således overførelsesfunktionen
 \begin{align}
 H_{regulator}(s) = 26,3392 \frac{0,1689 s + 1}{0,0121 s + 1}  \label{eq:reg_pd_final}
 \end{align}	
@@ -186,32 +186,19 @@ R_{20}=12,9\si{\kilo\ohm} \quad, \quad R_{21}=367\si{\kilo\ohm} \quad, \quad C_{
 \subsection{Måling af systemet overførelsesfunktion med Bode 100}
 Afslutningsvis blev det forsøgt at lave en brugbar måling af systemets overførelsesfunktion med Bode 100\footnote{OMNICRON Lab Bode 100 - \url{https://www.omicron-lab.com/bode-100/}}, når vognen med pendul var i stabil drift.
 Det var meget svært at få brugbare data som kunne bruges til verifikation af den teoretisk opstillede model af systemet.
-Resultatet er her medtaget i figur \ref{}, men vil ikke anvendes yderligt.
-%\begin{figure}[h!]
-%	\centering
-%	\includegraphics[width=.8\textwidth]{billeder/bode100.png}
-%	\caption{Måling af system med Bode 100.}
-%	\label{fig:bode100}
-%\end{figure}
+Resultatet er her medtaget i figur \ref{fig:bode100}, men vil ikke anvendes yderligt.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth]{billeder/bode100.png}
+	\caption{Måling af system med Bode 100.}
+	\label{fig:bode100}
+\end{figure}
 
 \section{Opsamling af regulering og motorstyring}
 Motorstyringen der skal bruges på vognen er blevet realiseret og dimensioneret og efterfølgende modificeret, så motor på vognen kan forsynes med en stor nok strøm der giver vognen den ønskede bevægelse.
-Derudover viste det sig også muligt at bestemme overførelses funktionerne, ikke kun for pendul og den elektriske del af motoren, men også for alle andre dele af systemet, således at det blev muligt at designe og dimensionere en regulator der gjorde systemet af pendul og vogn stabilt.
+Derudover viste det sig også muligt at bestemme overførelsesfunktionerne, ikke kun for pendul og den elektriske del af motoren, men også for alle andre dele af systemet, således at det blev muligt at designe og dimensionere en regulator der gjorde systemet af pendul og vogn stabilt.
 Det må konkluderes at tilgangen har været tilstrækkeligt, da det endelige produkt viste sig at være stabilt.
 
-
-
-
-
-
-
-
-%\begin{itemize}
-%	\item Valg af regulator-type (PD)
-%	\item Evt. måling af loop gain 
-%	\item Saturation punkter
-%	\item Stabilitet
-%\end{itemize}
 
 
 
