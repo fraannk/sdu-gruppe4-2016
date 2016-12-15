@@ -175,13 +175,18 @@ Resultatet af simuleringen kan ses i figur \ref{fig:system_sim_stimuli}.
 \end{figure}
 Med den endelige PD-regulator i ligning \ref{eq:reg_pd_final} og med de ovenstående værdier $K_p$, $\tau_d$ og $\alpha$ kan denne realiseres \cite[s. 349]{Reg2015} som
 \begin{align}
-K_p = \frac{R_{21}}{R_{20} + R_{22}} \quad , \quad \tau_d = R_{22}C_{20} \quad, \quad \alpha\tau_d = \frac{R_{20} R_{22} C_{20}}{R_{20} + R_{22}}
+K_p = \frac{R_{41}}{R_{40} + R_{42}} \quad , \quad \tau_d = R_{42}C_{40} \quad, \quad \alpha\tau_d = \frac{R_{40} R_{42} C_{40}}{R_{40} + R_{42}}
 \end{align}
 hvor parameterne fastsættes iht. kredsløbet i figur \ref{fig_pd_schematic}.
-Ved at fastsætte $R_{22}$ til $1\si{\kilo\ohm}$ kan resten af værdierne bestemmes til
+Ved at fastsætte $R_{42}$ til $1\si{\kilo\ohm}$ kan resten af værdierne bestemmes til
 \begin{align}
-R_{20}=12,9\si{\kilo\ohm} \quad, \quad R_{21}=367\si{\kilo\ohm} \quad, \quad C_{20} = 13\si{\micro\farad}
+R_{40}=12,9\si{\kilo\ohm} \quad, \quad R_{41}=367\si{\kilo\ohm} \quad, \quad C_{40} = 13\si{\micro\farad}
 \end{align}
+De tilnærmede komponentstørrelser der bliver brugt er
+\begin{align}
+R_{42}=1\si{\kilo\ohm} \quad, \quad R_{40}=15\si{\kilo\ohm} \quad, \quad R_{41}=330\si{\kilo\ohm} \quad, \quad C_{40} = 10\si{\micro\farad}
+\end{align}
+
 
 \subsection{Måling af systemet overførelsesfunktion med Bode 100}
 Afslutningsvis blev det forsøgt at lave en brugbar måling af systemets overførelsesfunktion med Bode 100\footnote{OMNICRON Lab Bode 100 - \url{https://www.omicron-lab.com/bode-100/}}, når vognen med pendul var i stabil drift.
