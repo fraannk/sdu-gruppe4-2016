@@ -48,11 +48,12 @@ Følgende medtages ikke i rapporten og afgrænser projektarbejdet:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.9\textwidth]{diagram/blokdiagram1.png}
-	\caption{System blokdiagram.}
+	\caption{Systemets blokdiagram}
 	\label{fig:blockdiagram1}
 \end{figure}
 \FloatBlock
-I figur \ref{fig:blockdiagram1} ses et blokdiagram over hele systemets opbygning. Da de selvvalgte krav gør rede for at der ønskes batteridrift startes der dér. 
+I figur \ref{fig:blockdiagram1} ses et blokdiagram over hele systemets opbygning. Da de selvvalgte krav gør rede for at der ønskes batteridrift startes der med to $7,4\volt$ batterier samt to $9\volt$ batterier. Da de forskellige dele af systemet opererer med forskellige spændinger, reguleres den med en spændingsregulator og en shunt-regulator. Fra spændingsregulatoren fås der 14V, som sendes ind i signal-generatoren. Firkant-signalet som denne genererer (på $47\kilo\hertz$) bruger afsenderspolen til inducere signalet ind i modtagerspolerne. Dette signal skal behandles, forstærkes, og ensrettes, hvilket den næste blok sørger for. For at opretholde pendulet sendes dette signal ind i regulatoren som er forsynet med $7\volt$ fra shunt-regulatoren. Motorstyringen modtager derefter det regulerede signal, og styrer strømmen, så motoren kan bevæge vognen for at opretholde pendulet. $9\volt$'s batteriet forsyner motorstyringen for at transistorerne hurtigere kan lukke op for strømmen. 
+\husk{fraannk}{Passer sidste sætning?}
 
 \section{Læsevejledning}
 Denne rapports struktur er delt op i hovedsektioner og undersektioner.
