@@ -1,4 +1,9 @@
 \chapter{Diskussion og vurdering}\label{kap:diskussion}
+Som helhed virkede de fleste af tilgangene for at løfte opgaven tilfredsstillende.
+Arbejdsmetoder og workflow viste sig at fungere som forventet.
+Planlægning med stramme deadline blev overholdt, og gav anledning til overblik i projektet.
+
+I følgende afsnit vil en mere dybdegående diskussion og vurdering gennemgås med relation til de enkelte afsnit. 
 
 \subsection{Fysisk model}
 Ved at anvende klassisk fritlegeme analyse af pendulet lykkedes det at få en reguleringsmæssig brugbar beskrivelse af fysikken. 
@@ -16,8 +21,7 @@ Ud fra analysering af sammenkopling mellem to solenoider, lykkedes det vha. fors
 Det mest krævende, var at lave et præcist resultat for magnetfeltet, da dette krævede flere teknikker, heriblandt mange matematiske udtryk.
 Faktorerne for den inducerede afsenderspole, var meget diskuteret, da strømmen fra frekvensgeneratoren afhang meget af styrken på magnetfeltet denne dannede.
 Herudover også trådtykkelse og længde. 
-Da alle teoretiske beregninger blev eftervist i laboratoriet, antages der med grov tilnærmelse, at de endelige resultater antages korrekte.
-
+Da alle teoretiske beregninger blev eftervist i laboratoriet, antages der med grov tilnærmelse, at de endelige resultater antages for korrekte.
 
 Til dimensionering af timer-kredsen blev der anvendt vedlagte ligninger i databladet.
 Det var herfra muligt at dimensionerer komponentstørrelser der ville lave et signal med en frekvens der lå tæt på den ønskede.
@@ -30,12 +34,20 @@ En mulig forbedring kunne være at designe en buckconverter da denne kan opnå d
 
 \subsection{Signalbehandling}
 
+
+
 \subsection{Motorstyring}
+Det viste sig tilstrækkeligt at anvende bi-directional DC-motor driver typologien som styring af motoren. 
+Den negative feedback sørgede for en velfungerende regulering af strømmen igennem motoren, som var vigtig for at reguleringssystemet kunne fungere og give den ønskede stabilitet.
+Kompleksiteten omkring motoren var stor, så derfor var mange tilnærmelser nødvendige.
+Disse tilnærmelser anses dog for at være velbegrundet, men deres omfang var dækkende vides dog ikke med sikkerhed.
+Under projekt arbejdet, viste en manglede strøm igennem motoren at være et problem mht. response hastigheden af vognen overfor udefrakommende forstyrrelser.     
+En ændring af design ved indførelse af en ekstra $\pm 9 \si{\volt}dc$ forsyning til motorstyringens op-amp løste det problem.
+Det ville på sigt, give en bedre stabilitet at udskift den nuværende motorstyring, men en der kan håndtere mere effekt, men siden den nuværende motor effekt giver anledning til mistet vejgreb fra hjul til underlag, vil en opdatering af hul være mere vigtigere. 
 
 
 \subsection{Regulering}
 
 
 
-\subsection{Helhedsvurdering}
 
