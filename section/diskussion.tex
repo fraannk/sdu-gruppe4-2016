@@ -12,47 +12,45 @@ Der blev anvendt en del tilnærmelser i udledningen.
 Da alle tilnærmelser er velargumenteret, vurderes det at deres anvendelse er valide og det endelige resultat anses for korrekt.   
 
 \subsection{Vognens overførelsesfunktioner}
-Da hele vognen med pendul og motor var arvet fra en tidligere projekt gruppe, var en af udfordringerne af finde frem til den dynamik der beskriver disse dele.
+Da hele vognen med pendul og motor var arvet fra en tidligere projekt gruppe, var en af udfordringerne at finde frem til den dynamik der beskriver disse dele.
 Den anvendt metode viste sig at fungere og det endelige resultat kunne, ud fra en velovervejet simplificering, anvendes i den samlede systembeskrivelse der ligger til grund for bestemmelsen af regulatoren.
 Til fremtidige forbedringer ville udskiftning af fx motor kunne føre til en mere dybdegående beskrivelse af systemets overførelsesfunktion, og derved give en endnu bedre regulering og stabilitet.
 
 \subsection{Sensor}
-Ud fra analysering af sammenkopling mellem to solenoider, lykkedes det vha. forskellige teorier - her i blandt Faradays lov, at lave en velfungerende model af et sensorsystem. 
-Det mest krævende, var at lave et præcist resultat for magnetfeltet, da dette krævede flere teknikker, heriblandt mange matematiske udtryk.
-Faktorerne for den inducerede afsenderspole, var meget diskuteret, da strømmen fra frekvensgeneratoren afhang meget af styrken på magnetfeltet denne dannede.
-Herudover også trådtykkelse og længde. 
-Da alle teoretiske beregninger blev eftervist i laboratoriet, antages der med grov tilnærmelse, at de endelige resultater antages for korrekte.
+Ud fra analysering af sammenkoblingen mellem to solenoider, lykkedes det vha. forskellige teorier - heriblandt Faradays lov - at lave en velfungerende model af et sensorsystem. 
+Det mest krævende, var at lave et præcist resultat for magnetfeltet, da dette krævede flere teknikker, heriblandt mange matematiske udledninger.
+Faktorerne for den inducerede afsenderspole, var meget diskuteret, da strømmen fra frekvensgeneratoren afhang af styrken på magnetfeltet denne dannede - herudover også trådtykkelse og længde. 
+Da alle teoretiske beregninger blev eftervist i laboratoriet, antages der med nogen tilnærmelse, at de endelige resultater kan antages for korrekte.
 
-Til dimensionering af timer-kredsen blev der anvendt vedlagte ligninger i databladet.
-Det var herfra muligt at dimensionerer komponentstørrelser der ville lave et signal med en frekvens der lå tæt på den ønskede.
-Desværre da der blev lavet mållinger på kredsløbet viste det sig at frekvens varierede noget mere end fra da det blev testet på breadboard.
-Dette blev først opdaget hen mod slutning af projektet, så der var ikke tid til at fejl finde.
-Fejlen skyldes højst sandsynligt et forkert komponent.
-Endvidere viste det sig at udgangssignalet ikke oscillerede mellem en konstant positiv og negativ spænding af samme størrelse.
-Årsagen til dette er endnu ikke bekendt.
-En mulig forbedring kunne være at designe en buckconverter da denne kan opnå den duty-cycle tættere på 50\%, hvilket medvirker at magnetfeltet varierer lige hurtigt i begge retninger.
+Til dimensionering af timer-kredsen, blev der anvendt vedlagte ligninger i databladet.
+Det var herfra muligt at dimensionere komponentstørrelser, der ville lave et signal med en frekvens, der lå tæt på den ønskede.
+Desværre viste målinger på kredsløbet, at frekvensen varierede mere på det endelige produkt, end ved breadboard prototypen.
+Dette blev først opdaget hen mod slutning af projektet, så fejlfinding ikke var mulig, men fejlen skyldes højst sandsynligt en forkert komponent.
+Endvidere viste det sig, at udgangssignalet ikke oscillerede mellem en konstant positiv og negativ spænding af samme størrelse, hvor årsagen til dette er endnu ikke kendt.
+En mulig forbedring kunne være at designe en frekvensgenerator baseret på en anden topologi.
 
 \subsection{Signalbehandling}
-Ved løbende test af hvert kredsløb på breadboard, blev de endelige kredsløb dimensioneret. På trods af støj i breadboards, virkede kredsløbene efter hensigten. For at undgå støj i de endelige kredsløb, blev der påsat afkoblingskondensatorer alle nødvendige steder.
-
-En mulig forbedring af signalbehandlingen blev undersøgt, hvor der blandt andet blev kigget på en aktiv ensretter kreds. Problemet med den var dog der skulle bruges to operationsforstærkere til én ensretter. Det endelige kredsløb indeholder to aktiv båndpasfiltre, hvilket kunne være undgået, hvis de i stedet var passive. Problemet var, at det med det passive ikke er muligt at forstærke signalet.
-
-Grundet approksimering af komponentværdier, kom der en afvigelse fra de teoretiske forventninger.
-
-
+Ud fra løbende test af hvert kredsløb på breadboards, blev de endelige kredsløb dimensioneret.
+På trods af støj i breadboards, virkede kredsløbene efter hensigten.
+For at undgå støj i de endelige kredsløb, blev der tilføjet afkoblingskondensatorer, hvor det var muligt.
+En mulig forbedring af signalbehandlingen blev undersøgt, hvor der blandt andet blev kigget på en aktiv ensretter kreds. Problemet med denne var dog, at der skulle bruges to operationsforstærkere til én ensretter.
+Det endelige kredsløb indeholder to aktiv båndpas filtre, hvilket kunne viste sig at være en god idé, da disse ikke har særlig stor impedans påvirkning af de omkringliggende kredsløb.
+Grundet approksimering af komponentværdier til E12 og E6 serien, kom der afvigelser fra de teoretiske forventninger.
 
 \subsection{Motorstyring}
-Det viste sig tilstrækkeligt at anvende bi-directional DC-motor driver typologien som styring af motoren. 
+Det viste sig tilstrækkeligt at anvende bi-directional DC-motor driver topologi som styring af motoren. 
 Den negative feedback sørgede for en velfungerende regulering af strømmen igennem motoren, som var vigtig for at reguleringssystemet kunne fungere og give den ønskede stabilitet.
 Kompleksiteten omkring motoren var stor, så derfor var mange tilnærmelser nødvendige.
-Disse tilnærmelser anses dog for at være velbegrundet, men deres omfang var dækkende vides dog ikke med sikkerhed.
-Under projekt arbejdet, viste en manglede strøm igennem motoren at være et problem mht. response hastigheden af vognen overfor udefrakommende forstyrrelser.     
-En ændring af design ved indførelse af en ekstra $\pm 9 \si{\volt}dc$ forsyning til motorstyringens op-amp løste det problem.
-Det ville på sigt, give en bedre stabilitet at udskift den nuværende motorstyring, men en der kan håndtere mere effekt, men siden den nuværende motor effekt giver anledning til mistet vejgreb fra hjul til underlag, vil en opdatering af hul være mere vigtigere. 
-
+Disse tilnærmelser anses dog for at være velbegrundede, men om deres omfang var dækkende, vides dog ikke med sikkerhed.
+Under projektarbejdet, viste en manglende strøm igennem motoren at være et problem mht. respons hastigheden af vognen overfor udefrakommende forstyrrelser.     
+En ændring af design, der ved indførelse af en ekstra $\pm 9 \si{\volt}dc$ forsyning til motorstyringens operationsforstærker, blev løst.
+Det ville på sigt, give en bedre stabilitet at udskifte den nuværende motorstyring, med en der kan håndtere mere effekt, men siden den nuværende motoreffekt giver anledning til mistet vejgreb fra hjul til underlag, vil en opgradering af hjul være et bedre valg. 
 
 \subsection{Regulering}
-
+Opstilling af det samlede reguleringssystem viste sig at være en stor og kompleks opgave.
+Der var mange del overførelsesfunktioner der ikke blot skulle beskrives, men det var også nødvendigt at identificere hvilke simplificeringer og lineariseringer der var mulige at lave, uden at miste den nødvendige information i åben-løkke beskrivelsen af reguleringssløjfe.
+Valget P-lead kompensator som regulator viste sige at være tilstrækkeligt og gav den nødvendige fasemargin der skulle til for at stabilisere pendulet.
+Det viste sig svært at få målt systemets overførelsesfunktion, men med lidt god vilje ligger målingen rimelig tæt på den teoretiske model. 
 
 
 
