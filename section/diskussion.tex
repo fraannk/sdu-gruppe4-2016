@@ -26,6 +26,11 @@ Endvidere viste det sig at udgangssignalet ikke oscillerede mellem en konstant p
 En mulig forbedring kunne være at designe en buckconverter da denne kan opnå den duty-cycle tættere på 50\%, hvilket medvirker at magnetfeltet varierer lige hurtigt i begge retninger.
 
 \subsection{Signalbehandling}
+Ved løbende test af hvert kredsløb på breadboard, blev de endelige kredsløb dimensioneret. På trods af støj i breadboards, virkede kredsløbene efter hensigten. For at undgå støj i de endelige kredsløb, blev der påsat afkoblingskondensatorer alle nødvendige steder.
+
+En mulig forbedring af signalbehandlingen blev undersøgt, hvor der blandt andet blev kigget på en aktiv ensretter kreds. Problemet med den var dog der skulle bruges to operationsforstærkere til én ensretter. Det endelige kredsløb indeholder to aktiv båndpasfiltre, hvilket kunne være undgået, hvis de i stedet var passive. Problemet var, at det med det passive ikke er muligt at forstærke signalet.
+
+Grundet approksimering af komponentværdier, kom der en afvigelse fra de teoretiske forventninger.
 
 \subsection{Motorstyring}
 
