@@ -4,8 +4,15 @@ Idet forsyningsbatterierne ikke kan holde en konstant udgangsspænding, kan oper
 For at undgå det, anvendes shunt regulatoren, da den kan holde en nogenlunde konstant spænding, på trods af batteriernes faldende udgangsspænding.
 
 \subsection{Design}
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.48\textwidth]{billeder/shunt_regulator.png}
+	\caption{Diagram over shunt regulator}
+	\label{fig:ActiveFilter}
+\end{wrapfigure}
 Der skal her designes en shunt regulator der får $\SI{8.4}{\volt}$ på indgangen, og laver $7\si{\volt}$ på udgangen.
 Der bruges to shunt regulatore, idet der forsyningerne til operationsforstærkerne kræver en positiv og en negativ forsyning på 7 \si{\volt}.
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/shunt_pos_png.png}

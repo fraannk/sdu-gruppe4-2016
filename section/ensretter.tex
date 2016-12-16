@@ -8,11 +8,15 @@ For at undgå det, anvendes en ensretter kreds, for at få et konstant signal.
 	\label{fig:filter_out}
 \end{figure}
 \subsection{Design}
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\centering
+	\includegraphics[width=0.48\textwidth]{billeder/rectifier.png}
+	\caption{Diagram over ensretter.}
+	\label{fig:rectifier}
+\end{wrapfigure}
 Ensretteren består af en diode, forspændt i lederetningen, der er koblet serielt med en parallelkobling af en spole og en modstand. 
 Diodens funktion er at lade halvdelen af signalet passere, hvilket betyder at signalets negative del frafalder. 
 For ikke at få et variende positivt pulssignal, indsættes kondensatoren for at glatte spændingen ud. Modstandens funktion er at aflade kondensatoren, så der fås en passende ripplespænding.
-
-\husk{Kenneth}{Billede af ensretter kredsløb} 
 
 \subsection{Beregninger}
 Til udregning af komponentværdier til ensretteren, antages at en peak spænding på $V_{peak} = 2\si{\volt}$ og der vælges en rippelspænding på 15\% af peakspændingen $V_{rip} = 300 \si{\milli\volt}$
