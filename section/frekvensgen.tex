@@ -10,15 +10,10 @@ Dette signal skal have en frekvens, der er tilpas høj, så systemet er mindre m
 Outputsignalet fra timeren er begrænset således, at udgangsspændingen kun kan antage positive værdier.
 For at løse dette, sættes en kondensator i serie med spolen.
 Det gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=1\textwidth]{billeder/freq_png.png}
-	\caption{Her ses outputtet fra frekvensgeneratoren}
-	\label{fig:frekvensgenerator}
-\end{figure}
-Inden kredsløbet tegnes færdigt skal der tages højde for den spænding timeren leverer. 
+
+Inden kredsløbet tegnes færdigt der tages højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren levere en stor strøm. 
-Da timeren ikke kan holde til at levere mere end $225 \si{\milli\ampere}$, sættes en modstand i serie for at begrænse strømmen. 
+Da timeren ikke kan holde til at levere mere end $225 \si{\milli\ampere}$, sættes en modstand i serie for at begrænse strømmen. Det samlede kredsløb for frekvensgeneratoren kan ses på figur \ref{fig:frekvensgenerator}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/generator.png}
@@ -50,7 +45,13 @@ Dette medfører at $R_5$ bliver $680\si{\ohm}$ og $C_7$ på $1\si{\nano\farad}$.
 Heraf udregnes duty-cycle og frekvens ved at bruge ligning 4 og 5 i databladet. \cite[Side 11.]{NE555}
 
 Dette giver en duty-cycle på $D = 49\%$ og en frekvens $F_n = \SI{46.9}{\kilo\hertz}$. 
-Duty-cyclen ligger tæt på $50\%$ og den ønskede frekvens er stadig stor nok til at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres.
+Duty-cyclen ligger tæt på $50\%$ og den ønskede frekvens er stadig stor nok til at en lille afvigelse ikke kommer til at have en væsentlig betydning. Denne opstilling accepteres. Frekvensgeneratorens output kan ses på \ref{fig:frekvensgenerator_output}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{billeder/freq_png.png}
+	\caption{Her ses outputtet fra frekvensgeneratoren}
+	\label{fig:frekvensgenerator_output}
+\end{figure}
 
 Der skal herefter sættes en kondensator på udgangen, således at udgangsspændingen kan antage både positive og negative værdier. 
 Middelspændingen over en spole er $0\si{\volt}$, men det er outputtet ikke, da den ikke oscillerer omkring $0 \si{\volt}$, hvilket er kondensatorens formål. 
