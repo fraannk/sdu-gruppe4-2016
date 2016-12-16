@@ -1,5 +1,8 @@
-I dette projekt udarbejdes et køretøj som kan balancere en stang. Denne stang balanceres ved hjælp af en sensor som delvist sidder på stangen og på køretøjet. Sensoren består af i alt 3 spoler, hvoraf den ene fungerer som den inducerende, og de to andre som sensorer. Køretøjet prøver, baseret på dette, at balancere stangen ved at modvirke stangens bevægelse. Det vil sige når stangen for eksempel vælter mod venstre, vil køretøjet rette den op ved selv at køre mod venstre. Det er vigtigt at køretøjet er forholdsvis hurtigt, da den ellers ikke vil kunne rette stangen op før det er for sent. Der er derfor påmonteret en motor med relativ stor kraft, sammen med et gearingsforhold som gør den både hurtig, men samtidig stærk. \\
-
-For at undgå yderligere modstand, er dette køretøj batteridrevet. Dette gør den en del mere mobil, da man ikke er afhængig af en strømforsyning. \\
-
-For at dette system fungerer, er det nødt til at indeholde en regulator. Systemet i denne rapport indeholder en PD-regulator, da denne var den mest passende. Dette får køretøjet til at være meget mere stabilt, end hvis den f.eks. kun havde haft en P-regulator. \\
+I dette projekt prøves, ved hjælp af klassisk reguleringsteknik, fritlegeme analyse af fysiske systemer, et elektromagnetisk sensorsystem samt analogt signalbehandling, at stabilisere et inverteret pendul monteret på en vogn der drives af en DC-motor.
+Systemet forsynes med LiPo batterier for øget bevægelsesfrihed. 
+Stabiliteten opnås ved en P-Lead kompensator der dimensioneres på baggrund af en dybdegående analyse af systemets enkelte dynamikker. 
+Regulatoren forsynes med udgangssignalet fra den analoge signalbehandling bestående af filtre, ensretning og signalsammenligning. 
+Ved hjælp af en bi-directional motorstyring, korrigeres pendulets position. 
+Positionen registeres ved hjælp af veldimensionerede spoler og induktiv kobling i det elektromagnetiske sensorsystem.    
+I projektet gennemgås og dokumenteres løsningsmodeller, teorier opstilles og efterprøves samt testresultater analyseres.
+Arbejdet munder ud i en funktionel vogn, der indenfor de fremsatte krav kan holde pendulet stabilt.
