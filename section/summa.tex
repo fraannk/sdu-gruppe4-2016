@@ -9,15 +9,15 @@ Netop instrumenteringsforstærkeren AD623, er valgt frem for andre operationsfor
 	\label{fig:filter_out}
 \end{figure}
 På figur \ref{fig:filter_out} ses output signalet fra instrumenteringsforstærken, hvor stangen har en bestemt position.
-\subsection{Design}
 
+\subsection{Design}
 Det samlede kredsløb for instrumenteringsforstærkeren består af en AD623, en gain modstand, samt et potentiometer, og kan ses på figur \ref{fig:instrumentation_amplifier}. Dertil er der påsat to afkoblingskondensatorer. Kredsen forsynes med $\pm 7 \si{\volt}$, da det er max output fra batterierne. 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.48\textwidth]{billeder/instrumentation_amplifier.png}
+	\includegraphics[width=0.5\textwidth]{billeder/instrumentation_amplifier.png}
 	\caption{Diagram over instrumenteringsforstærkeren.}
 	\label{fig:instrumentation_amplifier}
-\end{wrapfigure}
+\end{figure}
 \subsection{Beregninger}
 Da indgangssignalerne til instrumenteringsforstærkeren er meget lave, anvendes en gainmodstand for at forstærke signalet.
 

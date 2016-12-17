@@ -8,14 +8,19 @@ Den færdige dimensionering skal ende ud i et målbart EMF signal.
 
 Der er som udgangspunkt blevet gjort brug af Biot-Savarts lov som ses i ligning \ref{eq:spole_biot_savart}.
 \subsection{Magnetfelt}
-\begin{figure}[h!]
+
+På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. 
+Krydset indikerer at stømmen går ind i papiret, og prikken, også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. 
+Man kan også se på denne figur, som afsenderspolen med 1 vinding. 
+Betragt punktet P på z aksen.
+\begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
-	\includegraphics[width=.6\textwidth]{billeder/B_felt.png}
+	\includegraphics[width=.5\textwidth]{billeder/B_felt.png}
 	\caption{Cirkulær leder med radius R}
 	\label{fig:spole_fig1}
-\end{figure}
-
-På figur \ref{fig:spole_fig1} ses et tværsnit af en cirkulær leder, hvori der løber en strøm kaldet $i$. Krydset indikerer at stømmen går ind i papiret, og prikken, også kaldet spidsen af en pil, indikerer at strømmen går ud af papiret. Man kan også se på denne figur, som afsenderspolen med 1 vinding. Betragt punktet P på z aksen. I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkelret på hinanden.
+\end{wrapfigure} 
+I dette punkt ønskes et magnetfelts styrke bestemt, afhængig af positionen z. 
+Som det ses er vinklen, uanset hvor på lederen man befinder sig, mellem $d\vec{s}$ og enhedsvektoren $\hat{r}$ altid $90\degree$ vinkelret på hinanden.
 
 Med dette kan $d\vec{B}$ feltet tegnes ind, vha. Biot-Savarts lov, eller vha. højrehåndsreglen. En mere overskuelig måde at se det på er, at krydsproduktet af 2 vektorer, er en vektor der står vinkeltret på begge. 
 $d\vec{B}$ kan nu deles op i 2 komposanter. En komposant $dB_\parallel$, som står parralelt på z axen og den cirkulære leder. Derudover også en komposant $dB_\perp$, som står vinkeltret på samme.
@@ -69,7 +74,7 @@ Et endeligt udtryk for magnetfeltet $B(z)$ gives i ligning \ref{eq:Bz_field}.
 Da dette udtryk kun er gældende for en cirkulær leder, altså en spole med 1 vinding, skal et nyt udtryk bestemmes. Dette udtryk tager udgangspunkt i ligning \ref{eq:Bz_field}, som blev udledt før.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.7\textwidth]{billeder/B_felt2.png}
+	\includegraphics[width=.5\textwidth]{billeder/B_felt2.png}
 	\caption{Solenoid med radius R}
 	\label{fig:spole_fig2}
 \end{figure}
@@ -249,14 +254,15 @@ På funktionsgeneratoren, er der en udgangsimpedans på $50\ohm$.
 I serie med resten af kredsløbet, sidder en $1\ohm$ modstand. Spændingen over denne ønskes bestemt til $0,05\volt$, hvilket vil give de ønskede $0,05\ampere$ igennem spolen.
 Vha. af spændingsdeling og ligning \ref{eq:impedans}, bestemmes funktionsgeneratorens amplitude til $3,9\volt$.\\
 Resultatet af dette, bliver som vist i figur \ref{fig:EMF_spole_lab}.
-Hvor den gule kurve, er spændingen over afsenderspolen, og den grønne kurve er spændingen over modtagerspolen.\\
-Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.\\
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\centering
 	\includegraphics[width=.5\textwidth]{billeder/circuit_spole.png}
 	\caption{Laboratorieopstilling med $1\ohm$ modstand i serie, for at måle strømmen}
 	\label{fig:kredslob_spole}
 \end{wrapfigure}
+Hvor den gule kurve, er spændingen over afsenderspolen, og den grønne kurve er spændingen over modtagerspolen.\\
+Sammenligner man figur \ref{fig:EMF_spole_lab} med \ref{fig:EMF_spole}, ses en tydelig sammenhæng.
+
 EMF'en i modtagerspolen i praksis, er ca. $0,25\volt$ fra teorien.\\ \\
 Disse resultater stemmer så vidt muligt overens med hvad der blev beregnet i teorien. Da der blev benyttet en frekvensgenerator med et sinussignal i beregningerne, antages det at det er det samme med et firkantsignal. \\
 Det opfangede signal fra modtagerspolen i det virkelige system ses i figur \ref{fig:filter_in}.
@@ -267,11 +273,11 @@ Det opfangede signal fra modtagerspolen i det virkelige system ses i figur \ref{
 	\caption{EMF spænding i afsender og modtagerspole, målt i laboratorie}
 	\label{fig:EMF_spole_lab}
 \end{figure}
-\newpage
+
+
 \subsubsection{Strømfortrængning og impedans}
-Tykkelsen på kobbertråden, er som skrevet valgt meget tynd.
-Der kan derfor ses bort fra strømfortrænging.\\
-I stedet er induktansen og impedansen blevet målt og beregnet.\\
+Tykkelsen på kobbertråden, er som skrevet valgt meget tynd. Der kan derfor ses bort fra strømfortrænging.
+I stedet er induktansen og impedansen blevet målt og beregnet.
 Induktansen er beregnet ud fra ligning \ref{eq:Wheeler}.
 \begin{align}
 	 L_{beregnet} &= 192,04\micro\henry\nonumber\\

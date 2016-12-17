@@ -1,10 +1,10 @@
-\chapter{Styklister} \label{bilag:styklister}
-\husk{JJ}{Styklister med ref til alle diagrammer}
+\clearpage \newpage 
+\section{Stykliste} \label{bilag:styklister}
 
 \begin{table}[h!]
-\small
-\centering
-\caption{Stykliste for diagram xxx}
+\tiny
+%\centering
+\caption{Stykliste for diagram \ref{bilag:diagrammer}}
 \label{tab:udstyr}
 \begin{threeparttable}
 \begin{tabular}{ l l l l l l l }
@@ -17,47 +17,60 @@
 \multicolumn{1}{l}{\textbf{Bemærkning}} &
 \multicolumn{1}{l}{\textbf{Type / Lev.}}  \\ 
 \hline
-R1,R2 & $\SI{68}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R3 & $\SI{10}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R4,R30,R31 & $\SI{1}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R5 & $\SI{680}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R6 & $\SI{15}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R7,R17 & $\SI{1}{\kilo\ohm}$		& Potentiometer		& $\pm 10\%$ 		 & $\SI{0.5}{\watt}$	  & 100ppm/\si{\celsius}  & 3296 Square Trimpot, Bourns  \\
-R8,R13 & $\SI{6.8}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R9,R14 & $\SI{1.5}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R10,R15 & $\SI{47}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R11,R12,R16 & $\SI{4.7}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & RC12 0805, Phycomp \\
-R18 & $\SI{1.5}{\kilo\ohm}$		& Metalfilm	& $\pm 1\%$ 		 & $\SI{0.6}{\watt}$	  & 50ppm/\si{\celsius}  & MRS25, Philips \\
-R40 & $\SI{15}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
-R41 & $\SI{1}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
-R42 & $\SI{330}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& RC12 1206, Phycomp \\
-C1,C2,C4,C6,C20, C32,C33 C40 & $\SI{10}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt}  & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
-C3,C5,C12,C13,C14,C15,C18,C19,C21,C22, C30,C31,C34,C35 C41,C42 & $\SI{100}{\nano\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 1206, Phycomp \\
-C7 & $\SI{1}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & NP0-serie 1206, Phycomp \\
-C8 & $\SI{10}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & NP0-serie 0805, Phycomp \\
-C9 & $\SI{1}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 0805, Phycomp \\
-C10,C11,C16,C17 & $\SI{470}{\pico\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & X7R-serie 0805, Phycomp \\
-D1,D2 & BZX79C6V2 & Zener diode & $\pm 5 \%$ & \SI{0.5}{\watt} & \SI{4}{\milli\watt\per\celsius} & Fairchild Semiconductor \\
-D3,D4 & 1N4148 & Ensretter diode & N/A & \SI{0.5}{\watt} & \SI{5}{\milli\watt\per\celsius} & Fairchild Semiconductor \\
-D5 & LED grøn 3mm & Grøn lysdiode & N/A & \SI{0.1}{\watt} & N/A & Ukendt \\
-D30,D31 & 1N5819B & Schottky diode & N/A & N/A & N/A & Vishay \\
-IC1 & NE555P & Timerkreds SMD & $V_{cc}= 18 \si{\volt}$ & N/A & 50ppm/\si{\celsius} & Texas Instruments \\
-IC2,IC3,IC30,IC40 & TL071P & Op. Amp SMD & $V_{cc}=\pm 18 \si{\volt}$ & N/A & \SI{18}{\micro\volt\per\celsius} & Texas Instruments \\
-IC4 & AD623AN & Op. Amp SMD & $V_{cc} = 12 \si{\volt}$ & \SI{650}{\milli\watt} & 50ppm/\si{\celsius} & Analog Devices \\
-IC5 & LM317T & Spændingsregulator & $V_{o} , V_{i} = 40 \si{\volt}$ & \SI{20}{\watt} & $i_{max} = 1.5 \si{\ampere}$ & Motorola \\
-S1 & 2-pol on/off switch & N/A & N/A & N/A & N/A & Shadow \\
-Q30 & BD437 & NPN-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & ON Semiconductor \\
-Q31 & BD438 & PNP-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & ON Semiconductor \\
-J1-1,J1-2,J2-1,J2-2,J3-1,J3-2,J3-3,J4-1,J4-2 & Molex stik & N/A & N/A & N/A & N/A & Ukendt\\
-JP1,JP2,JP3,SV10 & Pin headers & N/A & N/A & N/A & N/A & Ukendt \\
-SV1,SV2 & Pin headers female & N/A & N/A & N/A & N/A & Ukendt \\
+R1,R2 & $\SI{68}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R3 & $\SI{10}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R4,R30,R31 & $\SI{1}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R5 & $\SI{680}{\ohm}$			& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R6 & $\SI{15}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a)\\
+R7,R17 & $\SI{1}{\kilo\ohm}$		& Potentiometer		& $\pm 10\%$ 		 & $\SI{0.5}{\watt}$	  & 100ppm/\si{\celsius}  & (b)  \\
+R8,R13 & $\SI{6.8}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R9,R14 & $\SI{1.5}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R10,R15 & $\SI{47}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R11,R12,R16 & $\SI{4.7}{\kilo\ohm}$		& Keramisk	SMD	& $\pm 1\%$ 		 & $\SI{0.25}{\watt}$	  & 100ppm/\si{\celsius}  & (a) \\
+R18 & $\SI{1.5}{\kilo\ohm}$		& Metalfilm	& $\pm 1\%$ 		 & $\SI{0.6}{\watt}$	  & 50ppm/\si{\celsius}  & (c) \\
+R40 & $\SI{15}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& (d) \\
+R41 & $\SI{1}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& (d) \\
+R42 & $\SI{330}{\kilo\ohm}$ 	& Keramisk SMD 	& $\pm 1\%$			& $\SI{0.25}{\watt}$ 	& 100ppm/\si{\celsius}	& (d) \\
+\parbox{3cm}{C1,C2,C4,C6,C20, C32,C33 C40} & $\SI{10}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt}  & 15ppm/\si{\celsius} & (e)\\
+\parbox{3cm}{C3,C5,C12,C13,C14\\C15,C18,C19,C21,C22\\C30,C31,C34,C35 C41,C42} & $\SI{100}{\nano\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & (e) \\
+C7 & $\SI{1}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & (f) \\
+C8 & $\SI{10}{\nano\farad}$ & Keramisk SMD & $\pm 5\%$ & 50 \si{\volt} & 30ppm/\si{\celsius} & (f)\\
+C9 & $\SI{1}{\micro\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & (e) \\
+C10,C11,C16,C17 & $\SI{470}{\pico\farad}$ & Keramisk SMD & $\pm 10\%$ & 50 \si{\volt} & 15ppm/\si{\celsius} & (e) \\
+D1,D2 & BZX79C6V2 & Zener diode & $\pm 5 \%$ & \SI{0.5}{\watt} & \SI{4}{\milli\watt\per\celsius} & (g) \\
+D3,D4 & 1N4148 & Ensretter diode & N/A & \SI{0.5}{\watt} & \SI{5}{\milli\watt\per\celsius} & (g) \\
+D5 & LED grøn 3mm & Grøn lysdiode & N/A & \SI{0.1}{\watt} & N/A & (u) \\
+D30,D31 & 1N5819B & Schottky diode & N/A & N/A & N/A & (i) \\
+IC1 & NE555P & Timerkreds SMD & $V_{cc}= 18 \si{\volt}$ & N/A & 50ppm/\si{\celsius} & (h)\\
+IC2,IC3,IC30,IC40 & TL071P & Op. Amp SMD & $V_{cc}=\pm 18 \si{\volt}$ & N/A & \SI{18}{\micro\volt\per\celsius} & (h) \\
+IC4 & AD623AN & Op. Amp SMD & $V_{cc} = 12 \si{\volt}$ & \SI{650}{\milli\watt} & 50ppm/\si{\celsius} & (j) \\
+IC5 & LM317T & Spændingsregulator & $V_{o} , V_{i} = 40 \si{\volt}$ & \SI{20}{\watt} & $i_{max} = 1.5 \si{\ampere}$ & (k) \\
+S1 & 2-pol on/off switch & N/A & N/A & N/A & N/A & (m) \\
+Q30 & BD437 & NPN-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & (l) \\
+Q31 & BD438 & PNP-BJT transistor & N/A & \SI{36}{\watt} & \SI{3.5}{\celsius\per\watt} & (l) \\
+J1,J2,J3,J4 & Molex stik & N/A & N/A & N/A & N/A & (u)\\
+JP1,JP2,JP3,SV10 & Pin headers & N/A & N/A & N/A & N/A & (u) \\
+SV1,SV2 & Pin headers female & N/A & N/A & N/A & N/A & (u) \\
 
 \hline
 \bottomrule
 \end{tabular}
-%\begin{tablenotes}
-%\item[a] \textit{Maximum værdi fra datablad}
-%\item[b] \textit{Anslået værdi baseret på generelle datablade}
-%\end{tablenotes}
+\begin{tablenotes}
+%\textbf{Typ/Lev.}
+\item[a] RC12 0805, Phycomp
+\item[b] 3296 Square Trimpot, Bourns
+\item[c] MRS25, Philips
+\item[d] RC12 1206, Phycomp
+\item[e] X7R-serie 1206, Phycomp 
+\item[f] NP0-serie 1206, Phycomp
+\item[g] Fairchild Semiconductor
+\item[h] Texas Instruments 
+\item[i] Vishay
+\item[j] Analog Devices
+\item[k] Motorola
+\item[l] ON Semiconductor
+\item[m] Shadow
+\item[u] Ukendt
+\end{tablenotes}
 \end{threeparttable}
 \end{table} 
