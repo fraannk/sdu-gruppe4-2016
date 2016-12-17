@@ -11,8 +11,8 @@ Fordelen ved det aktive filter er at den kan både forstærke og filtrere.
 	\label{fig:ActiveFilter}
 \end{wrapfigure}
 Opstillingen af filteret ses på figur \ref{fig:ActiveFilter}.
-Filteret er designet så modstanden $R_5$ gør forstærkningen ved resonansfrekvens til en fri variable.
-Heraf designes filteret efter en ønsket båndbredde, resonansfrekvens og resonansfrekvens forstærkning. Q er systemets godhed og anvendes til at bestemme bredden på båndbredden. 
+Filteret er designet så modstanden $R_9$ gør forstærkningen ved resonansfrekvens til en fri variable.
+Heraf designes filteret efter en ønsket båndbredde, resonansfrekvens og resonansfrekvens forstærkning. $Q_g$ er systemets godhed og anvendes til at bestemme bredden på båndbredden. 
 $f_0$ er resonansfrekvensen der bestemmer ved hvilken frekvens filterets maksimale forstærkning optræder.
 $H_o$ er forstærkningen ved den ønskede centerfrekvens.
 \subsection{Beregninger}
@@ -59,16 +59,22 @@ Dette medfører at systemets karakteristik er.
 $H_o = \num{3.5}$, $f_0 = \SI{44.557}{\kilo\hertz}$, $Q_g = \num{3.1}$ og $B_w = \SI{14.4}{\kilo\hertz}$. 
 En forøgelse på $16 \%$ på forstærkningen kommer ikke til at blive et problem så længe instrumenterings forstærkeren ikke går i mætning. 
 Centerfrekvens ændringen er acceptabel, da den ikke ligger så langt fra den teoretiske at det forårsager den dæmpning af spændingen.
-En højere godhed medfører at båndbredden bliver mindre, men da båndbredden stadig er stor, så kommer det ikke til at gøre systemet signifikant langsommere.
+En større godhed medfører at båndbredden bliver mindre, men da båndbredden stadig er stor, så kommer det ikke til at gøre systemet signifikant langsommere.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/filter_in_png.png}
 	\caption{Her ses signalet fra modtagerspolen før filteret.}
 	\label{fig:filter_in}
 \end{figure}
+\FloatBlock
+
+På figur \ref{fig:filter_in} ses signalet på en af modtagerspolerne før filteret. 
+Billedet viser opladning og afladning af spolen og er det signal der går ind i filteret. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{billeder/filter_out_png.png}
 	\caption{Her ses signalet efter filteret, hvor signalet er forstærket i filteret.}
 	\label{fig:filter_out}
 \end{figure}
+\FloatBlock
+Figur \ref{fig:filter_out} viser hvordan indgangssignalet fra figur \ref{fig:filter_in} bliver forstærket i udgangen af filteret.
