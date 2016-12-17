@@ -69,7 +69,7 @@ H_{summa}(s) = 4,5
 
 \subsection{Forhold mellem sensor signal og pendul vinkel}
 Det er i dimensioneringen af vores reguleringssystem, vigtigt at kende forholdet mellem pendulets vinken $\theta$ og signalstyrken på indgangen til filteret.
-Ved at video optage pendulet i frit fald, samtidig med at signalet fra den ene af modtagerspolerne blev optaget på et oscilloskop, er det muligt at plotte dette forhold i en graf. Resultatet ses i figur xx.
+Ved at video optage pendulet i frit fald, samtidig med at signalet fra den ene af modtagerspolerne blev optaget på et oscilloskop, er det muligt at plotte dette forhold i en graf. Resultatet ses i figur \ref{fig:pendul_fald_res}.
 Vinklen af pendulet blev målt ved videoanalyse i Tracker, hvor der i figur \ref{fig:pendul_fald_vid} er vist et billede fra video optagelsen.
 Dataerne fra to forskellige kilder blev efterbehandlet i Matlab og synkroniseret ud fra slutpunktet for faldet.
 \begin{figure}[h!]
@@ -199,10 +199,10 @@ Resultatet er her medtaget i figur \ref{fig:bode100}, men vil ikke anvendes yder
 	\label{fig:bode100}
 \end{figure}
 
-\section{Opsamling af regulering og motorstyring}
-Motorstyringen der skal bruges på vognen er blevet realiseret og dimensioneret og efterfølgende modificeret, så motor på vognen kan forsynes med en stor nok strøm der giver vognen den ønskede bevægelse.
+\section{Opsummering af regulering og motorstyring}
+Motorstyringen der skal bruges på vognen er blevet realiseret, dimensioneret og efterfølgende modificeret, så motor på vognen kan forsynes med en stor nok strøm der giver vognen den ønskede bevægelse.
 Derudover viste det sig også muligt at bestemme overførelsesfunktionerne, ikke kun for pendul og den elektriske del af motoren, men også for alle andre dele af systemet, således at det blev muligt at designe og dimensionere en regulator der gjorde systemet af pendul og vogn stabilt.
-Det må konkluderes at tilgangen har været tilstrækkeligt, da det endelige produkt viste sig at være stabilt.
+Selv om det viste sig svært, at få et \textit{rent} resultat ved målingen af hele systemets overførelsesfunktion med Bode 100, kan rasultatet dog godt pege i retning af, at den teoretiske model har overordnet været korrekt.  
 
 
 

@@ -12,10 +12,11 @@ Således vil udgangssignalet fra regulatoren i form af en reguleringsspænding, 
 \end{wrapfigure}
 Da DC-motoren er en kompleks enhed, hvis dynamik og opbygning ligger uden for omfanget af denne rapport. 
 I figur \ref{fig:motor_diagram} ses det samlede kredsløb af motorreguleringen.
-I motorstyringen anvendes en simpel feedback regulering af strømmen igennem en NPN \emph{(Q10)} og PNP \emph{(Q11)} transistor, således at forholdet mellem indgangssignalet og udgangsstrømmen til motoren holdes konstant.
+I motorstyringen anvendes en simpel feedback regulering af strømmen igennem en NPN \emph{(Q30)} og PNP \emph{(Q31)} transistor, således at forholdet mellem indgangssignalet og udgangsstrømmen til motoren holdes konstant.
 Motorstyringen er opbygget som en såkaldt \textit{ Bi-directional DC motor driver} som gør det muligt at styre retningen af strømmen igennem motoren.
-Således vil et positivt styresignal åbne for strømmen fra $+8V Batt$ igennem NPN transistoren \emph{(Q10)} ud til motoren, og et negativt styresignal vil åbne for strømmen fra $GND$ igennem PNP transistoren \emph{(Q11)} til $-8V Batt$, se figur \ref{fig:motor_bidirectional}.
-\husk{JJ}{BJT valg, ref til datablad, og vigtige data som ligger til gunde for valg}
+Således vil et positivt styresignal åbne for strømmen fra $+8V Batt$ igennem NPN transistoren \emph{(Q30)} ud til motoren, og et negativt styresignal vil åbne for strømmen fra $GND$ igennem PNP transistoren \emph{(Q11)} til $-8V Batt$, se figur \ref{fig:motor_bidirectional}.
+Transistorne der benyttes er en BD437 \emph{(Q30)} og en BD438 \emph{(Q31)} som  ifølge datablade \cite{BD437} og \cite{BD438} kan klare en collector strøm på $I_C= 4.0 \si{\ampere}dc$ og kan derfor klare den ønskede strøm.
+Der ses bort fra de termiske beregninger for motorstyringen, da hele vognen er lavet af aluminium og bruges som køleplade.
 
 \begin{figure}[h!]
 	\centering
@@ -26,12 +27,12 @@ Således vil et positivt styresignal åbne for strømmen fra $+8V Batt$ igennem 
 \FloatBlock
 
 For at håndtere de transiente spændingsudslag der måtte komme fra motor, idet den som spole er en induktiv belastning på udgangen.
-Er der i kredsløbet anbragt to såkaldte \textit{flyback} eller friløbs dioder \emph{(D10)} og \emph{(D11)}.
+Er der i kredsløbet anbragt to såkaldte \textit{flyback} eller friløbs dioder \emph{(D30)} og \emph{(D31)}.
 Det er valgt at bruge en \textit{Schottky} \emph{1N5819}\cite{1N5819} diode, da denne har et lavere spændingsfald og en hurtigere \textit{reverse recovery}.
 
 \subsection{Beregninger og dimensionering}
 Da der i motorstyringen anvendes negativ feedback, kan dette bruges som udgangspunkt til at beregne forholdet mellem indgangssignalet til styringen og hvor stor strøm der kommer til at løbe igennem motoren.
-Hvis der på indgang af motorstyringen, se figur \ref{fig:motor_diagram} punkt A, komme $+5 \si{\volt}$, vil op-amp'en (\emph{IC10}) gøre det den kan for at opnå at feedback signalet på dens negative indgang bliver lige så stort.
+Hvis der på indgang af motorstyringen, se figur \ref{fig:motor_diagram} punkt A, komme $+5 \si{\volt}$, vil op-amp'en (\emph{IC30}) gøre det den kan for at opnå at feedback signalet på dens negative indgang bliver lige så stort.
 Det vil således betyde, at spændingen i punkt C vil være
 \begin{align}
 V_C = V_A \frac{R_{10}+R_{11}}{R_{11}} = 2V_A
@@ -48,7 +49,7 @@ H_{motor styring}(s) = \frac{V(s)}{I(s)} =\frac{R_{motor}}{2} = \frac{3,2}{2} = 
 \end{align}   
 
 Under forsøg med den forover beskrevne motorstyring, viste det sig, at det ikke var muligt at få den strømstyrke ud til motoren som forventet.
-Forsyningen til motorstyringen, blev derfor udskiftet med 2 stk. 9V batterier, således at \emph{(IC10)} blev forsynet med en højere spænding.
+Forsyningen til motorstyringen, blev derfor udskiftet med 2 stk. 9V batterier, således at \emph{(IC30)} blev forsynet med en højere spænding.
 Med denne forbedring var det muligt at få en højere gate spænding på transistorne, og derved en højre $I_C$ strøm igennem dem.
  
 \subsection{Overførelsesfunktion af motor}
