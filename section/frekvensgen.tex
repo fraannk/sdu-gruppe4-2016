@@ -11,7 +11,7 @@ Outputsignalet fra timeren er begrænset således, at udgangsspændingen kun kan
 For at løse dette, sættes en kondensator i serie med spolen.
 Det gør at spolen bliver påtrykt en spænding af varierende polaritet, hvilket også giver et konstant skiftende magnetfelt.
 
-Inden kredsløbet tegnes færdigt der tages højde for den spænding timeren leverer. 
+Inden kredsløbet tegnes færdigt, er der taget højde for den spænding timeren leverer. 
 Spolen har en meget lille indre modstand, hvilket medfører at ved høje spændinger, skal timeren levere en stor strøm. 
 Da timeren ikke kan holde til at levere mere end $225 \si{\milli\ampere}$, sættes en modstand i serie for at begrænse strømmen. Det samlede kredsløb for frekvensgeneratoren kan ses på figur \ref{fig:frekvensgenerator}
 \begin{figure}[h!]
@@ -23,7 +23,7 @@ Da timeren ikke kan holde til at levere mere end $225 \si{\milli\ampere}$, sætt
 
 
 \subsection{Beregninger af komponenter}
-Til udregning af modstandens og kondensatorens værdier anvendes to af de ligninger der er opgivet i databladet for NE555 timeren. 
+Til udregning af modstandens og kondensatorens værdier anvendes to af de ligninger der er opgivet i databladet\cite{NE555} for NE555 timeren. 
 Først anvendes ligning 5 i databladet til at bestemme modstanden $R_5$. 
 Da der ikke er ligninger nok, bliver duty-cyclen og modstanden $R_6$ valgt. 
 Duty-cyclen sættes til $D = 51\%$  , og $R_6$ vælges til$ 15\si{\kilo\ohm}$. 
