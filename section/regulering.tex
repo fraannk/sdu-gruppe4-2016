@@ -9,10 +9,10 @@ H_{pendul}(s) = \frac{1}{Ls^2 - g} \label{eq:h_pendul}
 Dette system har 2 reelle poler liggende i $s = \pm\sqrt{g/L}$.
 Her ses det at systemet har en pol liggende på den positive s-akse, i $s = \sqrt{g/L}$, som giver systemet sin ustabilitet.
 
-Ved at anvende klassisk reguleringsteori, kan der ud fra systemets openloop overførelsesfunktion $H_{OL}$ findes frem til, hvilken regulator der skal til for at give et stabilt system, når reguleringssystemet lukkes.   
+Ved at anvende klassisk reguleringsteori, kan der ud fra systemets open loop overførelsesfunktion $H_{OL}$ findes frem til, hvilken regulator der skal til for at give et stabilt system, når reguleringssystemet lukkes.   
 
-\subsection{Bestemmelse af Openloop for hele systemet}
-For at kunne beskrive en openloop overførelsesfunktion for hele systemet er vi nød til at samle op på følgende.
+\subsection{Bestemmelse af open loop for hele systemet}
+For at kunne beskrive en open loop overførelsesfunktion for hele systemet er vi nød til at samle op på følgende.
 Overførelsesfunktioner for Pendul, Motor, Vogn, Filter, Ensretter og signal summation.
 \begin{figure}[h!]
 	\centering
@@ -25,7 +25,7 @@ Overførelsesfunktioner for Pendul, Motor, Vogn, Filter, Ensretter og signal sum
 I figur \ref{fig:reg_diagram} fremgår alle overførelsesfunktioner i hele systemet som skal beskrives.
 De enkelte blokke vil her blive opsummeret og gennemgået, startende fra summations punktet i figur \ref{fig:reg_diagram}.
 
-Regulatoren der er det endelige mål, indgår ikke i $H_{ol}$ og bliver derfor sat til $H_{reg} = 1$.   
+Regulatoren, der er det endelige mål, indgår ikke i $H_{ol}$ og bliver derfor sat til $H_{reg} = 1$.   
 
 Motorens dynamik beskrevet i afsnit \ref{sec:sec_motorstyring}, ligning \ref{eq:motor_trans} giver os den elektriske dynamik for motoren
 \begin{align}
@@ -144,11 +144,11 @@ H_{regulator}(s) = 26,3392 \frac{0,1689 s + 1}{0,0121 s + 1}  \label{eq:reg_pd_f
 Den beregnede regulator i ligning \ref{eq:reg_pd_final} er således med til at give et fasemargin på $pm=39,5^{\circ}$ på det kompenserede system, se figur \ref{reg_bode_all}.
 
 \subsection{Simulering af reguleret system}
-I Matlab er det samlede system blevet designet i SimuLink, for at efterprøver om regulatoren kan sørge for at stabilisere system som tiltænkt.
-I figur \ref{fig:transfunc_sim} ses den samlede simulering model.
-Med i simuleringen er der også taget de fysiske begrænsninger der er ved fx. udgangsspændingen fra operationsforstærkere i regulatoren, og de strømbegrænsninger der findes for motor og vogn dynamikken.
+I Matlab er det samlede system blevet designet i SimuLink, for at efterprøve om regulatoren kan sørge for at stabilisere system som tiltænkt.
+I figur \ref{fig:transfunc_sim} ses den samlede simulerings model.
+Med i simuleringen er der også taget de fysiske begrænsninger der er ved fx. udgangsspændingen fra operationsforstærkere i regulatoren, og de strømbegrænsninger der findes for motor- og vogndynamikken.
 Endeligt har simuleringen fået tilføjet en tilfældig pulsgenerator, som tilføjer tilfældige forstyrrelser under simuleringen.
-Da det ønskes at sætte fokus på pendul vinklen $\theta$ i simulerings resultattern, er regulator signalet og forstyrrelsen blevet faktoriseret, således at detaljerne for pendul vinklen ikke bliver udvisket.
+Da det ønskes at sætte fokus på pendulvinklen $\theta$ i simulerings resultaterne, er regulator signalet og forstyrrelsen blevet faktoriseret, således at detaljerne for pendulvinklen ikke bliver udvisket.
 Resultatet af simuleringen kan ses i figur \ref{fig:system_sim_stimuli}.
 \begin{figure}[h!]
 	\centering
